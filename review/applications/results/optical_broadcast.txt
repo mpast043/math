@@ -1,0 +1,11 @@
+case                                         C_B(bits) C_C(bits)  weak rate at R_B=C_B/2: superposition vs time-sharing (gain)
+Fibre splitter 50/25 (25% lost), N = 1          1.377    0.902    0.480 vs  0.451  (+6%)
+Fibre splitter 50/25, N = 10                    3.900    3.021    1.683 vs  1.510  (+11%)
+Free-space, near 60% / far 10%, N = 10          4.142    2.000    1.276 vs  1.000  (+28%)
+Free-space, near 60% / far 10%, N = 100         7.362    4.834    3.167 vs  2.417  (+31%)
+
+Thermal attenuator, minimum output entropy per mode at input entropy s (nats):
+  S_min = g(eta g^{-1}(s) + (1-eta) N_B), attained by thermal inputs
+  eta=0.5, N_B=0.0: s=0.5,1,2 nats -> S_min = 0.444, 0.950, 2.112 bits
+  eta=0.5, N_B=1.0: s=0.5,1,2 nats -> S_min = 1.511, 1.750, 2.511 bits
+  eta=0.9, N_B=0.1: s=0.5,1,2 nats -> S_min = 0.700, 1.374, 2.767 bits

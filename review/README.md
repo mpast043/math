@@ -9,6 +9,12 @@ The written review is `report.html` (open it in a browser). It is also
 published at https://claude.ai/artifact/124hrmVkDbQw7YEGmSi7nt, which is
 private until its owner shares it.
 
+A second part, `applications/`, turns selected results into answers to
+scientific and engineering questions (qubit memories, optical networks,
+disordered materials, spin chains, cold atoms, chaos, reaction networks,
+network null models, cryptography, optimal transport) and computes what each
+predicts. See `applications/README.md` and `applications/report.html`.
+
 ## Contents
 
 | Path | What it is |

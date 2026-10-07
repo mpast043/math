@@ -1,0 +1,13 @@
+  50 networks done
+  100 networks done
+  150 networks done
+  200 networks done
+  250 networks done
+  300 networks done
+
+300 random weakly reversible networks, 4 species, deficiency 1-5 (mean 2.14), rates log-uniform on [0.1, 10].
+900 runs started inside the class of a random state xbar, with some species at 1e-6 of xbar.
+  blow-ups: 0
+  late-time minimum / late-time minimum from xbar itself: min 0.988, median 1.000, max 1.000
+  runs whose late-time minimum is below 1e-3 of the reference: 0
+same starts with one reaction deleted so that weak reversibility fails: extinction 123, blow-up 60, persistent 717

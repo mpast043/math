@@ -1,0 +1,24 @@
+Periodic rings: gap = E0(S^z=1) - E0(S^z=0) (lowest triplet above the singlet ground state)
+   L    states(Sz=0)     E0/L          gap
+   4           19    -1.50000000     1.000000   (0 s)
+   6          141    -1.43623720     0.720627   (0 s)
+   8         1107    -1.41711951     0.593555   (0 s)
+  10         8953    -1.40941300     0.524808   (0 s)
+  12        73789    -1.40579634     0.484196   (1 s)
+  14       616227    -1.40393811     0.458965   (9 s)
+  16      5196627    -1.40292546     0.442796   (136 s)
+fit gap(L) = D + a exp(-L/xi) on L >= 8:  D = 0.41912,  xi = 4.04   (DMRG literature: 0.41048)
+
+Open chains: edge-state splitting E0(S=1) - E0(S=0) and bulk gap E0(S=2) - E0(S=1)
+   L     edge splitting     bulk gap
+   4         0.509170       1.345294
+   6         0.307786       1.043956
+   8         0.201879       0.873617
+  10         0.138331       0.765503
+  12         0.097142       0.691726
+  14         0.069165       0.638811
+  16         0.049617       0.599439
+
+Open chain L = 16, lowest S^z = 1 state: <S^z_i> = +0.522 -0.301 +0.344 -0.219 +0.202 -0.118 +0.086 -0.017 -0.017 +0.086 -0.118 +0.202 -0.219 +0.344 -0.301 +0.522
+the 4 sites at each end carry 0.693 of the total S^z = 1 (about 1/2 per end); the 4 central sites carry 0.138
+edge splitting ~ exp(-L/5.71)

@@ -1,0 +1,33 @@
+gamma   C_gamma     L^cl_1     R_gamma   bound on L_{gamma,3}/L^cl_{gamma,3}
+ 0.75  0.306053  0.228828  1.3375   1.4169
+ 1.00  0.245035  0.212207  1.1547   1.1547
+ 1.25  0.210519  0.198721  1.0594   1.0594
+ 1.50  0.187500  0.187500  1.0000   1.0000
+
+Lieb-Thirring kinetic constant (3D, one spin state): K_TF = 9.1156
+  from R_1 = 2/sqrt3 = 1.1547:  K >= 8.2821  (90.9% of Thomas-Fermi)
+  from 1.456 (2021):        K >= 7.0960  (77.8% of Thomas-Fermi)
+
+ratio  Tr(H)_-^gamma / (C_gamma int tr W^(gamma+1/2))   (theorem: <= 1, = 1 for the soliton)
+  gamma=0.75  extremal sech^2        bound states=  1  ratio=1.0001
+  gamma=0.75  random 3x3 complex     bound states= 10  ratio=0.7914
+  gamma=0.75  random 2x2 complex     bound states=  6  ratio=0.8142
+  gamma=0.75  random 3x3 complex     bound states= 16  ratio=0.7610
+  gamma=0.75  random 3x3 complex     bound states=  4  ratio=0.8186
+  gamma=0.75  random 3x3 complex     bound states=  2  ratio=0.9722
+  gamma=0.75  random 2x2 complex     bound states=  6  ratio=0.8075
+  gamma=1.00  extremal sech^2        bound states=  1  ratio=1.0000
+  gamma=1.00  random 3x3 complex     bound states= 12  ratio=0.8942
+  gamma=1.00  random 2x2 complex     bound states=  6  ratio=0.9096
+  gamma=1.00  random 2x2 complex     bound states=  6  ratio=0.8808
+  gamma=1.00  random 3x3 complex     bound states=  2  ratio=0.9980
+  gamma=1.00  random 2x2 complex     bound states=  4  ratio=0.8951
+  gamma=1.00  random 3x3 complex     bound states=  8  ratio=0.8908
+  gamma=1.25  extremal sech^2        bound states=  1  ratio=1.0000
+  gamma=1.25  random 2x2 complex     bound states=  4  ratio=0.9627
+  gamma=1.25  random 2x2 complex     bound states=  6  ratio=0.9478
+  gamma=1.25  random 3x3 complex     bound states=  4  ratio=0.9648
+  gamma=1.25  random 3x3 complex     bound states=  4  ratio=0.9829
+  gamma=1.25  random 2x2 complex     bound states=  4  ratio=0.9599
+  gamma=1.25  random 3x3 complex     bound states= 10  ratio=0.9525
+largest ratio over random matrix potentials: 0.9980

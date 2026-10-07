@@ -1,0 +1,37 @@
+Dickman rho: rho(2)=0.306853, rho(3)=0.0486084, rho(4)=0.00491093, rho(5)=0.000354725, rho(8)=3.23207e-08, rho(10)=2.77017e-11, rho(12)=1.41971e-14, rho(16)=1.11292e-21, rho(20)=2.46178e-29
+small-prime excess of p-1: kappa = sum_q log q/(q-1)^2 = 1.226968
+sieved largest prime factors up to 1e+08 in 11 s
+
+Fixed u, three size ranges. Limit theorems: P(p-1 smooth)/P(n smooth) -> 1 and P(both)/(P(n) P(n+1)) -> 1.
+'model' is the first-order finite-size prediction rho(u - kappa u / log x) / rho(u).
+  range          u    rho(u)    P(n smooth)  P(p-1 smooth)  ratio p-1/n  model   independence ratio
+  [1e+05,1e+06]  1.5  0.59453   0.55208      0.64836         1.174      1.166       0.972
+  [1e+05,1e+06]  2.0  0.30685   0.26851      0.36572         1.362      1.321       0.884
+  [1e+05,1e+06]  2.5  0.13032   0.11434      0.17785         1.555      1.513       0.743
+  [1e+05,1e+06]  3.0  0.04861   0.04549      0.08227         1.809      1.775       0.519
+  [1e+05,1e+06]  4.0  0.00491   0.00801      0.01905         2.378      2.475       0.190
+  [1e+06,1e+07]  1.5  0.59453   0.55779      0.63971         1.147      1.140       0.981
+  [1e+06,1e+07]  2.0  0.30685   0.27238      0.35418         1.300      1.271       0.918
+  [1e+06,1e+07]  2.5  0.13032   0.11340      0.16657         1.469      1.425       0.814
+  [1e+06,1e+07]  3.0  0.04861   0.04344      0.07392         1.702      1.633       0.622
+  [1e+06,1e+07]  4.0  0.00491   0.00618      0.01374         2.223      2.168       0.267
+  [1e+07,1e+08]  1.5  0.59453   0.56230      0.63339         1.126      1.121       0.985
+  [1e+07,1e+08]  2.0  0.30685   0.27570      0.34674         1.258      1.234       0.940
+  [1e+07,1e+08]  2.5  0.13032   0.11414      0.15974         1.400      1.362       0.862
+  [1e+07,1e+08]  3.0  0.04861   0.04219      0.06766         1.604      1.535       0.712
+  [1e+07,1e+08]  4.0  0.00491   0.00527      0.01103         2.092      1.964       0.328
+
+Pollard p-1 stage 1 with bound B on a prime factor p of an RSA modulus.
+Limit law: P(success) -> rho(u), u = log p / log B; with the small-prime correction rho(u - kappa/log B):
+  p ~ 2^256, B = 2^32:  u =  8.00,  rho(u) = 3.232e-08,  corrected = 3.896e-08,  expected primes tried per success ~ 2^24.6
+  p ~ 2^512, B = 2^40:  u = 12.80,  rho(u) = 6.064e-16,  corrected = 7.232e-16,  expected primes tried per success ~ 2^50.3
+  p ~ 2^512, B = 2^64:  u =  8.00,  rho(u) = 3.232e-08,  corrected = 3.549e-08,  expected primes tried per success ~ 2^24.7
+  p ~ 2^1024, B = 2^64:  u = 16.00,  rho(u) = 1.113e-21,  corrected = 1.252e-21,  expected primes tried per success ~ 2^69.4
+  p ~ 2^1024, B = 2^80:  u = 12.80,  rho(u) = 6.064e-16,  corrected = 6.622e-16,  expected primes tried per success ~ 2^50.4
+
+Twin smooth pairs (n, n+1 both B-smooth) near X. Joint Dickman law: density -> rho(u)^2, u = log X / log B.
+(Leading order only; for B far below exp((log log X)^{5/3}) the true density is larger than rho(u)^2.)
+  X = 2^64, B = 2^16:  u =  4.00,  density = 2^-15.3,  pairs in [X, 2X] ~ 2^48.7,  random trials per pair ~ 2^15.3
+  X = 2^128, B = 2^16:  u =  8.00,  density = 2^-49.8,  pairs in [X, 2X] ~ 2^78.2,  random trials per pair ~ 2^49.8
+  X = 2^256, B = 2^32:  u =  8.00,  density = 2^-49.8,  pairs in [X, 2X] ~ 2^206.2,  random trials per pair ~ 2^49.8
+  X = 2^256, B = 2^20:  u = 12.80,  density = 2^-101.1,  pairs in [X, 2X] ~ 2^154.9,  random trials per pair ~ 2^101.1

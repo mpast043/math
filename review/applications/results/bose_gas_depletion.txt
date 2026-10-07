@@ -1,0 +1,12 @@
+Total mass of the Bogoliubov measure: 1.504506 (8/(3 sqrt pi) = 1.504506)
+
+system                                         n a^3        depleted fraction   healing length xi
+23Na BEC, a = 52 a0, n = 1e14 cm^-3             2.08e-06       0.217 %           0.380 um
+87Rb BEC, a = 100 a0, n = 1e14 cm^-3            1.48e-05       0.579 %           0.274 um
+87Rb BEC, a = 100 a0, n = 1e15 cm^-3            1.48e-04       1.831 %           0.087 um
+39K box, Feshbach a = 1000 a0, n = 5e11 cm^-3   7.41e-05       1.295 %           1.226 um
+39K box, Feshbach a = 3000 a0, n = 5e11 cm^-3   2.00e-03       6.729 %           0.708 um
+(liquid 4He: n a^3 ~ 0.23, far outside the dilute regime; the formula does not apply)
+
+Momentum profile g(t): small t ~ 1/(2 sqrt 2 t), g(0.01) = 34.86; large t ~ 1/(4 t^4), 4 t^4 g(t) = 0.980 at t = 10.
+The 1/k^4 tail n(k) -> (4 pi rho a)^2 / k^4 is the Bogoliubov value of Tan's contact, measured in experiments from the momentum tail.

@@ -1,0 +1,20 @@
+Effective temperature -> thermal population nu (5 GHz qubit)
+     30 mK -> nu = 0.0003
+     50 mK -> nu = 0.0082
+     70 mK -> nu = 0.0314
+    100 mK -> nu = 0.0832
+
+Storage time  C(30 mK)  C(50 mK)  C(70 mK)  C(100 mK)   naive(50 mK)  optimal p (50 mK)
+       0 us      1.0000     1.0000     1.0000     1.0000       1.0000       0.500
+      50 us      0.5583     0.5556     0.5485     0.5355       0.4003       0.414
+     100 us      0.3661     0.3614     0.3494     0.3302       0.2064       0.406
+     150 us      0.2466     0.2406     0.2268     0.2070       0.1108       0.411
+     200 us      0.1671     0.1605     0.1468     0.1297       0.0596       0.420
+     250 us      0.1130     0.1063     0.0942     0.0807       0.0316       0.432
+     300 us      0.0761     0.0696     0.0597     0.0499       0.0163       0.444
+  capacity falls to 0.5 bit after 62.5 us at 30 mK
+  capacity falls to 0.5 bit after 61.8 us at 50 mK
+  capacity falls to 0.5 bit after 59.9 us at 70 mK
+  capacity falls to 0.5 bit after 56.9 us at 100 mK
+
+At t = T1 and 50 mK: optimal 0.3614 bit vs naive 0.2064 bit (+75.1%)

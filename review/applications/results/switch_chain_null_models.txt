@@ -1,0 +1,12 @@
+Part 1: exact switch chain on small degree sequences (all labeled graphs enumerated)
+  3-regular, n = 8   degrees [3, 3, 3, 3, 3, 3, 3, 3]: 19355 graphs, |P - P^T| = 0.0e+00, row sums 1 +- 3.3e-16, relaxation time 19.7, t_mix(1/4) = 38 steps (= 3.2 per edge); the theorem's bound 2n^8 = 3.4e+07
+  one hub, n = 8     degrees [6, 3, 2, 2, 2, 2, 2, 1]: 145 graphs, |P - P^T| = 0.0e+00, row sums 1 +- 1.7e-15, relaxation time 27.0, t_mix(1/4) = 41 steps (= 4.1 per edge); the theorem's bound 2n^8 = 3.4e+07
+  two hubs, n = 9    degrees [7, 6, 2, 2, 2, 2, 1, 1, 1]: 3 graphs, |P - P^T| = 0.0e+00, row sums 1 +- 4.4e-16, relaxation time 88.0, t_mix(1/4) = 86 steps (= 7.2 per edge); the theorem's bound 2n^8 = 8.6e+07
+
+Part 2: triangle-motif test on Zachary's karate club
+
+  karate club: n = 34, m = 78, max degree 17, observed triangles 45
+  configuration-model rejection: 0 simple graphs in 20000 pairings (acceptance 0.0000)
+  erased configuration model: mean edges 66.2 of 78 (degrees changed), triangles 17.5 +- 4.7
+  switch chain: acceptance 0.411, integrated autocorrelation time of the triangle count 78 switch attempts = 1.0 per edge; effective samples 3791
+  null distribution (uniform simple graphs, same degrees): triangles 39.3 +- 4.5; observed 45 -> z = 1.3  (against the erased model it would be z = 5.9)
