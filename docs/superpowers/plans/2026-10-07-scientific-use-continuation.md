@@ -46,6 +46,6 @@ Only claim properties of the new models within their stated assumptions.
 - [x] Task 3: Write the research note and all-12-use roadmap, with primary
   sources for application context, explicit derivations and candidate research
   questions. Build the PDF with `build_report.py`; render and visually inspect.
-- [ ] Task 4: Review scientific applicability and new code, run the suite and
+- [x] Task 4: Review scientific applicability and new code, run the suite and
   reproducibility checks, commit, push, and use `git ls-remote` to verify the
   remote continuation SHA. The continuation must descend from the source SHA.

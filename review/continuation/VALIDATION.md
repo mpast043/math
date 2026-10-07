@@ -30,3 +30,10 @@ specified in the report and experiment agenda.
 
 The report was built with bundled ReportLab 4.4.9 and rendered with Poppler.
 The PDF source and Markdown remain editable.
+
+## Publication
+
+The continuation was pushed and its remote SHA verified against local HEAD.
+The Claude source branch remains at the pinned source SHA; main remains at
+adc7f1241b42e322a6451854ab7e4b4c146bf78a. The original manuscript, Lean and
+Claude application files have no differences from the pinned handoff.
