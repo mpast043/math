@@ -1,0 +1,15 @@
+# Build log excerpt (lake build OAI.Combinatorics.SecondNeighborhood.Main ComparatorChallenges.SeymourSecondNeighborhood)
+⚠ [1850/1878] Built ComparatorChallenges.SeymourSecondNeighborhood (2.2s)
+warning: ComparatorChallenges/SeymourSecondNeighborhood.lean:34:8: declaration uses `sorry`
+Build completed successfully (1878 jobs).
+
+real	24m45.780s
+user	57m58.699s
+sys	13m7.476s
+EXIT 0
+
+✔ [1874/1878] Built OAI.Combinatorics.SecondNeighborhood.GenericRankSelection (1.5s)
+✔ [1875/1878] Built OAI.Combinatorics.SecondNeighborhood.RankBoundFromMinors (2.4s)
+✔ [1876/1878] Built OAI.Combinatorics.SecondNeighborhood.AugmentedRankBound (1.7s)
+✔ [1877/1878] Built OAI.Combinatorics.SecondNeighborhood.Pruning (2.2s)
+✔ [1878/1878] Built OAI.Combinatorics.SecondNeighborhood.Main (2.4s)

@@ -1,0 +1,27 @@
+n=1: 1 oriented graphs checked, counterexamples=0
+n=2: 3 oriented graphs checked, counterexamples=0
+n=3: 27 oriented graphs checked, counterexamples=0
+n=4: 729 oriented graphs checked, counterexamples=0
+n=5: 59049 oriented graphs checked, counterexamples=0
+n=6: 14348907 oriented graphs checked, counterexamples=0
+n=8 density=0.30: 200000 random oriented graphs, counterexamples=0
+n=8 density=0.60: 200000 random oriented graphs, counterexamples=0
+n=8 density=0.90: 200000 random oriented graphs, counterexamples=0
+n=8 density=1.00: 200000 random oriented graphs, counterexamples=0
+n=16 density=0.30: 200000 random oriented graphs, counterexamples=0
+n=16 density=0.60: 200000 random oriented graphs, counterexamples=0
+n=16 density=0.90: 200000 random oriented graphs, counterexamples=0
+n=16 density=1.00: 200000 random oriented graphs, counterexamples=0
+n=24 density=0.30: 200000 random oriented graphs, counterexamples=0
+n=24 density=0.60: 200000 random oriented graphs, counterexamples=0
+n=24 density=0.90: 200000 random oriented graphs, counterexamples=0
+n=24 density=1.00: 200000 random oriented graphs, counterexamples=0
+n=32 density=0.30: 200000 random oriented graphs, counterexamples=0
+n=32 density=0.60: 200000 random oriented graphs, counterexamples=0
+n=32 density=0.90: 200000 random oriented graphs, counterexamples=0
+n=32 density=1.00: 200000 random oriented graphs, counterexamples=0
+n=40 density=0.30: 200000 random oriented graphs, counterexamples=0
+n=40 density=0.60: 200000 random oriented graphs, counterexamples=0
+n=40 density=0.90: 200000 random oriented graphs, counterexamples=0
+n=40 density=1.00: 200000 random oriented graphs, counterexamples=0
+total counterexamples found: 0 (cpu 11.2s)

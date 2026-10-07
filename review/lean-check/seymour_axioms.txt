@@ -1,0 +1,13 @@
+# lake env lean Check/Seymour.lean
+@OAI.SeymourSecondNeighborhood.exists_goodVertex : ∀ {V : Type u_1} [inst : Fintype V] [inst_1 : DecidableEq V]
+  [Nonempty V] (r : V → V → Prop),
+  OAI.SeymourSecondNeighborhood.IsOriented r → ∃ v, OAI.SeymourSecondNeighborhood.GoodVertex r v
+'OAI.SeymourSecondNeighborhood.exists_goodVertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ReviewCheck.exists_goodVertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+# leanchecker (default and --fresh)
+
+real	4m22.486s
+user	4m5.757s
+sys	0m7.004s
+fresh-mode exit=0

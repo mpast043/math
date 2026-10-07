@@ -1,0 +1,24 @@
+1) Capacity table C(gamma, nu) in bits per channel use (closed form)
+gamma\nu     0.00     0.05     0.10     0.25     0.50
+    0.10  0.84050  0.83792  0.83569  0.83083  0.82787
+    0.20  0.73165  0.72515  0.71975  0.70847  0.70188
+    0.30  0.63833  0.62753  0.61889  0.60164  0.59196
+    0.50  0.47173  0.45218  0.43803  0.41238  0.39912
+    0.70  0.31139  0.28453  0.26788  0.24124  0.22878
+    0.90  0.13230  0.10571  0.09425  0.07938  0.07339
+
+2) Unital case nu=1/2 vs King's theorem  C = 1 - h2((1+sqrt(1-g))/2)
+   max |formula - King| over 25 values of gamma: 1.67e-16
+
+3) One-use Holevo optimum by direct numerical search (ensembles of 2-4 pure states)
+   g=0.30 nu=0.10: formula 0.61888768  numerical 0.61888768  diff -2.1e-12
+   g=0.60 nu=0.20: formula 0.33197600  numerical 0.33197600  diff -1.2e-13
+   g=0.80 nu=0.05: formula 0.19807835  numerical 0.19807835  diff -8.4e-13
+   g=0.50 nu=0.35: formula 0.40367482  numerical 0.40367482  diff -1.3e-11
+
+4) Two-use additivity falsification test (entangled 2-qubit ensembles)
+   g=0.30 nu=0.10: best chi(A(x)A) found 1.23777535 vs 2C 1.23777535; S_min(A(x)A) 0.25381461 vs 2 S_min(A) 0.25381461
+   g=0.60 nu=0.20: best chi(A(x)A) found 0.66395199 vs 2C 0.66395200; S_min(A(x)A) 0.68281600 vs 2 S_min(A) 0.68281600
+   g=0.80 nu=0.05: best chi(A(x)A) found 0.39615669 vs 2C 0.39615670; S_min(A(x)A) 0.33312114 vs 2 S_min(A) 0.33312114
+
+RESULT: all checks consistent with the theorem

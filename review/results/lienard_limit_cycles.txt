@@ -1,0 +1,6 @@
+Example x'' + (1/10)(x^4 - 10x^2 + 5) x' + x = 0
+  sign changes of the displacement on y in [0.2, 6]: 2
+  limit cycle 1: crosses x=0 at y=1.529550, max|x| = 1.5033 (averaging prediction 1.5013)
+  limit cycle 2: crosses x=0 at y=5.624244, max|x| = 4.1999 (averaging prediction 4.2126)
+exit 124
+Random scan of quintic F: stopped by its 1700 s time limit before completing (stiff integrations on a shared CPU); no scan result is claimed. The worked example above is the reported result.

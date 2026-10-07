@@ -1,0 +1,3 @@
+single-mode: 600 random non-Gaussian trials, minimum margin N(C) - [eta N(A) + (1-eta) N(B)] = 3.327e-03
+two-mode (entangled within each input): 52 trials, minimum margin = 1.853e-02
+RESULT: no violation found

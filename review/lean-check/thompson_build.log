@@ -1,0 +1,12 @@
+# Build log tail
+⚠ [3026/3083] Built ComparatorChallenges.ThompsonNonamenability (5.7s)
+warning: ComparatorChallenges/ThompsonNonamenability.lean:78:8: declaration uses `sorry`
+Build completed successfully (3083 jobs).
+
+real	41m28.464s
+user	79m0.175s
+sys	21m18.233s
+EXIT 0
+✔ [3081/3083] Built OAI.GroupTheory.Thompson.AnalyticCurveRotation (2.7s)
+✔ [3082/3083] Built OAI.GroupTheory.Thompson.AnalyticConstruction (3.3s)
+✔ [3083/3083] Built OAI.GroupTheory.Thompson.Main (2.0s)

@@ -1,0 +1,4 @@
+import OAI.GroupTheory.Thompson.Main
+
+#check @OAI.ThompsonNonamenability.thompson_F_nonamenable_composition
+#print axioms OAI.ThompsonNonamenability.thompson_F_nonamenable_composition

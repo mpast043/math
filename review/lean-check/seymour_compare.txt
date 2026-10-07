@@ -1,0 +1,11 @@
+# Comparator-style comparison: challenge vs compiled proof
+compared 11 challenge declarations under OAI.SeymourSecondNeighborhood: 0 mismatches
+OAI.SeymourSecondNeighborhood.exists_goodVertex uses axioms: [Quot.sound, Classical.choice, propext]
+exit=0
+
+# Negative control: challenge with 'w ≠ v' removed from secondNeighbors
+MISMATCH OAI.SeymourSecondNeighborhood.GoodVertex: kind true levels true type false body false
+MISMATCH OAI.SeymourSecondNeighborhood.exists_goodVertex: kind true levels true type false body true
+MISMATCH OAI.SeymourSecondNeighborhood.secondNeighbors: kind true levels true type false body false
+compared 11 challenge declarations under OAI.SeymourSecondNeighborhood: 3 mismatches
+exit=1

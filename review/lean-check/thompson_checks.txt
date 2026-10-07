@@ -1,0 +1,16 @@
+# lake env lean Check/Thompson.lean
+OAI.ThompsonNonamenability.thompson_F_nonamenable_composition : ∃ group,
+  (∀ (h g : OAI.ThompsonNonamenability.F) (x : ↑OAI.ThompsonNonamenability.UnitInterval),
+      (↑(h * g)).toHomeomorph x = (↑h).toHomeomorph ((↑g).toHomeomorph x)) ∧
+    ¬Nonempty (OAI.ThompsonNonamenability.InvariantMean OAI.ThompsonNonamenability.F)
+'OAI.ThompsonNonamenability.thompson_F_nonamenable_composition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+# Comparator-style comparison: challenge vs compiled proof
+compared 61 challenge declarations under OAI.ThompsonNonamenability: 0 mismatches
+OAI.ThompsonNonamenability.thompson_F_nonamenable_composition uses axioms: [Quot.sound, Classical.choice, propext]
+exit=0
+
+# leanchecker (default mode: declarations of the main module)
+exit=0
