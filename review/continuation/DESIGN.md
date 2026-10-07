@@ -1,5 +1,14 @@
 # Scientific use continuation
 
+Current application focus, clarified 7 October 2026: start with solutions
+already documented in the factual handoff, identify concrete decisions they
+enable, and explain their benefits. The report prioritizes optical provisioning,
+reaction-system design and known material reference structures. The rare-group
+example illustrates the supplied stability result; developing a general
+rare-cell reliability method is outside the present application. Further direct
+uses cover periodic-box interfaces, gas-model selection and plasma simulation
+diagnosis. Existing numerical demonstrations are retained.
+
 User objective: take `claude/math-repo-review` as a factual handoff, use its
 results to answer scientific questions, and explain useful new consequences.
 The source is pinned to `80b50443f73da7934815df0973231b13666890f6`.

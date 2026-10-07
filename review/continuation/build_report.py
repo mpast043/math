@@ -23,7 +23,13 @@ SOURCES=[
     ("Newman. Assortative mixing in networks, Physical Review Letters (2002)",
      "https://arxiv.org/abs/cond-mat/0205405"),
     ("Bunne et al. Conditional Monge Gap enables generalizable single-cell perturbation modelling, Nature Machine Intelligence (2026)",
-     "https://www.nature.com/articles/s42256-026-01242-8")]
+     "https://www.nature.com/articles/s42256-026-01242-8"),
+    ("Supplied solution: minimum interface shapes in the cubic flat three-torus, family 354",
+     "https://github.com/mpast043/math/blob/80b50443f73da7934815df0973231b13666890f6/preprints/The-Isoperimetric-Conjecture-for-the-Cubic-Flat-Three-Torus-September-24-2026/build/paper.tex"),
+    ("Supplied solution: Boltzmann-Grad limit on regular kinetic intervals, family 364",
+     "https://github.com/mpast043/math/blob/80b50443f73da7934815df0973231b13666890f6/preprints/The-Boltzmann-Grad-limit-for-stable-radial-potentials-on-regular-kinetic-intervals-September-23-2026/build/sections/00-introduction.tex"),
+    ("Supplied solution: global classical relativistic Vlasov-Maxwell solutions, family 362",
+     "https://github.com/mpast043/math/blob/80b50443f73da7934815df0973231b13666890f6/preprints/Global-classical-solutions-of-the-three-dimensional-relativistic-Vlasov-Maxwell-system-September-23-2026/build/sections/introduction.tex")]
 
 
 def sections(d):
@@ -31,24 +37,25 @@ def sections(d):
     return [{
         'title':'Scientific uses of the mathematical catalogue',
         'paragraphs':[
-            "The catalogue supplies tools for designing systems and deciding which scientific inference can be trusted. Its strongest immediate uses are coherent encoding of classical information, photon-efficient communication, stability assessment of rare-population assignments, constrained reaction-network repair, and degree-preserving network inference.",
-            "The Claude branch is accepted as the factual handoff [1]. This continuation develops its consequences and tests the new computations. A potential wider discovery is a mass-dependent criterion for accepting rare-population transport assignments; establishing that criterion beyond the supplied construction requires the proposed data experiments.",
-            "Rare-population inference is the strongest next research project because aggregate agreement can coexist with substantial changes in inferred membership. Quantum encoding is the most direct hardware experiment. Optical allocation gives the clearest ideal resource saving."
+            "The documents already supply mathematical solutions. This report takes the Claude handoff as factual [1] and applies those solutions to concrete scientific and engineering decisions: how many photons a link needs, which reaction structures retain their species, and which material configurations minimize energy.",
+            "Each use starts with an existing result, identifies the decision it enables, and explains the benefit. The worked calculations put the accepted formulas to use. Proposed experiments concern applying these solutions to physical systems.",
+            "The most concrete starting applications are an optical photon-budget calculator, reaction-network design using the permanence criterion, and exact reference shapes and energies for material simulations. The transport example illustrates the documented stability limit; it is not the central application programme."
         ],
         'table':[
-            ['Use','Computed result','What it makes possible'],
-            ['Qubit storage',f"{100*q['local_readout_gain_fraction']:.1f}% local-readout gain",'Choose encoding from measured coherence; use ordinary classical decoding.'],
-            ['Optical broadcast','12.2% to 38.9% fewer photons','Meet two user-rate demands with a smaller ideal optical budget.'],
-            ['Rare-group transport','12.5% of original members replaced','Assess subgroup assignment stability alongside aggregate fit.'],
-            ['Reaction repair','1 added reaction rather than 4 reverse arrows','Find a minimal permitted repair, then impose an abundance floor.'],
-            ['Network inference','Assortativity estimated tail p = 0.00125','Identify a high-to-low-degree pattern missed by triangle-only analysis.']],
+            ['Existing solution','Concrete use','Meaningful benefit'],
+            ['Optical capacity region','Choose photon budget and coding split','Meet the same two rate demands with 12.2-38.9% fewer photons in the ideal worked examples.'],
+            ['Reaction permanence','Choose permitted reactions with return paths','Obtain a structural species-retention guarantee despite uncertain positive rates.'],
+            ['Minimum periodic-box interface','Select droplet, tube or slab','Use the exact area baseline to identify box-induced shape changes.'],
+            ['Triangular lattice ground state','Set the reference structure and energy','Avoid searching for the ground-state lattice within the supplied interaction model.'],
+            ['Bose-gas depletion law','Insert density and scattering length','Predict condensate loss and choose a measurable interaction signal.']],
         'after':[
-            "Original results, new computations and proposed experiments are distinguished throughout. Superposition coding, optimal transport, weak reversibility and assortativity are established methods. No world-first theorem or experimental discovery is asserted from these demonstrations."
+            "Original solutions, worked applications and physical experiments are distinguished throughout. Laboratory improvements and new scientific observations require application to a specified system."
         ]},
         {
         'title':'Classical qubit storage with measured coherence',
         'figure':'quantum_encoding.png',
         'paragraphs':[
+            f"Existing solution and use. Family 276 gives the exact classical capacity of a thermally relaxing qubit [1]. Insert its frequency, effective temperature, relaxation time and storage delay to select the signal states and size a classical message buffer. The source example gives {qb['gad_capacity']:.6f} bit per qubit, versus {qb['z_readout']:.6f} with 0/1 encoding. Attaining the capacity uses long codes and collective quantum measurements.",
             f"For a 5 GHz qubit stored for 100 microseconds, with T1 = 100 microseconds and effective temperature 50 mK, optimized Z-basis encoding carries {qb['z_readout']:.6f} bit per qubit. Prepare equally likely |+> and |-> and read in the X basis: with T2 = 200 microseconds the achievable rate is {qb['x_readout']:.6f}, a {100*q['local_readout_gain_fraction']:.1f}% gain.",
             "A basis rotation followed by the usual measurement implements X readout. Long classical error-correcting codes attain the resulting binary-channel rate; this demonstrated gain does not require a collective quantum measurement. It concerns classical messages, not storage of unknown quantum states.",
             "Transverse contrast is exp(-t/T2), with 1/T2 = 1/(2 T1) + 1/Tphi in the relaxation-plus-dephasing model. Thus R_X = 1 - h2((1 - exp(-t/T2))/2). Thermal effects enter through measured T1 and T2; X contrast has no additional thermal-population term.",
@@ -74,23 +81,23 @@ def sections(d):
             "These are mean-photon budgets per mode, assuming ideal joint-detection receivers, pure loss and long codes. The useful open question is how much saving survives a specific finite-block receiver. Detector hardware and added thermal noise are not simulated."
         ]},
         {
-        'title':'Rare population assignments need their own error budget',
+        'title':'Apply the documented transport stability limit',
         'figure':'rare_transport.png',
         'paragraphs':[
-            "Optimal transport infers cellular responses from unpaired populations [5], with conditional modelling continuing to develop [9]. The supplied construction [4] gives an exact assignment stress test. Its source is uniform on [-1,1]^2; targets are (-1,0), (1,0) and a central atom of mass m.",
+            "Existing solution and use. Family 374 supplies a sharp one-third stability exponent for transport maps with a uniform source on a convex body and targets in a fixed compact set [1]. Budget worst-case map error with that dependence rather than assuming a square-root law. Optimal transport has applications to unpaired cell populations [5] [9]; the theorem controls mathematical map sensitivity, not biological truth. The supplied three-atom construction [4] gives an exact stress test: a uniform source on [-1,1]^2 and targets (-1,0), (1,0), and a central atom of mass m.",
             "Move the central atom upward by b without changing its mass. Its source cell changes from |x1| < m to |x1| < m + b x2. For 0 <= b <= min(m,1-m), the triangular differences give lost mass = gained mass = b/4, target W2 = b sqrt(m), and map L2 squared = b/2 + m b^2.",
             "The membership calculation is retained fraction = 1 - b/(4m), with Jaccard similarity (m - b/4)/(m + b/4). At b = m/2, 12.5% of original members leave and an equal mass enters. Jaccard similarity stays at 7/9, about 0.778, at every rarity level. The symmetric difference relative to group mass is 25%; that is distinct from 12.5% original-member replacement.",
             "For m = 0.001 and b = 0.0005, target W2 is only 0.00001581 while map L2 is 0.01581. Aggregate W2 tends to zero as rarity increases, without improving relative membership stability. Distribution agreement alone cannot certify assignments in this model."
         ],
         'after':[
-            "A derived rule in this construction is W2 <= 4 delta m^(3/2) for original-member replacement below delta. For a 0.1% group and 5% replacement tolerance, the budget is 0.000006325 in model units. The mass scaling motivates adaptive validation.",
-            "This is a new use of the supplied construction, whose geometry and transport distances were already in the manuscript. Test broader usefulness by reweighting held-out rare cell types, bootstrapping learned maps and scoring membership overlap. A biological guarantee and superiority of any proposed regularizer remain open."
+            "Putting the construction's formulas to use gives W2 <= 4 delta m^(3/2) for original-member replacement at most delta. For a 0.1% group and 5% tolerance, the budget is 0.000006325 in model units.",
+            "The practical takeaway is to apply the existing stability result when choosing map-error tolerances and to inspect small groups separately. The overlap calculation is an illustration within this construction; a general rare-cell reliability method is outside the present application."
         ]},
         {
         'title':'Repair reaction structure and set usable abundance',
         'figure':'reaction_design.png',
         'paragraphs':[
-            "The accepted permanence result [1] gives a structural guarantee for weakly reversible deterministic mass-action networks. Structural design has a prior literature [6]. The continuation solves a small-instance optimization: select the lowest-cost permitted reactions that make every linkage class strongly connected.",
+            "Existing solution and use. The accepted permanence result [1] guarantees eventual positive, finite concentrations in weakly reversible deterministic mass-action networks with positive initial concentrations and fixed positive rates. Inspect the graph of reaction complexes: every reaction needs a return path. This makes species retention a structural design decision without exhaustively scanning uncertain rates. Structural design has a prior literature [6]. The worked optimizer selects the lowest-cost permitted reactions that meet this condition.",
             "In A -> B, A -> C, B -> D, C -> D, one permitted reaction D -> A creates return paths for all four reactions. Adding every reverse arrow takes four additions. Forbid D -> A and the enumerator finds a two-reaction repair. Nodes are complexes; this example uses single-species complexes. Chemistry determines which candidate reactions are feasible.",
             "Permanence alone gives no useful rate-independent abundance floor. For A -> B -> C -> A with rates 1, 1, epsilon and total concentration 1, stationary fractions are (epsilon, epsilon, 1)/(1 + 2 epsilon). Epsilon = 0.000001 closes the cycle, yet A and B each have only about one part per million of the total concentration.",
             "Requiring all three stationary fractions >= delta gives delta/(1-2 delta) <= epsilon <= (1-delta)/(2 delta), for 0 < delta <= 1/3. A 1% floor requires 0.010204 <= epsilon <= 49.5. The lower endpoint gives fractions 0.01, 0.01, 0.98."
@@ -134,13 +141,19 @@ def sections(d):
             "These seven additional uses translate inherited demonstrations into operational targets. The machine-readable twelve-use agenda supplies a specific next experiment for every application."
         ]},
         {
-        'title':'Candidate discoveries worth pursuing',
+        'title':'Further direct uses of documented solutions',
         'paragraphs':[
-            "First priority: a mass-adaptive criterion for accepting inferred rare-cell transitions. The new calculation is membership overlap and its m^(3/2) error budget in the supplied family. The broader hypothesis is that overlap conditioned on group mass detects unstable biological predictions missed by aggregate losses.",
-            "Keep aggregate fit similar while changing rare-group prevalence. Compare standard validation with stratified overlap validation on held-out populations and paired or lineage-informed references where available. Success means fewer unsupported rare-cell assignments at matched predictive performance; a possible tradeoff is more bias or less sensitivity to real transitions.",
-            "Second priority: coherence-aware classical storage. The new use is an accessible encoding switch based on measured T2. Test whether preparation and readout overhead leave a positive mutual-information gain. Success could reduce physical-qubit requirements or extend the refresh interval for a classical message under observed device noise.",
-            "Third priority: minimum feasible reaction repairs with operating targets. The repair is exact for its permitted candidates. Wider usefulness needs feasibility constraints, abundance floors and transient targets in one optimization. Success means fewer added reactions while preserving a specified concentration over a specified time.",
-            "The optical optimizer and network inference are usable calculations under their declared models. The significance is resource allocation and improved scientific interpretation. The coding scheme, transport construction, graph concepts and statistical observables are not presented as inventions of this continuation."
+            "Periodic-box material shapes, family 354 [10]. The existing solution gives minimum interface area A(v) = min((36 pi)^(1/3) v^(2/3), 2 sqrt(pi v), 2) for minority volume fraction v in a unit cubic periodic box. The minimizer is a ball up to v = 4 pi/81 (15.5%), a wrapping tube through v = 1/pi (31.8%), then a slab. Use the known shape to initialize a phase-separation calculation and the exact area to benchmark it. Multiplying by isotropic surface tension gives the interfacial-energy baseline. The benefit is recognizing expected box-induced shape changes and incomplete relaxation, rather than interpreting them as new bulk material behavior. This use assumes fixed phase volume and interface-only isotropic energy; elastic, electrostatic or anisotropic terms change the model.",
+            "Dilute gas model selection, family 364 [11]. The existing solution derives Boltzmann evolution from Newtonian particles throughout every regular kinetic interval for the admitted stable finite-range radial potentials, including attractive wells. Construct the collision operator from the potential's two-body scattering, then use the kinetic model to describe the gas without tracking every particle. This supports a reduced model beyond only an initial short-time interval. The result applies in Boltzmann-Grad scaling with the specified initial law and Gaussian regularity bound; it supplies no finite-particle error certificate or dense-gas guarantee.",
+            "Plasma simulation diagnosis, family 362 [12]. The existing global smoothness and uniqueness solution admits arbitrary-amplitude smooth compatible data in the stated one-species relativistic collisionless model. Use it to set simulation benchmarks without small-amplitude or symmetry restrictions. Finite-time numerical blow-up in that admitted regime calls for diagnosing the solver rather than interpreting a true continuum singularity. The benefit is a clear mathematical target for refinement. Compactly supported smooth particle data, bounded smooth finite-energy compatible fields, whole-space geometry and absence of background charge are part of the scope; confinement and collisions require other models."
+        ]},
+        {
+        'title':'Proposed applications and their deliverables',
+        'paragraphs':[
+            "Optical link provisioning. Apply the existing capacity region to a specified pair of receivers. The current calculator takes efficiencies and requested rates and returns a photon budget and coding split. The demonstrated 3/1-bit demand at efficiencies 0.6/0.1 needs 12.448 photons per mode versus 16.857 with optimized time sharing. The next deliverable is a receiver-specific implementation showing how much of that transmitted-photon saving survives actual detection and finite codes.",
+            "Reaction-system design. Apply the existing permanence criterion to a specified set of chemically permitted reactions. Return the permitted additions that meet the structural condition, then compute concentrations and recovery times from that system's rates. The toy diamond needs one added reaction rather than four reverse arrows. A useful physical result would be fewer additions while meeting a chosen concentration and time requirement; chemistry determines feasibility.",
+            "Material simulation reference. Apply the existing lattice and periodic-interface solutions to compatible interaction and geometry models. Return the exact reference structure, interface area or energy, and compare a simulated configuration against it. This can focus computation on defects, kinetics or additional interactions whose behavior the ground-state solution does not already settle.",
+            "These projects use the supplied solutions to make decisions. Any new discovery would be an observed property or demonstrated performance of the selected system obtained by applying those solutions. The present calculations establish model consequences, not an experimental discovery."
         ]},
         {
         'title':'Reproducibility and source context',
@@ -208,7 +221,7 @@ def build(results_path=HERE/'results'/'results.json',output_pdf=HERE/'output'/'p
         if i: story.append(PageBreak())
         story.append(Paragraph(inline(section['title']),title if i==0 else heading))
         if i==0:
-            story.append(Paragraph('7 October 2026 | Five worked extensions and a twelve-use research agenda',small))
+            story.append(Paragraph('7 October 2026 | Existing solutions applied to scientific decisions',small))
         for text in section['paragraphs']:
             story.append(Paragraph(inline(text),body))
         if section.get('figure'):

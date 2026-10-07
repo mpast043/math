@@ -2,9 +2,10 @@
 
 ## Scientific applications continuation
 
-The [scientific use continuation](review/continuation/README.md) develops five
-worked applications from the Claude handoff, with an illustrated research note
-and experiments proposed for all twelve uses.
+The [scientific use continuation](review/continuation/README.md) applies the
+Claude handoff's existing solutions to communication budgets, reaction design,
+material simulations and other scientific decisions, with five worked
+calculations and an illustrated research note.
 
 This repository contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model. 
 

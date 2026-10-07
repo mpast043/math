@@ -52,5 +52,23 @@
     "title": "Bunne et al. Conditional Monge Gap enables generalizable single-cell perturbation modelling, Nature Machine Intelligence (2026)",
     "url": "https://www.nature.com/articles/s42256-026-01242-8",
     "accessed": "2026-10-07"
+  },
+  {
+    "id": 10,
+    "title": "Supplied solution: minimum interface shapes in the cubic flat three-torus, family 354",
+    "url": "https://github.com/mpast043/math/blob/80b50443f73da7934815df0973231b13666890f6/preprints/The-Isoperimetric-Conjecture-for-the-Cubic-Flat-Three-Torus-September-24-2026/build/paper.tex",
+    "accessed": "2026-10-07"
+  },
+  {
+    "id": 11,
+    "title": "Supplied solution: Boltzmann-Grad limit on regular kinetic intervals, family 364",
+    "url": "https://github.com/mpast043/math/blob/80b50443f73da7934815df0973231b13666890f6/preprints/The-Boltzmann-Grad-limit-for-stable-radial-potentials-on-regular-kinetic-intervals-September-23-2026/build/sections/00-introduction.tex",
+    "accessed": "2026-10-07"
+  },
+  {
+    "id": 12,
+    "title": "Supplied solution: global classical relativistic Vlasov-Maxwell solutions, family 362",
+    "url": "https://github.com/mpast043/math/blob/80b50443f73da7934815df0973231b13666890f6/preprints/Global-classical-solutions-of-the-three-dimensional-relativistic-Vlasov-Maxwell-system-September-23-2026/build/sections/introduction.tex",
+    "accessed": "2026-10-07"
   }
 ]

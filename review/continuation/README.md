@@ -1,12 +1,29 @@
 # Scientific use continuation
 
 Start with the [illustrated research note](output/pdf/scientific_uses.pdf)
-or its [editable text](research_note.md). Both explain the results, derivations,
-scientific uses and proposed discoveries.
+or its [editable text](research_note.md). Both start with solutions already
+documented in the Claude handoff and explain the decisions they enable and
+their scientific or engineering benefits.
 
 This continuation starts at claude/math-repo-review, commit
 80b50443f73da7934815df0973231b13666890f6, and accepts it as a factual handoff.
-The work develops applications; it does not audit source proofs.
+The work applies the accepted solutions. The next steps concern implementing
+those applications in specified systems.
+
+| Existing solution | Proposed use and benefit |
+|---|---|
+| Optical capacity region | Set a two-user photon budget; the worked examples save 12.2-38.9% of transmitted photons under the ideal model. |
+| Reaction-network permanence | Choose permitted reactions with return paths to obtain a species-retention guarantee for uncertain positive rates. |
+| Minimum periodic-box interface | Use the exact droplet/tube/slab shapes to assess phase-separation simulations and recognize effects caused by the box. |
+| Triangular lattice ground state | Use the known structure and energy as a reference for screened-charge simulations. |
+| Bose-gas depletion law | Predict condensate loss from density and scattering length and select experimental parameters. |
+
+The report also describes direct uses of the supplied Boltzmann and
+Vlasov-Maxwell solutions for gas-model selection and plasma simulation
+diagnosis. The transport example illustrates an existing stability limit;
+it is not the central application programme.
+
+The five computed examples below put the handoff's solutions to use:
 
 | Extension | Result under the stated model |
 |---|---|
@@ -47,5 +64,7 @@ construction. Repair uses permitted candidate complexes. Network tails and
 multiplicity transformations are Monte Carlo estimates; diagnostics do not prove
 finite-run convergence.
 
-The overlap error budget, coherence-aware encoding rule and constrained repair
-workflow are useful continuations. Wider novelty is framed as testable research.
+The overlap calculation, encoding comparison and constrained repair workflow
+are worked applications of the accepted results. Any new scientific discovery
+would require applying those results to a specified system and demonstrating
+an observation or performance improvement.
