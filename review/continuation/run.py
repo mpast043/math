@@ -47,7 +47,8 @@ def context_rules():
                         'status':'Bounds for one spin state, hbar^2/(2m)=1; not measured material properties.'},
         'crystals':{'rows':[{'kappa':r['kappa'],'square_gap_percent':r['square'],
                             'per_energy_estimate_error_percent_must_be_below':r['square']/2} for r in crystal],
-                    'status':'Numerical resolution for comparing the two accepted lattice energies, not a melting prediction.'},
+                'error_normalization':'Both absolute energy errors are divided by triangular energy.',
+                'status':'Numerical resolution for comparing the two accepted lattice energies, not a melting prediction.'},
         'chaos':{'initial_error':1e-10,'tolerance':1e-3,
                  'heuristic_horizons':[{'K':r['K'],'entropy':r['entropy'],
                                         'kicks':math.log(1e7)/r['entropy']} for r in chaos if r['K'] in (10,20,100)],
@@ -102,13 +103,15 @@ def make_plots(data,folder):
     import matplotlib.pyplot as plt
     import networkx as nx
     folder.mkdir(parents=True,exist_ok=True)
-    plt.rcParams.update({'font.size':10,'axes.spines.top':False,'axes.spines.right':False,
+    plt.rcParams.update({'font.size':10,'axes.spines.top':False,'axes.spines.right':False,'svg.hashsalt':SOURCE,
                          'figure.facecolor':'white','axes.facecolor':'white','savefig.dpi':220})
     blue,orange,green='#235789','#CC6B32','#35745B'
     def save(fig,name):
         fig.tight_layout()
         fig.savefig(folder/(name+'.png'))
-        fig.savefig(folder/(name+'.svg'))
+        svg=folder/(name+'.svg')
+        fig.savefig(svg,metadata={'Date':None})
+        svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n')
         plt.close(fig)
     q=data['quantum']; rows=q['coherence_sweep']
     fig,ax=plt.subplots(figsize=(8.4,3.6))
@@ -141,13 +144,16 @@ def make_plots(data,folder):
         axes[0].fill_betweenx(y,old,new,where=y>0,color=blue,alpha=.25)
         axes[0].fill_betweenx(y,old,new,where=y<0,color=orange,alpha=.35)
     axes[0].set(xlim=(-.6,.6),ylim=(-1,1),xlabel='Source coordinate x1',ylabel='Source coordinate x2',
-                title='Rare transport cell: same mass, new members')
+                title='Cell geometry (m = 0.2, b = 0.1)')
+    from matplotlib.patches import Patch
+    axes[0].legend(handles=[Patch(color=blue,alpha=.25,label='Newly assigned'),
+                            Patch(color=orange,alpha=.35,label='No longer assigned')],fontsize=7,loc='upper right')
     masses=np.array([r['mass'] for r in data['transport']['rows']])
     values=np.array([r['w2'] for r in data['transport']['rows']])
     axes[1].loglog(masses,values,'o-',color=blue,label='Shift b = m/2: 12.5% replaced')
     axes[1].loglog(masses,4*.05*masses**1.5,'s--',color=green,label='Budget for at most 5% replaced')
     axes[1].set(xlabel='Rare-group mass m',ylabel='Target W2 distance (model units)',
-                title='Small aggregate error is compatible with turnover')
+                title='Aggregate error can hide turnover')
     axes[1].legend(fontsize=8); save(fig,'rare_transport')
     fig,axes=plt.subplots(1,2,figsize=(9,3.7))
     G=nx.DiGraph(data['reactions']['diamond_edges'])

@@ -67,6 +67,23 @@ def test_optical_budgets_meet_demands_with_fair_time_sharing():
     with pytest.raises(ValueError): o.photon_budgets(1,1,.1,.6)
 
 
+@pytest.mark.parametrize('rate',[1e-14,1e-12])
+def test_optical_small_positive_demands_keep_positive_accurate_budgets(rate):
+    o=module('optical')
+    result=o.photon_budgets(rate,rate,.6,.1)
+    assert result['superposition']>0
+    assert o.g_bits(.6*result['near_photons'])==pytest.approx(rate,rel=1e-8,abs=0)
+    far=o.g_bits(.1*result['superposition'])-o.g_bits(.1*result['near_photons'])
+    assert far==pytest.approx(rate,rel=1e-8,abs=0)
+    assert result['superposition']<=result['time_sharing']*(1+1e-8)
+
+
+def test_quantum_threshold_reports_unresolved_numerical_endpoint():
+    q=module('quantum')
+    with pytest.raises(ValueError,match='numerical resolution'):
+        q.x_readout_threshold(1e-20,100,.05)
+
+
 def test_transport_membership_matches_independent_polygon_solver():
     tr=module('transport')
     for m,b in ((.01,.005),(.1,.025),(.3,0)):

@@ -8,7 +8,10 @@ from scipy.optimize import brentq,minimize_scalar
 def g_bits(x):
     if x<0 or not math.isfinite(x):
         raise ValueError('Photon number must be nonnegative and finite.')
-    return 0.0 if x==0 else (math.log1p(x)+x*math.log1p(1/x))/math.log(2)
+    if x==0:
+        return 0.0
+    second=math.log1p(x)-math.log(x) if x<=1 else math.log1p(1/x)
+    return (math.log1p(x)+x*second)/math.log(2)
 
 
 def inverse_g_bits(bits):
@@ -20,8 +23,13 @@ def inverse_g_bits(bits):
         return math.inf
     if bits>60:
         return 2.0**bits/math.e
-    high=max(1.0,2.0**bits)
-    return brentq(lambda x:g_bits(x)-bits,0,high,xtol=1e-14,rtol=1e-14)
+    # A tolerance in log photons preserves relative accuracy at low rates.
+    low=max(-744.0,math.log(bits)-12)
+    if g_bits(math.exp(low))>bits:
+        raise ValueError('Entropy is below the representable photon-number resolution.')
+    high=max(0.0,bits*math.log(2))
+    root=brentq(lambda logx:g_bits(math.exp(logx))-bits,low,high,xtol=1e-12,rtol=1e-14)
+    return math.exp(root)
 
 
 def photon_budgets(near_rate,far_rate,eta_near,eta_far):

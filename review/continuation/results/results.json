@@ -409,50 +409,50 @@
       {
         "near_rate": 1,
         "far_rate": 0.5,
-        "superposition": 2.0210812243268372,
-        "near_photons": 0.48969228890069244,
-        "beta": 0.24229223596087512,
-        "time_sharing": 2.3022653861926874,
-        "near_fraction": 0.49592724529088567,
-        "near_active_photons": 1.6942041042921068,
-        "far_active_photons": 2.900500767263854,
-        "photon_saving_fraction": 0.12213368778082156
+        "superposition": 2.021081224326838,
+        "near_photons": 0.48969228890069255,
+        "beta": 0.24229223596087507,
+        "time_sharing": 2.302265386192687,
+        "near_fraction": 0.4959272379159718,
+        "near_active_photons": 1.694204154864428,
+        "far_active_photons": 2.900500699859843,
+        "photon_saving_fraction": 0.12213368778082101
       },
       {
         "near_rate": 2,
         "far_rate": 1,
-        "superposition": 7.226392314324988,
-        "near_photons": 1.6666666666666672,
-        "beta": 0.230636062113983,
-        "time_sharing": 9.323182914312039,
-        "near_fraction": 0.5428981380042234,
-        "near_active_photons": 7.0614023272739885,
-        "far_active_photons": 12.009491090602957,
-        "photon_saving_fraction": 0.22490072534866423
+        "superposition": 7.226392314325141,
+        "near_photons": 1.6666666666666667,
+        "beta": 0.23063606211397805,
+        "time_sharing": 9.323182914311955,
+        "near_fraction": 0.5428981380303353,
+        "near_active_photons": 7.061402326307639,
+        "far_active_photons": 12.009491092033164,
+        "photon_saving_fraction": 0.22490072534864092
       },
       {
         "near_rate": 3,
         "far_rate": 1,
-        "superposition": 12.447794503664591,
+        "superposition": 12.447794503664698,
         "near_photons": 4.09535630241337,
-        "beta": 0.32900256356318464,
-        "time_sharing": 16.856997820998032,
-        "near_fraction": 0.6558585930698764,
-        "near_active_photons": 13.779965381221329,
-        "far_active_photons": 22.721151701185097,
-        "photon_saving_fraction": 0.26156515911991685
+        "beta": 0.3290025635631818,
+        "time_sharing": 16.85699782099803,
+        "near_fraction": 0.655858593074501,
+        "near_active_photons": 13.77996538089497,
+        "far_active_photons": 22.7211517019272,
+        "photon_saving_fraction": 0.2615651591199103
       },
       {
         "near_rate": 4,
         "far_rate": 2,
-        "superposition": 49.80404009567694,
-        "near_photons": 8.988587458090512,
-        "beta": 0.18047908243634103,
-        "time_sharing": 81.5602506058806,
-        "near_fraction": 0.5877553227712595,
-        "near_active_photons": 67.75346710254203,
-        "far_active_photons": 101.24518759279265,
-        "photon_saving_fraction": 0.3893589128809518
+        "superposition": 49.804040095676555,
+        "near_photons": 8.988587458090493,
+        "beta": 0.18047908243634203,
+        "time_sharing": 81.56025060588055,
+        "near_fraction": 0.5877553227996751,
+        "near_active_photons": 67.75346708690084,
+        "far_active_photons": 101.24518761740144,
+        "photon_saving_fraction": 0.38935891288095614
       }
     ],
     "robust_worst_loss": {
@@ -460,14 +460,14 @@
       "far_efficiency_lower_bound": 0.08,
       "near_rate": 3,
       "far_rate": 1,
-      "superposition": 15.130052920759711,
+      "superposition": 15.130052920759962,
       "near_photons": 4.914427562896043,
-      "beta": 0.324812318148143,
-      "time_sharing": 20.61740444103353,
-      "near_fraction": 0.6534449900768287,
-      "near_active_photons": 16.742306151991112,
-      "far_active_photons": 27.92407579341542,
-      "photon_saving_fraction": 0.266151422501694
+      "beta": 0.3248123181481376,
+      "time_sharing": 20.61740444103354,
+      "near_fraction": 0.6534449900871659,
+      "near_active_photons": 16.74230615109888,
+      "far_active_photons": 27.924075795431328,
+      "photon_saving_fraction": 0.2661514225016822
     }
   },
   "transport": {
@@ -25930,6 +25930,7 @@
           "per_energy_estimate_error_percent_must_be_below": 3.809951164735259
         }
       ],
+      "error_normalization": "Both absolute energy errors are divided by triangular energy.",
       "status": "Numerical resolution for comparing the two accepted lattice energies, not a melting prediction."
     },
     "chaos": {

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Claude factual handoff, pinned source",
+    "url": "https://github.com/mpast043/math/blob/80b50443f73da7934815df0973231b13666890f6/review/applications/README.md",
+    "accessed": "2026-10-07"
+  },
+  {
+    "id": 2,
+    "title": "Hashim et al. Practical Introduction to Benchmarking and Characterization of Quantum Computers, PRX Quantum (2025)",
+    "url": "https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.6.030202",
+    "accessed": "2026-10-07"
+  },
+  {
+    "id": 3,
+    "title": "Guha, Shapiro and Erkmen. Classical capacity of bosonic broadcast communication, Physical Review A (2007)",
+    "url": "https://arxiv.org/abs/0706.3416",
+    "accessed": "2026-10-07"
+  },
+  {
+    "id": 4,
+    "title": "Supplied three-atom transport construction",
+    "url": "https://github.com/mpast043/math/blob/80b50443f73da7934815df0973231b13666890f6/preprints/Sharp-One-Third-Stability-of-Brenier-Maps-September-25-2026/build/source/sections/sharpness.tex",
+    "accessed": "2026-10-07"
+  },
+  {
+    "id": 5,
+    "title": "Bunne et al. Learning single-cell perturbation responses using neural optimal transport, Nature Methods (2023)",
+    "url": "https://www.nature.com/articles/s41592-023-01969-x",
+    "accessed": "2026-10-07"
+  },
+  {
+    "id": 6,
+    "title": "Shinar and Feinberg. Design principles for robust biochemical reaction networks, Mathematical Biosciences (2011)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3086454/",
+    "accessed": "2026-10-07"
+  },
+  {
+    "id": 7,
+    "title": "Beber et al. Artefacts in statistical analyses of network motifs, Journal of the Royal Society Interface (2012)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3481585/",
+    "accessed": "2026-10-07"
+  },
+  {
+    "id": 8,
+    "title": "Newman. Assortative mixing in networks, Physical Review Letters (2002)",
+    "url": "https://arxiv.org/abs/cond-mat/0205405",
+    "accessed": "2026-10-07"
+  },
+  {
+    "id": 9,
+    "title": "Bunne et al. Conditional Monge Gap enables generalizable single-cell perturbation modelling, Nature Machine Intelligence (2026)",
+    "url": "https://www.nature.com/articles/s42256-026-01242-8",
+    "accessed": "2026-10-07"
+  }
+]

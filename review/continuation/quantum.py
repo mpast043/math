@@ -71,6 +71,8 @@ def x_readout_threshold(t,T1,temperature_K):
     nu=thermal_population(temperature_K)
     gamma=-math.expm1(-t/T1)
     z=bac_capacity(gamma*nu,gamma*(1-nu))
+    if z>=1.0:
+        raise ValueError('Delay is below numerical resolution for a strict encoding threshold.')
     error=brentq(lambda e:h2(e)-(1-z),0,.5,xtol=1e-14)
     contrast=1-2*error
     return -t/math.log(contrast) if contrast>0 else 0.0

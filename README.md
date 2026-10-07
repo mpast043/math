@@ -1,5 +1,11 @@
 # Readme
 
+## Scientific applications continuation
+
+The [scientific use continuation](review/continuation/README.md) develops five
+worked applications from the Claude handoff, with an illustrated research note
+and experiments proposed for all twelve uses.
+
 This repository contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model. 
 
 As part of model development, we evaluate our models on open research problems. We expanded these evaluations after performance on our existing mathematical evaluations saturated. Some outputs build upon earlier results produced by the models.
