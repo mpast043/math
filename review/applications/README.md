@@ -8,7 +8,7 @@ script checks it. None of this verifies a proof: the scripts assume the
 theorems.
 
 The write-up is `report.html` (open it in a browser). It is also published at
-__URL__, which is private until its owner shares it.
+https://claude.ai/artifact/XGLiGUXzJTaSb5wmxmkYkH, which is private until its owner shares it.
 
 | Script | Family | Question | Main output |
 |---|---|---|---|

@@ -13,7 +13,9 @@ A second part, `applications/`, turns selected results into answers to
 scientific and engineering questions (qubit memories, optical networks,
 disordered materials, spin chains, cold atoms, chaos, reaction networks,
 network null models, cryptography, optimal transport) and computes what each
-predicts. See `applications/README.md` and `applications/report.html`.
+predicts. See `applications/README.md` and `applications/report.html`, also
+published at https://claude.ai/artifact/XGLiGUXzJTaSb5wmxmkYkH (private until
+its owner shares it).
 
 ## Contents
 

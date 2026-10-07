@@ -1,0 +1,1204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
+<title>Math Repo Applications</title>
+<meta name="description" content="Results from the mpast043/math catalogue applied to open questions in physics, chemistry, networks, cryptography and machine learning, each with a computed demonstration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a lab notebook of applications. Summary table first, then one card per result
+   (question, theorem, recipe, computed figure), then a field map and reproduction notes.
+   Shares its type and palette with the companion audit page so the two read as a set. */
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --surface-2: #eceef2;
+  --ink: #161a21;
+  --ink-2: #454d5a;
+  --muted: #6c7482;
+  --rule: #d9dde4;
+  --accent: #3442a8;
+  --accent-soft: #e6e8f7;
+  --t-lean: #1f65c2; --t-lean-bg: #e1ecfa;
+  --t-partial: #9a5e00; --t-partial-bg: #f8ecd6;
+  --t-none: #5f6775; --t-none-bg: #e9ebef;
+  --s1: #0d366b; --s2: #1c5cab; --s3: #3987e5; --s4: #86b6ef;
+  --o1: #86b6ef; --o2: #2a78d6; --o3: #0d366b;
+  --c1: #2a78d6; --c2: #eb6834; --c3: #1baf7a;
+  --pos: #2a78d6; --neg: #e34948;
+  --good: #0ca30c; --warn: #fab219; --crit: #d03b3b;
+  --grid: #e3e6eb;
+  --axis: #c3c7cf;
+  --code-bg: #f0f2f6;
+  --font-display: "STIX Two Text", "STIX Two", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", "Source Sans Pro", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1116; --surface: #151a21; --surface-2: #1c222b; --ink: #e7ebf1; --ink-2: #b6bfcc; --muted: #8b95a5;
+    --rule: #2a313c; --accent: #9aa6ff; --accent-soft: #23284a;
+    --t-lean: #6aa8f2; --t-lean-bg: #172a45; --t-partial: #e6aa4a; --t-partial-bg: #3a2b12; --t-none: #a3acba; --t-none-bg: #232a34;
+    --s1: #cde2fb; --s2: #86b6ef; --s3: #3987e5; --s4: #1c5cab;
+    --o1: #1c5cab; --o2: #3987e5; --o3: #cde2fb;
+    --c1: #3987e5; --c2: #d95926; --c3: #199e70;
+    --pos: #3987e5; --neg: #e66767;
+    --grid: #262d37; --axis: #3a424e; --code-bg: #1b2129;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1116; --surface: #151a21; --surface-2: #1c222b; --ink: #e7ebf1; --ink-2: #b6bfcc; --muted: #8b95a5;
+  --rule: #2a313c; --accent: #9aa6ff; --accent-soft: #23284a;
+  --t-lean: #6aa8f2; --t-lean-bg: #172a45; --t-partial: #e6aa4a; --t-partial-bg: #3a2b12; --t-none: #a3acba; --t-none-bg: #232a34;
+  --s1: #cde2fb; --s2: #86b6ef; --s3: #3987e5; --s4: #1c5cab;
+  --o1: #1c5cab; --o2: #3987e5; --o3: #cde2fb;
+  --c1: #3987e5; --c2: #d95926; --c3: #199e70;
+  --pos: #3987e5; --neg: #e66767;
+  --grid: #262d37; --axis: #3a424e; --code-bg: #1b2129;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.55; }
+.page { max-width: 1160px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 72px; display: grid; gap: 56px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; margin: 0; letter-spacing: -0.005em; }
+h1 { font-size: clamp(2.1rem, 4.6vw, 3.1rem); line-height: 1.08; }
+h2 { font-size: 1.65rem; line-height: 1.2; }
+h3 { font-size: 1.28rem; line-height: 1.28; }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+code, .mono { font-family: var(--font-mono); font-size: 0.86em; }
+code { background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
+sub, sup { line-height: 0; }
+.eyebrow { font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.lede { font-size: 1.15rem; color: var(--ink-2); max-width: 70ch; }
+section { display: grid; gap: 22px; min-width: 0; }
+.section-head { display: grid; gap: 8px; max-width: 74ch; }
+.section-head p { color: var(--ink-2); }
+header.hero { display: grid; gap: 18px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 0.9rem; }
+
+/* Chips */
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 0.76rem; font-weight: 600; padding: 2px 9px 2px 7px; border-radius: 999px; white-space: nowrap; line-height: 1.6; }
+.chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; }
+.chip.lean { color: var(--t-lean); background: var(--t-lean-bg); }
+.chip.partial { color: var(--t-partial); background: var(--t-partial-bg); }
+.chip.none { color: var(--t-none); background: var(--t-none-bg); }
+.chip.demo { color: var(--accent); background: var(--accent-soft); }
+.chip.demo::before { border-radius: 2px; }
+
+/* Summary table */
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--rule); }
+th { font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 600; background: var(--surface-2); }
+tr:last-child td { border-bottom: none; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td .sub { color: var(--muted); font-size: 0.84rem; }
+#glance td:first-child { white-space: nowrap; color: var(--ink-2); font-weight: 600; }
+#glance td:nth-child(2) { min-width: 220px; }
+#glance td:nth-child(3) { min-width: 200px; color: var(--ink-2); }
+#glance td:nth-child(4) { min-width: 220px; }
+#glance a { font-weight: 600; }
+
+/* Trust note */
+.trust { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 22px; display: grid; gap: 12px; max-width: 100%; }
+.trust p { color: var(--ink-2); max-width: 92ch; }
+.trust .keys { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 0.88rem; color: var(--ink-2); align-items: center; }
+
+/* Application cards */
+.field-block { display: grid; gap: 18px; }
+.field-block > h2 { padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+.app { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 22px 24px; display: grid; gap: 18px; min-width: 0; scroll-margin-top: 16px; }
+.app-head { display: grid; gap: 8px; }
+.app-head .row { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 0.88rem; }
+.app-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: 26px; align-items: start; }
+.app-body.wide { grid-template-columns: minmax(0, 1fr); }
+dl.qa { margin: 0; display: grid; gap: 12px; }
+dl.qa dt { font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+dl.qa dd { margin: 3px 0 0; color: var(--ink-2); font-size: 0.97rem; }
+dl.qa dd b { color: var(--ink); }
+dl.qa dd.findings { color: var(--ink); }
+.formula { font-family: var(--font-mono); font-size: 0.84rem; background: var(--code-bg); border-radius: 8px; padding: 9px 12px; margin-top: 7px; color: var(--ink); overflow-x: auto; line-height: 1.6; }
+figure { margin: 0; display: grid; gap: 10px; min-width: 0; }
+figcaption { font-size: 0.9rem; color: var(--ink-2); }
+figcaption b { color: var(--ink); }
+.figs { display: grid; gap: 20px; min-width: 0; }
+.figs.two { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.85rem; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.legend i { width: 18px; height: 0; border-top: 2.5px solid; display: inline-block; }
+.legend i.dash { border-top-style: dashed; }
+.legend i.box { height: 10px; border: none; border-radius: 2px; width: 12px; }
+.chart-box { position: relative; }
+.chart-box svg { width: 100%; height: auto; display: block; overflow: visible; touch-action: pan-y; }
+.chart-box text { fill: var(--muted); font-family: var(--font-body); font-size: 12px; }
+.chart-box text.axis-label { fill: var(--ink-2); font-size: 12.5px; }
+.chart-box text.ref-label { fill: var(--ink-2); font-size: 11.5px; }
+.chart-box text.direct { fill: var(--ink-2); font-size: 12px; font-weight: 600; }
+.chart-box line.grid { stroke: var(--grid); stroke-width: 1; }
+.chart-box line.tick, .chart-box line.axis { stroke: var(--axis); stroke-width: 1; }
+.chart-box line.ref { stroke: var(--muted); stroke-width: 1.2; stroke-dasharray: 3 4; }
+.chart-box line.cross { stroke: var(--muted); stroke-width: 1; }
+.chart-box rect.hit { fill: transparent; cursor: crosshair; }
+.chart-box rect.hit:focus { outline: none; }
+.chart-box rect.hit:focus-visible { stroke: var(--accent); stroke-width: 1.5; }
+.tooltip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; font-size: 0.8rem; box-shadow: 0 4px 14px rgba(0,0,0,0.14); display: grid; gap: 3px; min-width: 150px; max-width: 260px; z-index: 2; }
+.tooltip .t-head { color: var(--muted); font-size: 0.75rem; }
+.tooltip .t-row { display: flex; align-items: center; gap: 8px; color: var(--ink-2); }
+.tooltip .t-row i { width: 12px; height: 0; border-top: 2.5px solid; display: inline-block; flex: none; }
+.tooltip .t-row b { font-variant-numeric: tabular-nums; color: var(--ink); margin-left: auto; padding-left: 10px; }
+details.table-view summary { cursor: pointer; color: var(--accent); font-size: 0.88rem; width: fit-content; }
+details.table-view .table-wrap { margin-top: 10px; }
+details.table-view table { font-size: 0.84rem; }
+details.table-view td, details.table-view th { padding: 6px 10px; }
+.mini-table table { font-size: 0.88rem; }
+.mini-table td, .mini-table th { padding: 7px 10px; }
+.mini-table td.hl { color: var(--ink); font-weight: 600; }
+
+/* Outcome bars (status) */
+.outcomes { display: grid; gap: 16px; }
+.outcome { display: grid; gap: 6px; }
+.outcome .name { font-size: 0.9rem; color: var(--ink); font-weight: 600; }
+.bar { display: flex; height: 22px; border-radius: 5px; overflow: hidden; gap: 2px; background: var(--surface); }
+.bar span { display: block; height: 100%; min-width: 3px; }
+.bar .ok { background: var(--good); }
+.bar .ext { background: var(--crit); }
+.bar .blow { background: var(--warn); }
+.counts { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 0.85rem; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.counts span { display: inline-flex; align-items: center; gap: 6px; }
+.counts svg { width: 14px; height: 14px; flex: none; }
+
+/* Field map */
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 14px; }
+.field { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.field h3 { font-size: 1.12rem; }
+.field ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 11px; }
+.field li { color: var(--ink-2); font-size: 0.92rem; display: grid; gap: 3px; }
+.field li .t { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
+.field li .t b { color: var(--ink); font-weight: 600; }
+.field li .t .n { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.82rem; }
+.field li .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.repro { display: grid; gap: 12px; max-width: 96ch; }
+.repro p, .repro li { color: var(--ink-2); }
+.repro ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+pre { margin: 0; background: var(--code-bg); border-radius: 8px; padding: 12px 14px; overflow-x: auto; font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.55; color: var(--ink); }
+.footer-note { color: var(--muted); font-size: 0.86rem; max-width: 96ch; border-top: 1px solid var(--rule); padding-top: 18px; }
+@media (max-width: 900px) {
+  .app-body { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 680px) {
+  #glance thead { display: none; }
+  #glance tr { display: grid; gap: 4px; padding: 12px 14px; border-bottom: 1px solid var(--rule); }
+  #glance tr:last-child { border-bottom: none; }
+  #glance td { display: block; border: none; padding: 0; min-width: 0 !important; white-space: normal !important; }
+  #glance td:first-child { font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  #glance td:nth-child(3)::before { content: "Proves: "; color: var(--muted); }
+  #glance td:nth-child(4)::before { content: "Predicts: "; color: var(--muted); }
+}
+@media (max-width: 560px) {
+  .page { padding-inline: 16px; gap: 44px; }
+  .app, .field, .trust { padding: 16px; }
+  th, td { padding: 8px 9px; }
+  #glance td:nth-child(2), #glance td:nth-child(3), #glance td:nth-child(4) { min-width: 170px; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+</style>
+
+</head>
+<body>
+<div class="page">
+<header class="hero">
+  <div class="eyebrow">Applications · 7 October 2026</div>
+  <h1>Math Repo Applications</h1>
+  <p class="lede">The catalogue in <code>mpast043/math</code> claims to settle hundreds of open problems. Many of those results are also tools. This page picks the ones that answer questions scientists and engineers ask, explains how to use each, and computes what it predicts for real systems.</p>
+  <div class="meta"><span>Companion to the <a href="https://claude.ai/artifact/124hrmVkDbQw7YEGmSi7nt">Math Repo Review</a> audit</span><span>12 computed demonstrations · 72 results mapped by field</span><span>Code and outputs: <code>review/applications/</code></span></div>
+</header>
+
+<section aria-labelledby="glance-h">
+  <div class="section-head">
+    <h2 id="glance-h">Key takeaways</h2>
+    <p>Each row is a question that was open before this catalogue, the result that answers it, and the number I computed from it. Follow a row to its card for the method and the figure.</p>
+  </div>
+  <div class="table-wrap">
+    <table id="glance">
+      <thead><tr><th scope="col">Field</th><th scope="col">Open question</th><th scope="col">What the catalogue proves</th><th scope="col">What it predicts here</th></tr></thead>
+      <tbody>
+        <tr><td>Quantum memory</td><td><a href="#qubit">How many classical bits can a qubit store while it relaxes toward a thermal state?</a></td><td>Exact capacity of generalized amplitude damping (276)</td><td>0.361 bit after one T₁ at 50 mK, 75% more than the standard |0⟩/|1⟩ code</td></tr>
+        <tr><td>Optical networks</td><td><a href="#optical">What is the capacity region of a lossy optical broadcast link?</a></td><td>The entropy photon-number inequality, which completes the converse (273)</td><td>Superposition coding beats time sharing by 6% to 31%</td></tr>
+        <tr><td>Disordered materials</td><td><a href="#anderson">Is every disordered 2D system an insulator, and do 3D metals survive weak disorder?</a></td><td>Yes to both, for the Anderson model (261)</td><td>64 × 64 samples still look metallic at W ≤ 4; the theorem settles what simulation cannot</td></tr>
+        <tr><td>Quantum magnets</td><td><a href="#haldane">Is the spin-1 Heisenberg chain gapped?</a></td><td>The gap stays positive on even rings of any length (268)</td><td>Gap extrapolates to 0.419 J (DMRG: 0.411); spin-½ states at the ends of open chains</td></tr>
+        <tr><td>Ultracold atoms</td><td><a href="#bec">How many atoms does a dilute condensate lose to interactions at zero temperature?</a></td><td>Bogoliubov depletion and momentum law; condensation at positive temperature (267)</td><td>0.2–0.6% in Na and Rb condensates, 6.7% in a Feshbach-tuned K box</td></tr>
+        <tr><td>Stability of matter</td><td><a href="#lieb">How close is the Lieb–Thirring kinetic-energy constant to Thomas–Fermi?</a></td><td>Sharp one-dimensional Lieb–Thirring constants for matrix potentials (262)</td><td>K ≥ 90.9% of the Thomas–Fermi value, up from 77.8%</td></tr>
+        <tr><td>2D crystals</td><td><a href="#crystal">Which crystal do particles with screened Coulomb repulsion form in a plane?</a></td><td>The triangular lattice is universally optimal (090)</td><td>The square lattice costs 0.2% to 7.6% more energy</td></tr>
+        <tr><td>Chaos</td><td><a href="#standard">Is the standard map chaotic on a set of positive area?</a></td><td>Positive metric entropy for every large K (146)</td><td>Entropy within 0.011 of ln(K/2) for every K ≥ 10</td></tr>
+        <tr><td>Chemistry and biology</td><td><a href="#crn">Can a weakly reversible reaction network lose a species for some rate constants?</a></td><td>No: permanence holds for every choice of rates (149)</td><td>All 900 near-boundary runs recover; breaking weak reversibility caused 183 failures</td></tr>
+        <tr><td>Network science</td><td><a href="#switch">Is the switch chain a valid null model for every degree sequence?</a></td><td>Polynomial mixing for every graphical sequence (131)</td><td>Karate-club triangles: z = 1.3 with the correct null model, not 5.9</td></tr>
+        <tr><td>Cryptography</td><td><a href="#smooth">How often are p − 1, and pairs n, n + 1, smooth?</a></td><td>Poisson–Dirichlet law for p − 1 and the joint Dickman law (011, 012)</td><td>Pollard p − 1 on a random 512-bit prime with B = 2⁴⁰ succeeds with probability 7 × 10⁻¹⁶</td></tr>
+        <tr><td>Machine learning</td><td><a href="#ot">How far can an optimal transport map move when the target distribution is slightly off?</a></td><td>Stability exponent 1/3, and no better (374)</td><td>Measured slopes 0.333 with a small cluster, 0.500 with balanced clusters</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section aria-labelledby="trust-h">
+  <div class="trust">
+    <h2 id="trust-h">How far to trust these results</h2>
+    <p>The papers are unrefereed, were written by an AI model, and are dated 10 September to 6 October 2026. The demonstrations below assume each theorem and compute its consequences. Where a prediction can be tested numerically (chaos in the standard map, level statistics, the transport counterexample, network simulations), the numbers agree with the theorem. A simulation can contradict a theorem but cannot prove one. Each card carries the evidence level from the audit.</p>
+    <div class="keys"><span class="chip lean">Lean: headline</span> formal statement matches the claim <span class="chip partial">Lean: partial</span> only part is formalized <span class="chip none">Paper only</span> no formal proof in the repository</div>
+  </div>
+</section>
+
+<div class="field-block" id="quantum">
+<h2>Quantum information</h2>
+
+<article class="app" id="qubit">
+  <div class="app-head">
+    <div class="eyebrow">Family 276 · quantum memories and links</div>
+    <h3>How many classical bits can a decaying qubit hold?</h3>
+    <div class="row"><span class="chip lean">Lean: headline</span><a href="https://github.com/mpast043/math/blob/main/preprints/Classical-capacity-and-entropy-inequalities-for-generalized-amplitude-damping-September-24-2026/paper.pdf" target="_blank" rel="noopener">Paper (PDF)</a></div>
+  </div>
+  <div class="app-body">
+    <dl class="qa">
+      <div><dt>Open question</dt><dd>A superconducting qubit left idle relaxes toward a thermal state. That process is the generalized amplitude-damping channel. Its classical capacity, the most information the qubit can carry per use with the best encoding and decoding, was known only at zero temperature or in special cases.</dd></div>
+      <div><dt>What the catalogue proves</dt><dd>The capacity is reached by two pure signal states √(1−p)|0⟩ ± √p|1⟩ with collective decoding, so it is a one-variable maximization. It is additive: entangling inputs across uses, or with any other channel, does not raise it.</dd></div>
+      <div><dt>How to use it</dt><dd>Set the damping γ = 1 − e<sup>−t/T₁</sup> and the thermal population ν = 1/(1 + e<sup>hf/kT</sup>), then maximize over p:
+        <div class="formula">C = max<sub>p</sub> [ h((1−γ)p + γν) − h(½ + ½√(1−4u)) ]<br>u = γν(1−ν) + γ(1−γ)(p−ν)²,  h = binary entropy in bits</div></dd></div>
+      <div><dt>What I computed</dt><dd class="findings">For a 5 GHz qubit with T₁ = 100 µs, after waiting one T₁ at 50 mK the capacity is <b>0.361 bit</b>. Writing the bit as |0⟩ or |1⟩ and reading in that basis gives 0.206 bit, so the optimal code carries <b>75% more</b>. The best signal states put about 41% weight on |1⟩. Capacity halves after 62 µs at 30–50 mK and after 57 µs at 100 mK.</dd></div>
+      <div><dt>Limits</dt><dd>Capacity is an asymptotic rate. It needs long codes and joint measurements across many stored qubits; one-shot readout gets less.</dd></div>
+    </dl>
+    <figure>
+      <figcaption><b>Capacity of an idle qubit</b> against storage time, for four effective temperatures, with the standard |0⟩/|1⟩ encoding at 50 mK for comparison.</figcaption>
+      <div class="legend" id="qubit-legend"></div>
+      <div class="chart-box" id="qubit-chart"></div>
+      <details class="table-view"><summary>Show data table</summary><div class="table-wrap" id="qubit-table"></div></details>
+    </figure>
+  </div>
+</article>
+
+<article class="app" id="optical">
+  <div class="app-head">
+    <div class="eyebrow">Family 273 · optical communication</div>
+    <h3>What rates can one optical transmitter send to a near and a far receiver?</h3>
+    <div class="row"><span class="chip lean">Lean: headline</span><a href="https://github.com/mpast043/math/blob/main/preprints/The-entropy-photon-number-inequality-September-24-2026/paper.pdf" target="_blank" rel="noopener">Paper (PDF)</a></div>
+  </div>
+  <div class="app-body">
+    <dl class="qa">
+      <div><dt>Open question</dt><dd>A beam splitter, a fibre tap or a diverging free-space beam delivers a fraction η<sub>B</sub> of the light to a near receiver and η<sub>C</sub> to a far one. In 2007 Guha, Shapiro and Erkmen found a coding scheme for this broadcast channel and showed it is optimal if the entropy photon-number inequality (EPnI) holds. The inequality stayed unproved, so the capacity region was unknown.</dd></div>
+      <div><dt>What the catalogue proves</dt><dd>The EPnI for any number of modes, with entanglement allowed inside each input. This completes the converse: the capacity region is the one below, reached by superposition coding with coherent states. A corollary gives the minimum output entropy of a thermal-noise attenuator.</dd></div>
+      <div><dt>How to use it</dt><dd>With N mean photons per use, sweep 0 ≤ β ≤ 1:
+        <div class="formula">R<sub>B</sub> ≤ g(η<sub>B</sub> β N),  R<sub>C</sub> ≤ g(η<sub>C</sub> N) − g(η<sub>C</sub> β N)<br>g(x) = (x+1) log₂(x+1) − x log₂ x</div></dd></div>
+      <div><dt>What I computed</dt><dd class="findings">When the near receiver gets half its maximum rate, superposition coding gives the far receiver <b>6% more</b> than time sharing for a 50/25 fibre split at N = 1, 11% at N = 10, and <b>28–31% more</b> for a free-space link with 60% and 10% collection at N = 10–100.</dd></div>
+      <div><dt>Limits</dt><dd>Pure-loss channels only (no added thermal noise), and the rates assume ideal joint-detection receivers.</dd></div>
+    </dl>
+    <figure>
+      <figcaption><b>Capacity region</b> for the free-space case (η<sub>B</sub> = 0.6, η<sub>C</sub> = 0.1, N = 100), against the time-sharing line that a naive design achieves.</figcaption>
+      <div class="legend" id="optical-legend"></div>
+      <div class="chart-box" id="optical-chart"></div>
+      <div class="table-wrap mini-table" id="optical-table"></div>
+    </figure>
+  </div>
+</article>
+</div>
+
+<div class="field-block" id="matter">
+<h2>Condensed matter and atomic physics</h2>
+
+<article class="app" id="anderson">
+  <div class="app-head">
+    <div class="eyebrow">Family 261 · disordered materials</div>
+    <h3>Does any amount of disorder make a two-dimensional material insulating?</h3>
+    <div class="row"><span class="chip partial">Lean: partial</span><a href="https://github.com/mpast043/math/blob/main/preprints/Pure-Point-Spectrum-for-the-Two-Dimensional-Anderson-Model-at-Every-Positive-Disorder-September-23-2026/paper.pdf" target="_blank" rel="noopener">2D paper (PDF)</a><a href="https://github.com/mpast043/math/blob/main/preprints/Absolutely-Continuous-Spectrum-for-Weak-Disorder-Anderson-Models-in-Dimensions-at-Least-Three-September-23-2026/paper.pdf" target="_blank" rel="noopener">3D paper (PDF)</a></div>
+  </div>
+  <div class="app-body">
+    <dl class="qa">
+      <div><dt>Open question</dt><dd>The scaling theory of localization (Abrahams, Anderson, Licciardello and Ramakrishnan, 1979) predicts that in two dimensions every electron state is localized at any disorder, while three dimensions keep a metallic phase when disorder is weak. Neither statement had a proof for the Anderson model, and the 2D one cannot be settled by simulation: the localization length grows so fast as disorder decreases that it outruns any sample.</dd></div>
+      <div><dt>What the catalogue proves</dt><dd>For hopping 1 and site energies uniform on [−W/2, W/2]: in 2D the spectrum is pure point (all states localized) for every W &gt; 0; in 3D and higher, weak disorder leaves an energy interval of absolutely continuous spectrum (extended states).</dd></div>
+      <div><dt>How to use it</dt><dd>Treat weakly disordered 2D systems (thin films, 2D photonic or cold-atom lattices with on-site disorder) as insulators in the infinite-size limit, however metallic a finite sample looks. In 3D, the metallic phase at weak disorder is now a theorem rather than an extrapolation.</dd></div>
+      <div><dt>What I computed</dt><dd class="findings">The level-spacing ratio ⟨r⟩ near the band centre is 0.531 for extended states and 0.386 for localized ones. In 2D, ⟨r⟩ falls with system size for every W ≥ 6 (W = 8: 0.504, 0.478, 0.441 for L = 16, 32, 64). For W ≤ 4 the 64 × 64 samples stay at the extended value (W = 4: 0.533): their localization length is longer than the sample, so simulation alone would call them metals. <b>The theorem says they are insulators.</b> In 3D, ⟨r⟩ stays near 0.53 at every size for W ≤ 14, sits near the critical value at W = 16.5 (0.513), and falls with size for W ≥ 19: the metal–insulator transition at the known W<sub>c</sub> ≈ 16.5, whose metallic side the 3D theorem establishes.</dd></div>
+      <div><dt>Limits</dt><dd>The audit found that Lean covers only the almost-sure spectrum. The 2D localization theorem is paper-only and is the claim to referee first.</dd></div>
+    </dl>
+    <figure>
+      <figcaption><b>Mean level-spacing ratio</b> against disorder W for three system sizes. A rise with size means extended states; a fall means localization.</figcaption>
+      <div class="legend" id="anderson-legend"></div>
+      <div class="figs two">
+        <div><div class="eyebrow">Two dimensions, L × L</div><div class="chart-box" id="anderson-2d"></div></div>
+        <div><div class="eyebrow">Three dimensions, L × L × L</div><div class="chart-box" id="anderson-3d"></div></div>
+      </div>
+      <details class="table-view"><summary>Show data table</summary><div class="table-wrap" id="anderson-table"></div></details>
+    </figure>
+  </div>
+</article>
+
+<article class="app" id="haldane">
+  <div class="app-head">
+    <div class="eyebrow">Family 268 · quantum magnets</div>
+    <h3>Is the spin-1 Heisenberg chain gapped?</h3>
+    <div class="row"><span class="chip none">Paper only</span><a href="https://github.com/mpast043/math/blob/main/preprints/The-periodic-spin-one-Haldane-gap-September-24-2026/paper.pdf" target="_blank" rel="noopener">Periodic gap (PDF)</a><a href="https://github.com/mpast043/math/blob/main/preprints/A-boundary-field-gap-for-the-spin-one-Heisenberg-chain-September-24-2026/paper.pdf" target="_blank" rel="noopener">Boundary-field gap (PDF)</a></div>
+  </div>
+  <div class="app-body">
+    <dl class="qa">
+      <div><dt>Open question</dt><dd>Haldane predicted in 1983 that antiferromagnetic chains of integer spin have an energy gap while half-integer chains do not. Experiments on nickel chain compounds (NENP, Y₂BaNiO₅) and numerics (DMRG: 0.41048 J) agree, and the gapped Haldane phase became the standard example of a symmetry-protected topological phase. A proof existed only for the AKLT model, not for the Heisenberg chain itself.</dd></div>
+      <div><dt>What the catalogue proves</dt><dd>On even periodic rings, the gap of H = Σ S<sub>i</sub>·S<sub>i+1</sub> stays above a positive constant as the ring grows. A companion proves a gap for odd open chains with an end field and builds boundary states with topological index −1.</dd></div>
+      <div><dt>How to use it</dt><dd>Spin-1 chain models of real compounds can rely on a bulk gap, so correlations decay exponentially and the ground state is short-range entangled. The value of the gap still comes from numerics.</dd></div>
+      <div><dt>What I computed</dt><dd class="findings">On periodic rings the gap falls from 1.000 J at L = 4 to 0.4428 J at L = 16, and a fit Δ + a e<sup>−L/ξ</sup> to L ≥ 8 gives <b>Δ = 0.419 J</b>, against the DMRG value 0.4105 J. On an open chain of 16 sites the lowest triplet lies only 0.0496 J above the singlet, a splitting that shrinks like e<sup>−L/5.7</sup> (the spin correlation length is about 6), while the next level stays 0.60 J up. In that triplet the magnetization sits at the ends: +0.52 on each end site, alternating and decaying inward, and at most 0.086 on the four central sites. A bulk excitation would peak in the middle instead. This is <b>a free spin-½ at each end</b>, the signature of the Haldane phase.</dd></div>
+      <div><dt>Limits</dt><dd>The proof gives positivity, not 0.41 J. Neither paper has a Lean formalization.</dd></div>
+    </dl>
+    <div class="figs">
+      <figure>
+        <figcaption><b>Gap against chain length.</b> Periodic rings converge quickly; the open-chain bulk gap converges slowly because the excitation must fit between the ends.</figcaption>
+        <div class="legend" id="haldane-legend"></div>
+        <div class="chart-box" id="haldane-chart"></div>
+      </figure>
+      <figure>
+        <figcaption><b>Edge spins.</b> Magnetization ⟨S<sup>z</sup><sub>i</sub>⟩ along an open chain of 16 sites in its lowest S<sup>z</sup> = 1 state: the spin sits at the two ends.</figcaption>
+        <div class="legend" id="edge-legend"></div>
+        <div class="chart-box" id="edge-chart"></div>
+        <details class="table-view"><summary>Show data table</summary><div class="table-wrap" id="haldane-table"></div></details>
+      </figure>
+    </div>
+  </div>
+</article>
+
+<article class="app" id="bec">
+  <div class="app-head">
+    <div class="eyebrow">Family 267 · ultracold atoms</div>
+    <h3>How much of a Bose–Einstein condensate is not condensed?</h3>
+    <div class="row"><span class="chip partial">Lean: partial</span><a href="https://github.com/mpast043/math/blob/main/preprints/Quantum-Depletion-and-Momentum-Distribution-in-the-Dilute-Hard-Sphere-Bose-Gas-October-5-2026/Quantum-Depletion-in-the-Dilute-Hard-Sphere-Bose-Gas.pdf" target="_blank" rel="noopener">Depletion paper (PDF)</a><a href="https://github.com/mpast043/math/blob/main/preprints/Bose-Einstein-condensation-at-positive-temperature-in-the-dilute-hard-sphere-gas-October-5-2026/positive-temperature-hard-spheres.pdf" target="_blank" rel="noopener">Positive temperature (PDF)</a></div>
+  </div>
+  <div class="app-body">
+    <dl class="qa">
+      <div><dt>Open question</dt><dd>Bogoliubov's 1947 theory predicts that interactions push a fraction (8/3√π)√(ρa³) of atoms out of the condensate even at zero temperature, with a definite momentum distribution. Whether an interacting gas in three dimensions condenses at all at positive temperature was also unproved.</dd></div>
+      <div><dt>What the catalogue proves</dt><dd>For hard spheres, with the thermodynamic limit taken first: the full Bogoliubov momentum distribution of the depleted atoms, hence the depletion law, and the depletion law also for bounded repulsive potentials. A companion proves condensation at a positive temperature for the dilute hard-sphere gas.</dd></div>
+      <div><dt>How to use it</dt><dd>Compute ρa³ from density and scattering length. The depleted fraction is 1.5045√(ρa³). The depleted atoms have momentum profile g(k/k<sub>ξ</sub>) with k<sub>ξ</sub> = √(8πρa), which falls off as (4πρa)²/k⁴, the Bogoliubov value of Tan's contact.</dd></div>
+      <div><dt>What I computed</dt><dd class="findings">Typical sodium and rubidium condensates lose <b>0.2–0.6%</b> of atoms to depletion. Feshbach-enhanced potassium in a box trap at a = 3000 a₀ reaches <b>6.7%</b>, large enough to measure. The total mass of the Bogoliubov profile integrates to 1.504506, matching 8/(3√π).</dd></div>
+      <div><dt>Limits</dt><dd>Leading order in √(ρa³). Near ρa³ ~ 10⁻³ higher-order corrections matter, and trapped clouds need a local-density average.</dd></div>
+    </dl>
+    <figure>
+      <figcaption><b>Predicted zero-temperature depletion</b> for representative experiments (computed, not measured).</figcaption>
+      <div class="table-wrap mini-table" id="bec-table"></div>
+    </figure>
+  </div>
+</article>
+
+<article class="app" id="lieb">
+  <div class="app-head">
+    <div class="eyebrow">Family 262 · stability of matter</div>
+    <h3>How much kinetic energy must a gas of electrons carry?</h3>
+    <div class="row"><span class="chip lean">Lean: headline</span><a href="https://github.com/mpast043/math/blob/main/preprints/Sharp-one-dimensional-Lieb-Thirring-inequalities-for-matrix-potentials-October-5-2026/sharp-matrix-lieb-thirring.pdf" target="_blank" rel="noopener">Paper (PDF)</a></div>
+  </div>
+  <div class="app-body">
+    <dl class="qa">
+      <div><dt>Open question</dt><dd>The Lieb–Thirring inequality bounds the kinetic energy of N fermions by their density, T ≥ K ∫ρ<sup>5/3</sup>. It is the analytic core of the proof that ordinary matter is stable. The best constant K is a 50-year-old problem; the conjecture is that K equals the Thomas–Fermi value. Even the one-dimensional version was open for 1/2 &lt; γ &lt; 3/2.</dd></div>
+      <div><dt>What the catalogue proves</dt><dd>In one dimension, for 1/2 &lt; γ &lt; 3/2 and matrix-valued potentials of any size, the sharp constant is the scalar one-bound-state value. Equality holds only for sech² solitons.</dd></div>
+      <div><dt>How to use it</dt><dd>Matrix-valued bounds in one dimension lift to any dimension by the Laptev–Weidl argument. The ratio to the classical constant is R<sub>γ</sub> = 2((2γ−1)/(2γ+1))<sup>γ−1/2</sup>; lifting at γ = 1 gives L<sub>1,3</sub> ≤ (2/√3)·L<sup>cl</sup><sub>1,3</sub>, and the kinetic constant follows by duality.</dd></div>
+      <div><dt>What I computed</dt><dd class="findings">The kinetic-energy constant improves to <b>K ≥ 8.28</b>, which is <b>90.9%</b> of the Thomas–Fermi value 9.12 (one spin state, ħ²/2m = 1). The 2021 bound of Frank, Hundertmark, Jex and Nam gives 77.8%. Numerically, sech² wells saturate the 1D bound, and 18 random 2×2 and 3×3 matrix potentials stay below it (largest ratio 0.998).</dd></div>
+      <div><dt>Limits</dt><dd>This is an upper bound on the 3D Lieb–Thirring constant. The 3D conjecture K = K<sub>TF</sub> remains open.</dd></div>
+    </dl>
+    <figure>
+      <figcaption><b>Sharp one-dimensional constants</b> and the three-dimensional bounds they imply.</figcaption>
+      <div class="table-wrap mini-table" id="lieb-table"></div>
+    </figure>
+  </div>
+</article>
+
+<article class="app" id="crystal">
+  <div class="app-head">
+    <div class="eyebrow">Family 090 · two-dimensional crystals</div>
+    <h3>Which crystal do screened charges form in two dimensions?</h3>
+    <div class="row"><span class="chip lean">Lean: headline</span><a href="https://github.com/mpast043/math/blob/main/preprints/An-atomic-certificate-for-triangular-lattice-universal-optimality-September-26-2026/paper.pdf" target="_blank" rel="noopener">Paper (PDF)</a></div>
+  </div>
+  <div class="app-body">
+    <dl class="qa">
+      <div><dt>Open question</dt><dd>Dusty plasmas, charged colloids at interfaces and electrons on liquid helium crystallize under screened Coulomb (Yukawa) repulsion e<sup>−κr</sup>/r. Simulations always find the triangular lattice, but no proof covered all configurations, periodic or not, at every screening length.</dd></div>
+      <div><dt>What the catalogue proves</dt><dd>Universal optimality in the plane (the Cohn–Kumar conjecture): the triangular lattice minimizes energy per particle for every completely monotone function of squared distance, among all configurations of the same density. The Yukawa potential is such a function for every κ.</dd></div>
+      <div><dt>How to use it</dt><dd>Take the triangular lattice as the exact zero-temperature ground state, and its lattice sum as the reference energy, for melting-curve and defect calculations at any κ.</dd></div>
+      <div><dt>What I computed</dt><dd class="findings">At density 1, the square lattice costs <b>+0.22%</b> at κ = 0.5 and <b>+7.6%</b> at κ = 4. Honeycomb and kagome cost 1.4–44%, and randomly displacing the triangular lattice always raised the energy.</dd></div>
+      <div><dt>Limits</dt><dd>Ground states only. The theorem says nothing about melting, and nothing about potentials with attraction, which are not completely monotone.</dd></div>
+    </dl>
+    <figure>
+      <figcaption><b>Energy above the triangular lattice</b> for other structures, by screening parameter κ.</figcaption>
+      <div class="table-wrap mini-table" id="crystal-table"></div>
+    </figure>
+  </div>
+</article>
+</div>
+
+<div class="field-block" id="dynamics">
+<h2>Dynamics, chemistry and biology</h2>
+
+<article class="app" id="standard">
+  <div class="app-head">
+    <div class="eyebrow">Family 146 · Hamiltonian chaos</div>
+    <h3>Is the chaos in the standard map real?</h3>
+    <div class="row"><span class="chip lean">Lean: headline</span><a href="https://github.com/mpast043/math/blob/main/preprints/Positive-Metric-Entropy-for-the-Standard-Map-at-Large-Parameters-September-23-2026/paper.pdf" target="_blank" rel="noopener">Paper (PDF)</a></div>
+  </div>
+  <div class="app-body">
+    <dl class="qa">
+      <div><dt>Open question</dt><dd>The Chirikov standard map, p′ = p + K sin x, x′ = x + p′, is the textbook model of Hamiltonian chaos: the kicked rotor, particles in circular accelerators, magnetic field lines in tokamaks. Simulations show chaos on almost all of phase space for large K, but stable islands persist for arbitrarily large K, and Sinai's conjecture that the metric entropy is positive stayed open.</dd></div>
+      <div><dt>What the catalogue proves</dt><dd>The map has positive metric entropy with respect to area for every sufficiently large K. By Pesin's formula, chaotic orbits fill a set of positive area.</dd></div>
+      <div><dt>How to use it</dt><dd>Models that reduce to the standard map now have provably chaotic dynamics at strong kicking. The entropy, close to ln(K/2) per kick, sets how fast predictions lose accuracy: a small error grows by a factor of about K/2 per kick, tenfold at K = 20.</dd></div>
+      <div><dt>What I computed</dt><dd class="findings">From 25,600 orbits of 2,000 iterations, the area-averaged Lyapunov exponent is within <b>0.011 of ln(K/2)</b> for every K ≥ 10 (3.912 against 3.912 at K = 100). Chaotic orbits cover 100% of the torus except near the accelerator modes at K = 2π and 4π, where islands keep <b>0.25%</b> and <b>0.07%</b> of the area.</dd></div>
+      <div><dt>Limits</dt><dd>The theorem gives positivity for large K, not the value ln(K/2) and not a threshold value of K.</dd></div>
+    </dl>
+    <figure>
+      <figcaption><b>Entropy estimate</b> (area average of the positive Lyapunov exponent) against kick strength K, with Chirikov's prediction ln(K/2).</figcaption>
+      <div class="legend" id="standard-legend"></div>
+      <div class="chart-box" id="standard-chart"></div>
+      <details class="table-view"><summary>Show data table</summary><div class="table-wrap" id="standard-table"></div></details>
+    </figure>
+  </div>
+</article>
+
+<article class="app" id="crn">
+  <div class="app-head">
+    <div class="eyebrow">Family 149 · chemical reaction networks</div>
+    <h3>Can a reaction network lose a species, whatever its rate constants?</h3>
+    <div class="row"><span class="chip lean">Lean: headline</span><a href="https://github.com/mpast043/math/blob/main/preprints/Uniform-Permanence-in-Weakly-Reversible-Mass-Action-Systems-October-5-2026/permanence.pdf" target="_blank" rel="noopener">Paper (PDF)</a></div>
+  </div>
+  <div class="app-body">
+    <dl class="qa">
+      <div><dt>Open question</dt><dd>Biochemical and ecological models usually come with a known reaction graph and unknown rates. The permanence conjecture says that if every reaction lies on a directed cycle of complexes (weak reversibility), then for any rates no species dies out and none blows up. It was known for complex-balanced systems, in low dimension and for one linkage class.</dd></div>
+      <div><dt>What the catalogue proves</dt><dd>Every weakly reversible mass-action system, with any positive rate constants and any deficiency, is permanent: each positive stoichiometric class has a compact absorbing set inside the positive orthant.</dd></div>
+      <div><dt>How to use it</dt><dd>Check one graph property by hand: does every reaction y → y′ have a path of reactions back from y′ to y? If so, every concentration eventually stays between positive bounds, for every choice of rates.</dd></div>
+      <div><dt>What I computed</dt><dd class="findings">300 random weakly reversible networks (4 species, two or three linkage classes, deficiency 1–5, rates spread over two decades), each started three times with some species at 10<sup>−6</sup> of a typical level: <b>all 900 runs</b> returned to the same long-run state as a start in the interior (ratio of long-run minima 0.988–1.000) and none blew up. Removing one reaction so that weak reversibility fails led to extinction in 123 runs and blow-up in 60 (<b>20%</b>).</dd></div>
+      <div><dt>Limits</dt><dd>Mass-action kinetics with constant rates. The theorem bounds the long-run state, not the time it takes to recover.</dd></div>
+    </dl>
+    <figure>
+      <figcaption><b>Long-run outcomes</b> of 900 simulations started next to the boundary, for random weakly reversible networks and for the same networks with one reaction removed.</figcaption>
+      <div class="outcomes" id="crn-bars"></div>
+    </figure>
+  </div>
+</article>
+</div>
+
+<div class="field-block" id="data">
+<h2>Networks, cryptography and machine learning</h2>
+
+<article class="app" id="switch">
+  <div class="app-head">
+    <div class="eyebrow">Family 131 · network science</div>
+    <h3>Can random graphs with given degrees be sampled correctly for every network?</h3>
+    <div class="row"><span class="chip lean">Lean: headline</span><a href="https://github.com/mpast043/math/blob/main/preprints/Polynomial-Mixing-of-the-Switch-Chain-for-Every-Graphical-Degree-Sequence-September-25-2026/main.pdf" target="_blank" rel="noopener">Paper (PDF)</a></div>
+  </div>
+  <div class="app-body">
+    <dl class="qa">
+      <div><dt>Open question</dt><dd>To decide whether a network has more triangles, motifs or assortativity than chance, one compares it with uniformly random graphs that have the same degrees. The edge-switch Markov chain is the standard sampler, but its mixing was proved only for restricted degree sequences (the Kannan–Tetali–Vempala conjecture).</dd></div>
+      <div><dt>What the catalogue proves</dt><dd>The lazy switch chain mixes in O(n⁸) steps for every graphical degree sequence, and degree-constrained graphs can be sampled exactly uniformly in expected polynomial time.</dd></div>
+      <div><dt>How to use it</dt><dd>Use the switch chain for any degree sequence, however heterogeneous, and measure its autocorrelation time to space the samples. The polynomial bound is a correctness guarantee; real mixing is far faster.</dd></div>
+      <div><dt>What I computed</dt><dd class="findings">On all 19,355 cubic graphs on 8 labelled vertices, the exact transition matrix is symmetric, so the stationary law is uniform, and it mixes in <b>38 steps</b> (bound: 3.4 × 10⁷). On Zachary's karate club (34 nodes, 78 edges, 45 triangles), rejection sampling produced <b>0 simple graphs in 20,000</b> tries, and the "erased" configuration model drops 12 of 78 edges and predicts 17.5 ± 4.7 triangles, which would wrongly make 45 look extreme (z ≈ 5.9). The switch chain gives <b>39.3 ± 4.5, z = 1.3</b>: the club's triangles are mostly explained by its degrees.</dd></div>
+      <div><dt>Limits</dt><dd>The O(n⁸) bound is far too large to set run lengths; use measured autocorrelation (here about one switch attempt per edge).</dd></div>
+    </dl>
+    <figure>
+      <figcaption><b>Triangle count</b> in uniformly random graphs with the karate club's degrees (switch chain, about 3,800 effective samples), against the observed count and the erased-model mean.</figcaption>
+      <div class="legend" id="switch-legend"></div>
+      <div class="chart-box" id="switch-chart"></div>
+      <details class="table-view"><summary>Show data table</summary><div class="table-wrap" id="switch-table"></div></details>
+    </figure>
+  </div>
+</article>
+
+<article class="app" id="smooth">
+  <div class="app-head">
+    <div class="eyebrow">Families 011 and 012 · cryptography</div>
+    <h3>How often are p − 1, or two neighbouring integers, smooth?</h3>
+    <div class="row"><span class="chip none">011: Paper only</span><span class="chip lean">012: Lean: headline</span><a href="https://github.com/mpast043/math/blob/main/preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/paper.pdf" target="_blank" rel="noopener">p − 1 paper (PDF)</a><a href="https://github.com/mpast043/math/blob/main/preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/paper.pdf" target="_blank" rel="noopener">n, n + 1 paper (PDF)</a></div>
+  </div>
+  <div class="app-body">
+    <dl class="qa">
+      <div><dt>Open question</dt><dd>Pollard's p − 1 method factors an RSA modulus when p − 1 has only small prime factors, and isogeny-based signatures need pairs of consecutive smooth integers. Both rely on the heuristic that p − 1, and the pair n, n + 1, behave like independent random integers. The Ford–Konyagin–Luca and Erdős–Pomerance conjectures made that heuristic precise.</dd></div>
+      <div><dt>What the catalogue proves</dt><dd>The prime factors of p − 1 follow the Poisson–Dirichlet law, so P(p − 1 is p<sup>1/u</sup>-smooth) → ρ(u), Dickman's function. The largest prime factors of n and n + 1 are asymptotically independent, so P(both smooth) → ρ(u)².</dd></div>
+      <div><dt>How to use it</dt><dd>Stage 1 of Pollard p − 1 with bound B succeeds on a random prime p with probability ρ(u), u = log p / log B. A first-order correction ρ(u − κ/log B), with κ = Σ log q/(q−1)² = 1.2270, accounts for the extra small primes that always divide p − 1. Searches for twin smooth integers find pairs at density ρ(u)².</dd></div>
+      <div><dt>What I computed</dt><dd class="findings">Up to 10⁸, p − 1 is smoother than a random integer at every size, but the excess shrinks with each decade and the κ-correction predicts it (u = 1.5: measured 1.126, predicted 1.121). A random 512-bit prime falls to stage 1 with B = 2⁴⁰ with probability <b>7.2 × 10⁻¹⁶</b>, so the old "strong prime" rules buy almost nothing. Near 2²⁵⁶, pairs that are both 2³²-smooth occur at density <b>2<sup>−49.8</sup></b>, so about 2²⁰⁶ such pairs exist in [X, 2X].</dd></div>
+      <div><dt>Limits</dt><dd>These are limit laws. ρ(u) is the leading term at cryptographic sizes, and for very small B the true twin-smooth density is larger than ρ(u)².</dd></div>
+    </dl>
+    <div class="figs">
+      <figure>
+        <figcaption><b>Smoothness at u = log x / log y</b> for integers and primes in [10⁷, 10⁸]: share of n and of p − 1 that are y-smooth, their ratio, the κ-correction model, and P(n and n + 1 smooth) / (P(n) P(n + 1)). Both ratios tend to 1 in the limit.</figcaption>
+        <div class="table-wrap mini-table" id="smooth-table"></div>
+      </figure>
+      <figure>
+        <figcaption><b>Applications</b> computed with Dickman's ρ to 10 significant figures.</figcaption>
+        <div class="table-wrap mini-table" id="crypto-table"></div>
+      </figure>
+    </div>
+  </div>
+</article>
+
+<article class="app" id="ot">
+  <div class="app-head">
+    <div class="eyebrow">Family 374 · optimal transport in machine learning</div>
+    <h3>How much can an optimal transport map move when the target is slightly wrong?</h3>
+    <div class="row"><span class="chip lean">Lean: headline</span><a href="https://github.com/mpast043/math/blob/main/preprints/Sharp-One-Third-Stability-of-Brenier-Maps-September-25-2026/article.pdf" target="_blank" rel="noopener">Paper (PDF)</a></div>
+  </div>
+  <div class="app-body">
+    <dl class="qa">
+      <div><dt>Open question</dt><dd>Transport maps are estimated from data in domain adaptation, generative modelling and single-cell trajectory inference. The error in the map is controlled by a stability inequality ‖T<sub>μ</sub> − T<sub>ν</sub>‖ ≤ C·W₂(μ, ν)<sup>α</sup>. Letrouit conjectured α = 1/2 for a uniform source.</dd></div>
+      <div><dt>What the catalogue proves</dt><dd>α = 1/3 holds uniformly over targets in a compact set, and 1/3 is sharp even for three-atom targets, which disproves the square-root conjecture.</dd></div>
+      <div><dt>How to use it</dt><dd>Budget map error as W₂<sup>1/3</sup> in the worst case. The bad case is a target with a small-mass cluster: moving it costs almost nothing in W₂, but its transport cell tilts and reassigns a much larger region of the source.</dd></div>
+      <div><dt>What I computed</dt><dd class="findings">With my own semi-discrete solver (exact power diagrams, Newton on the dual weights), the paper's family reproduces its closed forms to six digits and gives slope <b>0.3333</b>. Equal-mass targets give <b>0.5003</b>. For a fixed central mass m the slope is 1/2, with ‖ΔT‖ = 0.7071·m<sup>−1/4</sup>·W₂<sup>1/2</sup> at both m = 1/3 and m = 0.01. The constant grows as m shrinks, and choosing m to match the perturbation gives the exponent 1/3.</dd></div>
+      <div><dt>Limits</dt><dd>Uniform source on a convex body and targets in a fixed compact set. Smoother targets with mass bounded below behave like the square-root case.</dd></div>
+    </dl>
+    <figure>
+      <figcaption><b>Map change against target change</b> (log–log). Slopes: 1/3 for the paper's family, 1/2 for the others.</figcaption>
+      <div class="legend" id="ot-legend"></div>
+      <div class="chart-box" id="ot-chart"></div>
+      <details class="table-view"><summary>Show data table</summary><div class="table-wrap" id="ot-table"></div></details>
+    </figure>
+  </div>
+</article>
+</div>
+
+<section aria-labelledby="map-h" id="field-map">
+  <div class="section-head">
+    <h2 id="map-h">More results, by field</h2>
+    <p>Further results from the catalogue that answer a question outside pure mathematics or change how a tool can be used. Each line says what the result settles and who can use it. Asymptotic algorithms with astronomical constants are marked as such.</p>
+  </div>
+  <div class="fields">
+    <div class="field"><h3>Quantum information and computing</h3><ul>
+      <li><span class="t"><b>Capacity of a thermally decaying qubit</b><span class="n">#276</span></span><span>Exact classical capacity of generalized amplitude damping, the limit for qubit memories and amplitude-damping links.</span><span class="chips"><span class="chip lean">Lean: headline</span><a class="chip demo" href="#qubit">Demo above</a></span></li>
+      <li><span class="t"><b>Entropy photon-number inequality</b><span class="n">#273</span></span><span>Completes the capacity region of lossy optical broadcast channels and gives the minimum output entropy of thermal-noise attenuators.</span><span class="chips"><span class="chip lean">Lean: headline</span><a class="chip demo" href="#optical">Demo above</a></span></li>
+      <li><span class="t"><b>Entanglement without secret key</b><span class="n">#272</span></span><span>An entangled 10 × 10 state from which the stated distillation protocols extract no secret key. Entanglement alone does not guarantee a key.</span><span class="chips"><span class="chip partial">Lean: partial</span></span></li>
+      <li><span class="t"><b>Three mutually unbiased bases in dimension six</b><span class="n">#266</span></span><span>Only three exist in ℂ⁶, so tomography and key-distribution schemes that need all seven cannot be built there. The exclusion rests on a floating-point computation.</span><span class="chips"><span class="chip partial">Lean: partial</span></span></li>
+      <li><span class="t"><b>Threshold repetition for entangled games</b><span class="n">#277</span></span><span>Beating the entangled value by a margin in k repetitions of a nonlocal game is exponentially unlikely: soundness amplification for device-independent protocols.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Parity is not in QAC⁰</b><span class="n">#274</span></span><span>Constant-depth quantum circuits, even with unbounded Toffoli gates, cannot compute parity, so fan-out also needs growing depth.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Exact quantum factoring</b><span class="n">#279</span></span><span>Factoring with probability one over a fixed finite gate set, without the approximation error of standard Shor circuits.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>QAOA reaches the SK ground state</b><span class="n">#281</span></span><span>Fixed-angle, finite-depth QAOA attains the Sherrington–Kirkpatrick ground-state energy as size grows: a reference point for quantum optimization benchmarks.</span><span class="chips"><span class="chip partial">Lean: partial</span></span></li>
+      <li><span class="t"><b>Area law for gapped 2D ground states</b><span class="n">#265</span></span><span>Unique gapped ground states on square-lattice domains obey an area law and have PEPS approximations with polynomial bond dimension, which justifies tensor-network simulation.</span><span class="chips"><span class="chip none">Paper only</span></span></li>
+      <li><span class="t"><b>Quartic limit on quantum query speedups</b><span class="n">#284</span></span><span>R(f) = O(Q(f)⁴) is tight for total Boolean functions: no larger polynomial speedup is possible in the query model.</span><span class="chips"><span class="chip none">Paper only</span></span></li>
+    </ul></div>
+    <div class="field"><h3>Condensed matter and statistical physics</h3><ul>
+      <li><span class="t"><b>Anderson localization in 2D, extended states in 3D</b><span class="n">#261</span></span><span>All states localized in 2D at any disorder; a metallic window at weak disorder in 3D.</span><span class="chips"><span class="chip partial">Lean: partial</span><a class="chip demo" href="#anderson">Demo above</a></span></li>
+      <li><span class="t"><b>Haldane gap</b><span class="n">#268</span></span><span>The spin-1 Heisenberg chain has a uniform gap on even rings.</span><span class="chips"><span class="chip none">Paper only</span><a class="chip demo" href="#haldane">Demo above</a></span></li>
+      <li><span class="t"><b>Bose–Einstein condensation and depletion</b><span class="n">#267</span></span><span>Condensation at positive temperature for dilute hard spheres; the Bogoliubov depletion and momentum law at zero temperature.</span><span class="chips"><span class="chip partial">Lean: partial</span><a class="chip demo" href="#bec">Demo above</a></span></li>
+      <li><span class="t"><b>Bloch's law for ferromagnets</b><span class="n">#271</span></span><span>The T<sup>3/2</sup> magnetization law with its exact coefficient for 3D Heisenberg ferromagnets at every spin, and spontaneous magnetization for d ≥ 3.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Laughlin gap</b><span class="n">#269</span></span><span>The ν = 1/3 Laughlin state on the sphere stays uniformly gapped, also under weak disorder: rigorous stability behind fractional quantum Hall plateaus.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>BKT scaling of the XY model</b><span class="n">#216</span></span><span>Critical correlations r<sup>−1/4</sup>(log r)<sup>1/8</sup> and the essential singularity of the correlation length, as used for superfluid films and 2D magnets.</span><span class="chips"><span class="chip none">Paper only</span></span></li>
+      <li><span class="t"><b>First-order transitions in the continuum</b><span class="n">#228</span></span><span>Stable pair potentials, one bounded and continuous, are constructed that give 3D classical particles a first-order phase transition.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Spin-glass free energies</b><span class="n">#221 · #234 · #217</span></span><span>The Mézard–Parisi formula for diluted spin glasses, the pressure of orthogonally invariant spin glasses, and the n<sup>1/6</sup> fluctuation scale of the SK model.</span><span class="chips"><span class="chip lean">221: Lean: headline</span><span class="chip lean">234: Lean: headline</span><span class="chip none">217: Paper only</span></span></li>
+    </ul></div>
+    <div class="field"><h3>Atoms, molecules and chemistry</h3><ul>
+      <li><span class="t"><b>Lieb–Thirring constants</b><span class="n">#262</span></span><span>Sharp 1D constants for matrix potentials; lifted to 3D they give K ≥ 90.9% of Thomas–Fermi.</span><span class="chips"><span class="chip lean">Lean: headline</span><a class="chip demo" href="#lieb">Demo above</a></span></li>
+      <li><span class="t"><b>Ionization bound</b><span class="n">#263</span></span><span>A molecule with M nuclei of total charge Z binds at most Z + C·M electrons; ionization energies and atomic radii have universal bounds.</span><span class="chips"><span class="chip partial">Lean: partial</span></span></li>
+      <li><span class="t"><b>Molecular energies are QMA-hard</b><span class="n">#275</span></span><span>Approximating Coulomb ground-state energies is QMA-hard even with unit-charge nuclei, so no general efficient electronic-structure method is expected.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Kohn–Sham representability fails</b><span class="n">#278</span></span><span>A three-electron molecule whose ground-state density no Kohn–Sham potential in the standard class reproduces: a limit on the foundations of density-functional theory.</span><span class="chips"><span class="chip none">Paper only</span></span></li>
+      <li><span class="t"><b>Strictly correlated electrons</b><span class="n">#373</span></span><span>In three-marginal Coulomb transport the optimal configuration need not be a function of one electron's position, so strictly-correlated-electron functionals must allow that.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Permanence of reaction networks</b><span class="n">#149</span></span><span>Weakly reversible mass-action networks keep every species for every choice of rates.</span><span class="chips"><span class="chip lean">Lean: headline</span><a class="chip demo" href="#crn">Demo above</a></span></li>
+    </ul></div>
+    <div class="field"><h3>Plasmas, fluids, dynamics and gravity</h3><ul>
+      <li><span class="t"><b>Relativistic Vlasov–Maxwell</b><span class="n">#362</span></span><span>Smooth large-data solutions exist for all time: the standard collisionless plasma model forms no singularities from smooth compactly supported data.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Boltzmann equation from Newton's laws</b><span class="n">#364</span></span><span>Derives the Boltzmann equation from particle dynamics over its whole regular lifespan, for potentials with attractive wells.</span><span class="chips"><span class="chip none">Paper only</span></span></li>
+      <li><span class="t"><b>Boltzmann nonuniqueness</b><span class="n">#363</span></span><span>Two different entropy solutions from the same data: weak solutions need extra selection criteria.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Navier–Stokes flows compute</b><span class="n">#376</span></span><span>Forced viscous flows can emulate any Turing machine, so some long-time questions about forced flows are undecidable.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Strong cosmic censorship near Kerr</b><span class="n">#264</span></span><span>Generic perturbations of two-ended Kerr data cannot be continued past the Cauchy horizon in the stated weak sense: determinism inside rotating black holes.</span><span class="chips"><span class="chip none">Paper only</span></span></li>
+      <li><span class="t"><b>Spacetime Penrose inequality</b><span class="n">#260</span></span><span>Black-hole initial data satisfy the sharp mass–area bound in every dimension n ≥ 3.</span><span class="chips"><span class="chip partial">Lean: partial</span></span></li>
+      <li><span class="t"><b>Chaos in the standard map</b><span class="n">#146</span></span><span>Positive metric entropy for every large kick strength (Sinai's conjecture).</span><span class="chips"><span class="chip lean">Lean: headline</span><a class="chip demo" href="#standard">Demo above</a></span></li>
+      <li><span class="t"><b>Limit cycles of planar vector fields</b><span class="n">#143</span></span><span>The number of limit cycles is bounded in terms of the degree (uniform Hilbert 16th); quintic Liénard oscillators have at most two.</span><span class="chips"><span class="chip partial">Lean: partial</span></span></li>
+    </ul></div>
+    <div class="field"><h3>Algorithms and complexity</h3><ul>
+      <li><span class="t"><b>Unique Games Conjecture</b><span class="n">#102</span></span><span>Max-Cut beyond the Goemans–Williamson ratio 0.878 and Vertex Cover below 2 are NP-hard: semidefinite programming is optimal for these problems.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Shortest common superstring</b><span class="n">#128</span></span><span>A 2-approximation for the classic string model of genome assembly.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Edit distance in almost-linear time</b><span class="n">#121</span></span><span>(1 + ε)-approximate edit distance in N<sup>1+o(1)</sup> time, for sequence comparison at genome scale.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Trace reconstruction</b><span class="n">#122</span></span><span>Recovering a string from deletion-corrupted copies needs n<sup>Ω(log log n)</sup> copies, a limit for DNA data-storage readout.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Mean-payoff, stochastic and parity games</b><span class="n">#104</span></span><span>Quasipolynomial algorithms for the games behind controller synthesis and model checking.</span><span class="chips"><span class="chip partial">Lean: partial</span></span></li>
+      <li><span class="t"><b>k-median clustering threshold</b><span class="n">#125</span></span><span>1 + 2/e is the exact polynomial-time approximation threshold for metric k-median.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Subset Sum below 2<sup>n/2</sup></b><span class="n">#138</span></span><span>Worst-case O(2<sup>0.49n</sup>), the first improvement on meet-in-the-middle; relevant to knapsack-type cryptanalysis.</span><span class="chips"><span class="chip none">Paper only</span></span></li>
+      <li><span class="t"><b>Deterministic polynomial factoring</b><span class="n">#142</span></span><span>Polynomials over prime fields factor deterministically in polynomial time, without GRH or randomness.</span><span class="chips"><span class="chip none">Paper only</span></span></li>
+      <li><span class="t"><b>L = RL = BPL</b><span class="n">#103</span></span><span>Randomness does not help logarithmic-space computation.</span><span class="chips"><span class="chip none">Paper only</span></span></li>
+      <li><span class="t"><b>Faster multiplication and Fourier transforms</b><span class="n">#107 · #109 · #130</span></span><span>ω ≤ 9/4, and integer multiplication and the DFT below n log n. The constants are astronomical (κ = 2<sup>−182</sup>, δ = 10<sup>−13</sup>), so practical libraries are unaffected.</span><span class="chips"><span class="chip lean">107: Lean: headline</span><span class="chip none">109: Paper only</span><span class="chip partial">130: Lean: partial</span></span></li>
+    </ul></div>
+    <div class="field"><h3>Statistics, sampling and machine learning</h3><ul>
+      <li><span class="t"><b>Degree-preserving null models</b><span class="n">#131</span></span><span>The switch chain mixes in polynomial time for every degree sequence.</span><span class="chips"><span class="chip lean">Lean: headline</span><a class="chip demo" href="#switch">Demo above</a></span></li>
+      <li><span class="t"><b>Stability of transport maps</b><span class="n">#374</span></span><span>Brenier maps are W₂<sup>1/3</sup>-stable, and the exponent cannot be improved.</span><span class="chips"><span class="chip lean">Lean: headline</span><a class="chip demo" href="#ot">Demo above</a></span></li>
+      <li><span class="t"><b>Contingency tables with fixed margins</b><span class="n">#115</span></span><span>Exact uniform sampling in expected polynomial time, for exact conditional tests on large tables.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Log-concave sampling</b><span class="n">#139</span></span><span>For well-conditioned log-concave targets, d<sup>ε</sup> gradient queries suffice: sampling cost is nearly dimension-free in this oracle model.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Memory–sample trade-off</b><span class="n">#140</span></span><span>One-pass learners with O(d²) bits need Ω(d log 1/ε) samples for noiseless linear regression.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Dimension-free log-Sobolev inequality</b><span class="n">#093</span></span><span>Subgaussian log-concave measures have dimension-free log-Sobolev constants, hence dimension-free Langevin mixing.</span><span class="chips"><span class="chip none">Paper only</span></span></li>
+      <li><span class="t"><b>Regular transport on manifolds</b><span class="n">#360</span></span><span>Hölder-continuous transport maps on manifolds with weak Ma–Trudinger–Wang curvature.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Perceptron free energies</b><span class="n">#222</span></span><span>Free energies of Ising and spherical perceptrons at every pattern density: storage capacity of single-layer networks.</span><span class="chips"><span class="chip partial">Lean: partial</span></span></li>
+      <li><span class="t"><b>Most informative Boolean function</b><span class="n">#119</span></span><span>A single coordinate keeps the most information through bit-flip noise (Courtade–Kumar): limits for one-bit summaries.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+    </ul></div>
+    <div class="field"><h3>Cryptography and number theory</h3><ul>
+      <li><span class="t"><b>Smoothness of p − 1 and of n, n + 1</b><span class="n">#011 · #012</span></span><span>Dickman's law for p − 1 and for consecutive integers: Pollard p − 1 success rates and twin-smooth densities.</span><span class="chips"><span class="chip none">011: Paper only</span><span class="chip lean">012: Lean: headline</span><a class="chip demo" href="#smooth">Demo above</a></span></li>
+      <li><span class="t"><b>Artin's conjecture, infinitude</b><span class="n">#029</span></span><span>Every non-square a ≠ −1 is a primitive root for infinitely many primes, unconditionally; for example GF(2<sup>n</sup>) has a type-I optimal normal basis for infinitely many n.</span><span class="chips"><span class="chip none">Paper only</span></span></li>
+      <li><span class="t"><b>Thorp shuffle mixing</b><span class="n">#238</span></span><span>Θ(log N) rounds randomize a deck of N = 2<sup>d</sup> cards; the Thorp shuffle underlies format-preserving encryption designs.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Jacobsthal's function</b><span class="n">#021</span></span><span>Every Ck² consecutive integers contain one coprime to any number with k prime factors, with no logarithmic loss.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Large prime gaps</b><span class="n">#026</span></span><span>For every C, a positive proportion of prime gaps exceed C log p.</span><span class="chips"><span class="chip partial">Lean: partial</span></span></li>
+    </ul></div>
+    <div class="field"><h3>Signals, codes and networks</h3><ul>
+      <li><span class="t"><b>Barker codes end at 13</b><span class="n">#179</span></span><span>Binary sequences with all aperiodic sidelobes at most 1 exist only at lengths 2, 3, 4, 5, 7, 11 and 13, and no perfect binary periodic sequence is longer than 4. Radar pulse compression with peak sidelobe 1 is capped at 13 chips.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Ultraflat ±1 polynomials</b><span class="n">#076</span></span><span>±1 sequences with arbitrarily large merit factor exist at every large length, refuting the bounded-merit-factor conjecture. The construction is asymptotic and gives no code tables yet.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Ramanujan graphs for every degree</b><span class="n">#178</span></span><span>Deterministic polynomial-time construction of optimal-spectrum expanders: network topologies, LDPC code graphs, derandomization.</span><span class="chips"><span class="chip none">Paper only</span></span></li>
+      <li><span class="t"><b>High-dimensional expanders</b><span class="n">#177</span></span><span>Bounded-degree coboundary expanders in every dimension, a building block for locally testable and quantum LDPC codes.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Dimension reduction in Lₚ</b><span class="n">#094</span></span><span>n-point subsets of Lₚ embed in n<sup>o(1)</sup> dimensions with bounded distortion: sketching beyond Euclidean data.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Edit distance into ℓ₁</b><span class="n">#099</span></span><span>Exact distortion exp(Θ(√(log d · log log d))): the limit for embedding-based string similarity search.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Crossing numbers</b><span class="n">#165</span></span><span>Exact crossing numbers of complete and complete bipartite graphs: optimal layouts for graph drawing and circuit design.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+    </ul></div>
+    <div class="field"><h3>Geometry and materials</h3><ul>
+      <li><span class="t"><b>Universal optimality of the triangular lattice</b><span class="n">#090</span></span><span>Ground state for every completely monotone pair potential in the plane, including Yukawa at all screening lengths.</span><span class="chips"><span class="chip lean">Lean: headline</span><a class="chip demo" href="#crystal">Demo above</a></span></li>
+      <li><span class="t"><b>Least-area shapes in a periodic cube</b><span class="n">#354</span></span><span>Balls, then tubes from volume 4π/81, then slabs from 1/π: the minimal-interface shapes of a minority phase in a periodic simulation box.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Hot spots</b><span class="n">#369</span></span><span>In simply connected planar domains, the slowest-decaying insulated heat mode takes its extremes only on the boundary.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+      <li><span class="t"><b>Covering density</b><span class="n">#092</span></span><span>Every convex body has lattice coverings of density O(n log n), and this order is optimal: bounds for covering codes and quantizers.</span><span class="chips"><span class="chip lean">Lean: headline</span></span></li>
+    </ul></div>
+  </div>
+</section>
+
+<section aria-labelledby="repro-h">
+  <div class="repro">
+    <h2 id="repro-h">Reproduce</h2>
+    <p>Every number on this page comes from a script in <code>review/applications/</code>, run with Python 3.13, NumPy, SciPy and NetworkX in a 4-core container with 16 GB of memory. Each script writes a text report and a JSON file to <code>results/</code>. Run them from that directory.</p>
+<pre>cd review/applications
+python3 qubit_memory_capacity.py         # family 276, seconds
+python3 optical_broadcast.py             # family 273, seconds
+python3 anderson_level_statistics.py     # family 261, about 10 minutes
+python3 haldane_gap.py results 16        # family 268, about 7 minutes, several GB
+python3 bose_gas_depletion.py            # family 267
+python3 lieb_thirring.py                 # family 262
+python3 screened_coulomb_crystals.py     # family 090
+python3 standard_map_entropy.py          # family 146, about 1 minute
+python3 reaction_network_permanence.py results 300   # family 149, a few minutes
+python3 switch_chain_null_models.py      # family 131
+python3 smooth_numbers_crypto.py results 1e8         # families 011 and 012, several GB
+python3 ot_stability.py                  # family 374, under a second</pre>
+    <ul>
+      <li>Dickman's ρ is computed from its power series on each unit interval in 60-digit decimal arithmetic; 40- and 90-digit runs agree to 10 significant figures up to u = 20 (ρ(10) = 2.770172 × 10⁻¹¹, ρ(20) = 2.461783 × 10⁻²⁹).</li>
+      <li>The transport solver does not use the paper's potentials; it finds the dual weights by Newton's method on exact polygon areas.</li>
+      <li>Simulations can contradict a theorem but cannot confirm one. Where a demonstration matches a theorem, that is consistency, not proof.</li>
+    </ul>
+  </div>
+  <p class="footer-note">Prepared 7 October 2026 from the repository as cloned that day. Paper links open the PDFs on GitHub. The companion audit, which checks Lean formalizations and re-runs the repository's own certificates, is the <a href="https://claude.ai/artifact/124hrmVkDbQw7YEGmSi7nt">Math Repo Review</a>.</p>
+</section>
+</div>
+
+<script>
+const DATA = {"qubit":{"t_us":[0.0,5.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0,55.0,60.0,65.0,70.0,75.0,80.0,85.0,90.0,95.0,100.0,105.0,110.0,115.0,120.0,125.0,130.0,135.0,140.0,145.0,150.0,155.0,160.0,165.0,170.0,175.0,180.0,185.0,190.0,195.0,200.0,205.0,210.0,215.0,220.0,225.0,230.0,235.0,240.0,245.0,250.0,255.0,260.0,265.0,270.0,275.0,280.0,285.0,290.0,295.0,300.0],"curves":{"30 mK":[1.0,0.908758,0.846411,0.794993,0.750456,0.710868,0.675099,0.642408,0.612278,0.584325,0.558257,0.533844,0.5109,0.489273,0.468836,0.449482,0.431119,0.413667,0.397057,0.381229,0.366129,0.351709,0.337926,0.324742,0.312121,0.300031,0.288444,0.277333,0.266674,0.256443,0.24662,0.237185,0.22812,0.219409,0.211035,0.202984,0.195241,0.187794,0.18063,0.173738,0.167106,0.160723,0.154581,0.148669,0.142978,0.1375,0.132227,0.12715,0.122263,0.117558,0.113029,0.108668,0.10447,0.100428,0.0965368,0.0927909,0.0891849,0.0857137,0.0823723,0.079156,0.0760602],"50 mK":[1.0,0.908604,0.846011,0.794318,0.749493,0.709615,0.673556,0.640582,0.610173,0.58195,0.555621,0.530955,0.507767,0.485905,0.465243,0.445672,0.427102,0.409452,0.392654,0.376646,0.361375,0.346792,0.332854,0.319523,0.306764,0.294543,0.282833,0.271606,0.260838,0.250505,0.240587,0.231064,0.221918,0.213131,0.204688,0.196573,0.188773,0.181275,0.174065,0.167131,0.160464,0.154051,0.147883,0.141951,0.136245,0.130756,0.125477,0.120398,0.115513,0.110815,0.106296,0.10195,0.0977706,0.0937512,0.0898863,0.0861702,0.0825974,0.0791627,0.0758611,0.0726878,0.0696382],"70 mK":[1.0,0.908165,0.844875,0.792408,0.746787,0.706114,0.669276,0.635545,0.604408,0.575487,0.548493,0.523196,0.499412,0.476988,0.455798,0.435733,0.416702,0.398624,0.381429,0.365056,0.349449,0.334561,0.320346,0.306765,0.293782,0.281364,0.269481,0.258106,0.247212,0.236776,0.226777,0.217193,0.208005,0.199197,0.19075,0.182649,0.174879,0.167427,0.160278,0.153421,0.146843,0.140533,0.13448,0.128674,0.123106,0.117765,0.112642,0.10773,0.10302,0.0985047,0.0941755,0.0900256,0.0860481,0.0822363,0.0785838,0.0750843,0.071732,0.0685211,0.065446,0.0625015,0.0596825],"100 mK":[1.0,0.907275,0.842603,0.788637,0.741506,0.699362,0.661117,0.626056,0.593674,0.563595,0.53553,0.50925,0.484569,0.461332,0.439409,0.418689,0.399077,0.380488,0.362851,0.3461,0.330176,0.315028,0.300608,0.286874,0.273787,0.26131,0.249411,0.23806,0.227227,0.216887,0.207016,0.19759,0.188588,0.17999,0.171777,0.163932,0.156437,0.149277,0.142436,0.1359,0.129656,0.123691,0.117992,0.112548,0.107348,0.10238,0.097636,0.0931047,0.0887773,0.084645,0.0806993,0.076932,0.0733355,0.0699022,0.0666251,0.0634973,0.0605124,0.057664,0.0549462,0.0523532,0.0498796]},"naive_50mK":[1.0,0.85802,0.76766,0.696052,0.63609,0.584415,0.539066,0.498764,0.46261,0.429943,0.400255,0.373147,0.348298,0.325444,0.304366,0.284877,0.266819,0.250057,0.23447,0.219956,0.206424,0.193791,0.181986,0.170944,0.160608,0.150924,0.141845,0.133329,0.125335,0.117829,0.110776,0.104148,0.0979158,0.0920544,0.0865399,0.0813507,0.0764664,0.0718683,0.067539,0.0634621,0.0596226,0.0560063,0.0526001,0.0493917,0.0463696,0.0435229,0.0408416,0.0383162,0.0359378,0.033698,0.031589,0.0296034,0.0277342,0.0259749,0.0243194,0.0227617,0.0212965,0.0199185,0.0186229,0.0174051,0.0162607]},"optical":[{"name":"Fibre splitter 50/25 (25% lost), N = 1","etaB":0.5,"etaC":0.25,"N":1.0,"RB":[0.0,0.0252209,0.0454508,0.0638024,0.0809374,0.09717,0.112685,0.127606,0.142018,0.155987,0.169563,0.182786,0.19569,0.208302,0.220645,0.232739,0.244601,0.256246,0.267687,0.278937,0.290005,0.300902,0.311635,0.322212,0.332642,0.342929,0.353081,0.363102,0.372999,0.382774,0.392434,0.401982,0.411422,0.420758,0.429993,0.439129,0.448171,0.457122,0.465983,0.474757,0.483447,0.492055,0.500583,0.509033,0.517408,0.525709,0.533938,0.542096,0.550186,0.558209,0.566166,0.574059,0.581889,0.589658,0.597367,0.605016,0.612609,0.620145,0.627625,0.635051,0.642424,0.649744,0.657014,0.664232,0.671402,0.678523,0.685596,0.692622,0.699602,0.706537,0.713427,0.720273,0.727076,0.733837,0.740556,0.747233,0.753871,0.760468,0.767026,0.773546,0.780027,0.786471,0.792877,0.799247,0.805582,0.81188,0.818144,0.824373,0.830568,0.83673,0.842858,0.848954,0.855017,0.861049,0.867049,0.873018,0.878956,0.884864,0.890742,0.896591,0.90241,0.908201,0.913963,0.919696,0.925402,0.931081,0.936732,0.942356,0.947954,0.953525,0.959071,0.96459,0.970084,0.975554,0.980998,0.986417,0.991812,0.997184,1.00253,1.00785,1.01315,1.01843,1.02369,1.02892,1.03413,1.03931,1.04448,1.04962,1.05474,1.05984,1.06492,1.06998,1.07502,1.08004,1.08503,1.09001,1.09497,1.0999,1.10482,1.10972,1.1146,1.11946,1.1243,1.12912,1.13392,1.1387,1.14347,1.14822,1.15295,1.15766,1.16236,1.16703,1.1717,1.17634,1.18096,1.18557,1.19017,1.19474,1.1993,1.20384,1.20837,1.21288,1.21737,1.22185,1.22631,1.23076,1.23519,1.23961,1.24401,1.2484,1.25277,1.25712,1.26147,1.26579,1.2701,1.2744,1.27869,1.28296,1.28721,1.29145,1.29568,1.29989,1.30409,1.30828,1.31245,1.31661,1.32075,1.32489,1.32901,1.33311,1.3372,1.34129,1.34535,1.34941,1.35345,1.35748,1.3615,1.3655,1.36949,1.37348,1.37744],"RC":[0.90241,0.888551,0.877189,0.866769,0.856959,0.847603,0.838608,0.829912,0.821473,0.813257,0.80524,0.797401,0.789725,0.782196,0.774805,0.767539,0.760392,0.753356,0.746424,0.739589,0.732847,0.726194,0.719624,0.713134,0.70672,0.700379,0.694108,0.687904,0.681765,0.675688,0.669671,0.663712,0.657809,0.65196,0.646164,0.640419,0.634723,0.629075,0.623473,0.617917,0.612405,0.606936,0.601509,0.596122,0.590775,0.585468,0.580198,0.574965,0.569768,0.564607,0.559481,0.554388,0.549329,0.544302,0.539308,0.534344,0.529411,0.524509,0.519636,0.514791,0.509976,0.505188,0.500428,0.495695,0.490988,0.486307,0.481652,0.477022,0.472418,0.467837,0.463281,0.458748,0.454239,0.449752,0.445288,0.440847,0.436428,0.43203,0.427653,0.423298,0.418963,0.414649,0.410355,0.406082,0.401827,0.397593,0.393377,0.38918,0.385002,0.380843,0.376701,0.372578,0.368473,0.364385,0.360314,0.356261,0.352224,0.348205,0.344202,0.340215,0.336244,0.33229,0.328352,0.324429,0.320521,0.316629,0.312752,0.308891,0.305044,0.301211,0.297394,0.29359,0.289801,0.286027,0.282266,0.278519,0.274785,0.271065,0.267359,0.263666,0.259986,0.25632,0.252666,0.249025,0.245397,0.241781,0.238178,0.234587,0.231008,0.227442,0.223888,0.220345,0.216814,0.213296,0.209788,0.206293,0.202808,0.199335,0.195874,0.192423,0.188983,0.185555,0.182137,0.17873,0.175334,0.171948,0.168573,0.165209,0.161854,0.15851,0.155177,0.151853,0.148539,0.145236,0.141942,0.138658,0.135384,0.132119,0.128864,0.125619,0.122383,0.119157,0.11594,0.112732,0.109533,0.106343,0.103163,0.0999911,0.0968285,0.0936747,0.0905297,0.0873935,0.084266,0.0811472,0.0780368,0.0749351,0.0718417,0.0687568,0.0656802,0.0626119,0.0595518,0.0564999,0.0534561,0.0504204,0.0473927,0.044373,0.0413612,0.0383573,0.0353612,0.0323728,0.0293922,0.0264192,0.0234539,0.0204961,0.0175459,0.0146031,0.0116678,0.00873989,0.00581931,0.00290602,0.0],"CB":1.37744,"CC":0.90241,"weak_superposition":0.479592,"weak_timesharing":0.451205},{"name":"Fibre splitter 50/25, N = 10","etaB":0.5,"etaC":0.25,"N":10.0,"RB":[0.0,0.169563,0.290005,0.392434,0.483447,0.566166,0.642424,0.713427,0.780027,0.842858,0.90241,0.959071,1.01315,1.06492,1.1146,1.16236,1.20837,1.25277,1.29568,1.3372,1.37744,1.41648,1.45439,1.49124,1.52709,1.56201,1.59604,1.62922,1.66161,1.69324,1.72415,1.75437,1.78394,1.81288,1.84122,1.86898,1.8962,1.92289,1.94908,1.97477,2.0,2.02478,2.04912,2.07304,2.09656,2.11969,2.14244,2.16483,2.18687,2.20856,2.22992,2.25096,2.27169,2.29212,2.31226,2.33211,2.35169,2.37099,2.39004,2.40883,2.42738,2.44568,2.46375,2.48159,2.49922,2.51662,2.53381,2.5508,2.56758,2.58417,2.60057,2.61677,2.6328,2.64865,2.66432,2.67982,2.69515,2.71032,2.72533,2.74019,2.75489,2.76944,2.78384,2.7981,2.81221,2.82619,2.84003,2.85374,2.86732,2.88077,2.8941,2.9073,2.92038,2.93334,2.94619,2.95892,2.97154,2.98404,2.99644,3.00873,3.02092,3.03301,3.04499,3.05687,3.06866,3.08035,3.09194,3.10344,3.11485,3.12617,3.1374,3.14855,3.1596,3.17057,3.18146,3.19227,3.203,3.21364,3.22421,3.2347,3.24511,3.25545,3.26572,3.27591,3.28603,3.29608,3.30605,3.31596,3.32581,3.33558,3.34529,3.35493,3.36451,3.37402,3.38348,3.39287,3.4022,3.41147,3.42068,3.42983,3.43892,3.44796,3.45694,3.46586,3.47473,3.48354,3.4923,3.50101,3.50966,3.51826,3.52682,3.53532,3.54377,3.55217,3.56052,3.56883,3.57708,3.58529,3.59345,3.60157,3.60964,3.61767,3.62565,3.63358,3.64148,3.64933,3.65714,3.6649,3.67263,3.68031,3.68795,3.69555,3.70311,3.71063,3.71812,3.72556,3.73297,3.74033,3.74766,3.75496,3.76221,3.76943,3.77661,3.78376,3.79087,3.79795,3.80499,3.812,3.81898,3.82592,3.83283,3.8397,3.84654,3.85335,3.86013,3.86687,3.87359,3.88027,3.88692,3.89354,3.90013],"RC":[3.02092,2.92375,2.85136,2.78818,2.73092,2.67799,2.62849,2.58179,2.53748,2.49521,2.45476,2.41591,2.3785,2.3424,2.3075,2.27369,2.2409,2.20904,2.17806,2.1479,2.11851,2.08984,2.06185,2.0345,2.00777,1.98161,1.956,1.93091,1.90633,1.88222,1.85856,1.83535,1.81255,1.79016,1.76815,1.74652,1.72524,1.70431,1.68372,1.66344,1.64348,1.62381,1.60444,1.58535,1.56653,1.54798,1.52968,1.51163,1.49383,1.47626,1.45891,1.44179,1.42489,1.40819,1.3917,1.37541,1.35931,1.3434,1.32768,1.31214,1.29677,1.28158,1.26655,1.25169,1.23699,1.22244,1.20805,1.1938,1.1797,1.16575,1.15194,1.13826,1.12472,1.11131,1.09803,1.08488,1.07185,1.05894,1.04615,1.03348,1.02092,1.00848,0.996145,0.98392,0.971802,0.959788,0.947878,0.936068,0.924358,0.912746,0.901229,0.889807,0.878477,0.867239,0.85609,0.845029,0.834056,0.823167,0.812363,0.801641,0.791001,0.780441,0.76996,0.759556,0.749229,0.738978,0.7288,0.718696,0.708664,0.698704,0.688813,0.678991,0.669237,0.65955,0.64993,0.640374,0.630883,0.621456,0.612091,0.602788,0.593546,0.584363,0.575241,0.566176,0.55717,0.54822,0.539327,0.53049,0.521707,0.512978,0.504303,0.495681,0.487111,0.478593,0.470125,0.461708,0.453341,0.445022,0.436752,0.428531,0.420356,0.412229,0.404147,0.396112,0.388121,0.380176,0.372274,0.364417,0.356602,0.348831,0.341101,0.333414,0.325767,0.318162,0.310597,0.303073,0.295587,0.288141,0.280734,0.273365,0.266034,0.258741,0.251485,0.244266,0.237083,0.229936,0.222825,0.215749,0.208708,0.201702,0.19473,0.187792,0.180888,0.174016,0.167178,0.160373,0.1536,0.146859,0.140149,0.133471,0.126824,0.120208,0.113623,0.107067,0.100542,0.0940464,0.0875802,0.0811432,0.0747351,0.0683556,0.0620045,0.0556815,0.0493864,0.0431189,0.0368788,0.0306659,0.0244798,0.0183204,0.0121875,0.00608075,0.0],"CB":3.90013,"CC":3.02092,"weak_superposition":1.68293,"weak_timesharing":1.51046},{"name":"Free-space, near 60% / far 10%, N = 10","etaB":0.6,"etaC":0.1,"N":10.0,"RB":[0.0,0.19569,0.332642,0.448171,0.550186,0.642424,0.727076,0.805582,0.878956,0.947954,1.01315,1.07502,1.13392,1.19017,1.24401,1.29568,1.34535,1.3932,1.43936,1.48395,1.52709,1.56888,1.60941,1.64875,1.68697,1.72415,1.76034,1.79559,1.82995,1.86348,1.8962,1.92817,1.95941,1.98996,2.01986,2.04912,2.07778,2.10586,2.13339,2.16038,2.18687,2.21286,2.23838,2.26344,2.28806,2.31226,2.33605,2.35944,2.38245,2.40509,2.42738,2.44931,2.47092,2.49219,2.51316,2.53381,2.55417,2.57424,2.59403,2.61355,2.6328,2.6518,2.67054,2.68904,2.7073,2.72533,2.74314,2.76073,2.7781,2.79526,2.81221,2.82897,2.84553,2.86191,2.87809,2.8941,2.90993,2.92558,2.94106,2.95638,2.97154,2.98653,3.00137,3.01606,3.0306,3.04499,3.05924,3.07335,3.08732,3.10115,3.11485,3.12843,3.14187,3.15519,3.16839,3.18146,3.19442,3.20726,3.21999,3.23261,3.24511,3.25751,3.2698,3.28199,3.29407,3.30605,3.31794,3.32972,3.34141,3.35301,3.36451,3.37592,3.38724,3.39847,3.40962,3.42068,3.43165,3.44254,3.45335,3.46408,3.47473,3.4853,3.49579,3.50621,3.51655,3.52682,3.53701,3.54713,3.55719,3.56717,3.57708,3.58693,3.59671,3.60642,3.61606,3.62565,3.63517,3.64462,3.65402,3.66335,3.67263,3.68184,3.69099,3.70009,3.70913,3.71812,3.72704,3.73592,3.74474,3.7535,3.76221,3.77087,3.77948,3.78803,3.79654,3.80499,3.8134,3.82176,3.83007,3.83833,3.84654,3.85471,3.86283,3.87091,3.87894,3.88692,3.89486,3.90276,3.91062,3.91843,3.9262,3.93393,3.94162,3.94926,3.95687,3.96443,3.97196,3.97945,3.9869,3.99431,4.00168,4.00901,4.01631,4.02357,4.0308,4.03798,4.04514,4.05225,4.05934,4.06638,4.0734,4.08038,4.08732,4.09423,4.10111,4.10796,4.11477,4.12155,4.1283,4.13502,4.14171],"RC":[2.0,1.95455,1.91906,1.88731,1.85798,1.83044,1.80431,1.77935,1.7554,1.73231,1.70999,1.68837,1.66736,1.64692,1.627,1.60757,1.58858,1.57001,1.55183,1.53402,1.51655,1.49942,1.48259,1.46606,1.44981,1.43383,1.41811,1.40263,1.38739,1.37238,1.35758,1.34299,1.3286,1.3144,1.3004,1.28657,1.27292,1.25944,1.24613,1.23297,1.21997,1.20712,1.19442,1.18186,1.16943,1.15714,1.14498,1.13295,1.12104,1.10926,1.09759,1.08604,1.0746,1.06327,1.05205,1.04093,1.02992,1.019,1.00819,0.997469,0.986845,0.976314,0.965873,0.955521,0.945256,0.935076,0.924981,0.914967,0.905034,0.89518,0.885404,0.875704,0.86608,0.856529,0.84705,0.837642,0.828305,0.819036,0.809835,0.8007,0.791631,0.782626,0.773685,0.764806,0.755989,0.747232,0.738534,0.729895,0.721314,0.71279,0.704322,0.695909,0.687551,0.679246,0.670995,0.662795,0.654647,0.64655,0.638503,0.630505,0.622556,0.614655,0.606802,0.598995,0.591235,0.58352,0.575851,0.568225,0.560644,0.553106,0.545611,0.538158,0.530747,0.523378,0.516049,0.50876,0.501512,0.494302,0.487132,0.48,0.472906,0.465849,0.45883,0.451847,0.444901,0.437991,0.431116,0.424276,0.417471,0.4107,0.403964,0.397261,0.390591,0.383954,0.37735,0.370778,0.364238,0.357729,0.351252,0.344805,0.33839,0.332004,0.325649,0.319323,0.313027,0.30676,0.300521,0.294311,0.28813,0.281977,0.275851,0.269752,0.263681,0.257637,0.25162,0.245629,0.239664,0.233726,0.227813,0.221925,0.216063,0.210226,0.204414,0.198626,0.192863,0.187123,0.181408,0.175717,0.170049,0.164404,0.158783,0.153184,0.147608,0.142055,0.136524,0.131016,0.125529,0.120064,0.114621,0.109199,0.103798,0.0984188,0.0930603,0.0877224,0.0824052,0.0771084,0.0718318,0.0665753,0.0613388,0.056122,0.0509249,0.0457472,0.0405889,0.0354497,0.0303296,0.0252283,0.0201457,0.0150818,0.0100362,0.00500904,0.0],"CB":4.14171,"CC":2.0,"weak_superposition":1.27622,"weak_timesharing":1.0},{"name":"Free-space, near 60% / far 10%, N = 100","etaB":0.6,"etaC":0.1,"N":100.0,"RB":[0.0,1.01315,1.52709,1.8962,2.18687,2.42738,2.6328,2.81221,2.97154,3.11485,3.24511,3.36451,3.47473,3.57708,3.67263,3.76221,3.84654,3.9262,4.00168,4.0734,4.14171,4.20693,4.26932,4.32912,4.38654,4.44175,4.49493,4.54622,4.59574,4.64362,4.68996,4.73485,4.77839,4.82065,4.86171,4.90163,4.94047,4.9783,5.01516,5.0511,5.08617,5.1204,5.15384,5.18652,5.21848,5.24974,5.28034,5.31031,5.33966,5.36843,5.39664,5.42431,5.45145,5.4781,5.50426,5.52995,5.55519,5.58,5.6044,5.62838,5.65197,5.67519,5.69803,5.72052,5.74266,5.76447,5.78596,5.80713,5.82799,5.84855,5.86883,5.88882,5.90855,5.928,5.9472,5.96614,5.98484,6.0033,6.02153,6.03953,6.0573,6.07487,6.09222,6.10936,6.1263,6.14305,6.1596,6.17596,6.19215,6.20815,6.22398,6.23963,6.25512,6.27044,6.2856,6.3006,6.31545,6.33015,6.3447,6.35911,6.37337,6.38749,6.40148,6.41533,6.42905,6.44264,6.4561,6.46944,6.48266,6.49575,6.50873,6.52159,6.53434,6.54698,6.55951,6.57193,6.58424,6.59645,6.60856,6.62057,6.63247,6.64428,6.656,6.66762,6.67915,6.69058,6.70193,6.71318,6.72435,6.73544,6.74644,6.75735,6.76819,6.77894,6.78962,6.80021,6.81073,6.82117,6.83154,6.84183,6.85205,6.8622,6.87228,6.88229,6.89222,6.9021,6.9119,6.92164,6.93131,6.94092,6.95046,6.95994,6.96936,6.97872,6.98802,6.99726,7.00644,7.01556,7.02462,7.03363,7.04258,7.05148,7.06032,7.06911,7.07784,7.08653,7.09516,7.10374,7.11227,7.12074,7.12917,7.13755,7.14588,7.15417,7.1624,7.17059,7.17874,7.18684,7.19489,7.2029,7.21086,7.21878,7.22666,7.23449,7.24228,7.25003,7.25774,7.26541,7.27303,7.28062,7.28817,7.29567,7.30314,7.31057,7.31797,7.32532,7.33264,7.33992,7.34716,7.35437,7.36154],"RC":[4.83447,4.54446,4.35102,4.19204,4.05444,3.93206,3.82131,3.71987,3.6261,3.53879,3.45702,3.38008,3.30737,3.23843,3.17286,3.11032,3.05053,2.99325,2.93827,2.88539,2.83447,2.78535,2.7379,2.69202,2.6476,2.60455,2.56277,2.52221,2.48278,2.44443,2.40709,2.37071,2.33525,2.30066,2.26689,2.2339,2.20167,2.17015,2.13931,2.10913,2.07958,2.05063,2.02225,1.99443,1.96714,1.94037,1.91409,1.88828,1.86293,1.83802,1.81354,1.78948,1.76581,1.74252,1.71961,1.69706,1.67486,1.653,1.63147,1.61026,1.58935,1.56875,1.54844,1.52841,1.50866,1.48918,1.46996,1.45099,1.43227,1.41379,1.39555,1.37753,1.35974,1.34217,1.3248,1.30765,1.2907,1.27395,1.25739,1.24101,1.22483,1.20882,1.19299,1.17733,1.16184,1.14652,1.13135,1.11635,1.1015,1.0868,1.07226,1.05785,1.04359,1.02947,1.01549,1.00164,0.987925,0.974339,0.960879,0.947545,0.934332,0.92124,0.908266,0.895408,0.882664,0.870032,0.85751,0.845096,0.832787,0.820584,0.808483,0.796482,0.784581,0.772778,0.76107,0.749457,0.737937,0.726509,0.71517,0.70392,0.692757,0.681681,0.670688,0.659779,0.648952,0.638206,0.627539,0.616951,0.60644,0.596005,0.585646,0.57536,0.565147,0.555006,0.544936,0.534936,0.525005,0.515142,0.505346,0.495616,0.485951,0.476351,0.466814,0.457341,0.447929,0.438578,0.429287,0.420056,0.410884,0.401769,0.392712,0.383712,0.374767,0.365878,0.357043,0.348262,0.339534,0.330859,0.322235,0.313663,0.305142,0.296671,0.288249,0.279876,0.271551,0.263275,0.255045,0.246863,0.238726,0.230635,0.22259,0.214589,0.206632,0.198719,0.190849,0.183022,0.175237,0.167494,0.159792,0.152131,0.144511,0.136931,0.12939,0.121889,0.114426,0.107002,0.0996165,0.0922681,0.0849571,0.0776829,0.0704453,0.0632438,0.0560781,0.0489479,0.0418528,0.0347924,0.0277664,0.0207745,0.0138163,0.00689162,0.0],"CB":7.36154,"CC":4.83447,"weak_superposition":3.16717,"weak_timesharing":2.41723}],"anderson":{"goe":0.5307,"poisson":0.386294,"window":0.2,"rows":[{"d":2,"W":1,"L":16,"samples":160,"r":0.500842,"err":0.00334215},{"d":2,"W":1,"L":32,"samples":40,"r":0.523535,"err":0.00348421},{"d":2,"W":1,"L":64,"samples":16,"r":0.530425,"err":0.00192928},{"d":2,"W":2,"L":16,"samples":160,"r":0.538011,"err":0.0037825},{"d":2,"W":2,"L":32,"samples":40,"r":0.527145,"err":0.00444669},{"d":2,"W":2,"L":64,"samples":16,"r":0.533841,"err":0.00270086},{"d":2,"W":4,"L":16,"samples":160,"r":0.527202,"err":0.00314134},{"d":2,"W":4,"L":32,"samples":40,"r":0.529339,"err":0.00387959},{"d":2,"W":4,"L":64,"samples":16,"r":0.532577,"err":0.00234036},{"d":2,"W":6,"L":16,"samples":160,"r":0.523322,"err":0.00377397},{"d":2,"W":6,"L":32,"samples":40,"r":0.520743,"err":0.003565},{"d":2,"W":6,"L":64,"samples":16,"r":0.505569,"err":0.00230194},{"d":2,"W":8,"L":16,"samples":160,"r":0.504333,"err":0.00378329},{"d":2,"W":8,"L":32,"samples":40,"r":0.478111,"err":0.00357845},{"d":2,"W":8,"L":64,"samples":16,"r":0.440757,"err":0.0024714},{"d":2,"W":12,"L":16,"samples":160,"r":0.449223,"err":0.00319586},{"d":2,"W":12,"L":32,"samples":40,"r":0.412257,"err":0.002808},{"d":2,"W":12,"L":64,"samples":16,"r":0.393512,"err":0.00252287},{"d":2,"W":16,"L":16,"samples":160,"r":0.421294,"err":0.00324009},{"d":2,"W":16,"L":32,"samples":40,"r":0.391398,"err":0.00322974},{"d":2,"W":16,"L":64,"samples":16,"r":0.39339,"err":0.00318016},{"d":3,"W":4,"L":8,"samples":160,"r":0.52976,"err":0.00255593},{"d":3,"W":4,"L":12,"samples":40,"r":0.536826,"err":0.00284067},{"d":3,"W":4,"L":16,"samples":16,"r":0.533058,"err":0.00229552},{"d":3,"W":8,"L":8,"samples":160,"r":0.53148,"err":0.00222081},{"d":3,"W":8,"L":12,"samples":40,"r":0.532756,"err":0.00255191},{"d":3,"W":8,"L":16,"samples":16,"r":0.535305,"err":0.00256051},{"d":3,"W":12,"L":8,"samples":160,"r":0.528615,"err":0.00227473},{"d":3,"W":12,"L":12,"samples":40,"r":0.535057,"err":0.00279326},{"d":3,"W":12,"L":16,"samples":16,"r":0.529113,"err":0.00196659},{"d":3,"W":14,"L":8,"samples":160,"r":0.52986,"err":0.00234994},{"d":3,"W":14,"L":12,"samples":40,"r":0.531683,"err":0.00288948},{"d":3,"W":14,"L":16,"samples":16,"r":0.527352,"err":0.0023483},{"d":3,"W":16.5,"L":8,"samples":160,"r":0.517529,"err":0.0023501},{"d":3,"W":16.5,"L":12,"samples":40,"r":0.514111,"err":0.0032108},{"d":3,"W":16.5,"L":16,"samples":16,"r":0.512788,"err":0.00228452},{"d":3,"W":19,"L":8,"samples":160,"r":0.500411,"err":0.00244553},{"d":3,"W":19,"L":12,"samples":40,"r":0.49297,"err":0.00254674},{"d":3,"W":19,"L":16,"samples":16,"r":0.483921,"err":0.00296924},{"d":3,"W":22,"L":8,"samples":160,"r":0.474786,"err":0.00262376},{"d":3,"W":22,"L":12,"samples":40,"r":0.462568,"err":0.00261699},{"d":3,"W":22,"L":16,"samples":16,"r":0.449888,"err":0.0022201},{"d":3,"W":26,"L":8,"samples":160,"r":0.449903,"err":0.00246641},{"d":3,"W":26,"L":12,"samples":40,"r":0.437327,"err":0.00319157},{"d":3,"W":26,"L":16,"samples":16,"r":0.421568,"err":0.00399209}]},"haldane":{"periodic":[{"L":4,"E0":-6.0,"gap":1.0},{"L":6,"E0":-8.61742,"gap":0.720627},{"L":8,"E0":-11.337,"gap":0.593555},{"L":10,"E0":-14.0941,"gap":0.524808},{"L":12,"E0":-16.8696,"gap":0.484196},{"L":14,"E0":-19.6551,"gap":0.458965},{"L":16,"E0":-22.4468,"gap":0.442796}],"open":[{"L":4,"edge_split":0.50917,"bulk_gap":1.34529},{"L":6,"edge_split":0.307786,"bulk_gap":1.04396},{"L":8,"edge_split":0.201879,"bulk_gap":0.873617},{"L":10,"edge_split":0.138331,"bulk_gap":0.765503},{"L":12,"edge_split":0.0971416,"bulk_gap":0.691726},{"L":14,"edge_split":0.0691652,"bulk_gap":0.638811},{"L":16,"edge_split":0.0496169,"bulk_gap":0.599439}],"fit":{"gap_inf":0.419115,"a":1.26319,"xi":4.03898},"edge_profile":{"L":16,"mz":[0.522026,-0.300621,0.343665,-0.218601,0.202469,-0.117739,0.0862002,-0.017399,-0.017399,0.0862002,-0.117739,0.202469,-0.218601,0.343665,-0.300621,0.522026],"end":0.522026,"centre_max":0.0862002,"cumulative":[0.522026,0.221405,0.56507,0.346469,0.548938,0.431199,0.517399,0.5]},"edge_decay_length":5.71458},"bose":{"rows":[{"name":"23Na BEC, a = 52 a0, n = 1e14 cm^-3","eta":2.0836e-06,"sqrt_eta":0.00144347,"depletion":0.0021717,"xi_um":0.380258},{"name":"87Rb BEC, a = 100 a0, n = 1e14 cm^-3","eta":1.48185e-05,"sqrt_eta":0.00384948,"depletion":0.00579156,"xi_um":0.274208},{"name":"87Rb BEC, a = 100 a0, n = 1e15 cm^-3","eta":0.000148185,"sqrt_eta":0.0121731,"depletion":0.0183145,"xi_um":0.0867121},{"name":"39K box, Feshbach a = 1000 a0, n = 5e11 cm^-3","eta":7.40924e-05,"sqrt_eta":0.00860769,"depletion":0.0129503,"xi_um":1.22629},{"name":"39K box, Feshbach a = 3000 a0, n = 5e11 cm^-3","eta":0.00200049,"sqrt_eta":0.0447269,"depletion":0.0672918,"xi_um":0.708001}],"profile":{"t":[0.01,0.0114636,0.0131415,0.0150649,0.0172698,0.0197975,0.0226951,0.0260168,0.0298247,0.0341899,0.0391941,0.0449306,0.0515068,0.0590455,0.0676875,0.0775944,0.0889513,0.101971,0.116895,0.134004,0.153617,0.176101,0.201876,0.231423,0.265295,0.304124,0.348637,0.399664,0.45816,0.525217,0.602089,0.690213,0.791234,0.907041,1.0398,1.19199,1.36645,1.56645,1.79571,2.05854,2.35983,2.70522,3.10117,3.55506,4.07539,4.67188,5.35567,6.13954,7.03814,8.06826,9.24915,10.6029,12.1547,13.9337,15.9731,18.311,20.991,24.0633,27.5853,31.6228],"g":[34.858,30.3444,26.4071,22.9727,19.9769,17.3637,15.0844,13.0963,11.3623,9.84992,8.53097,7.38078,6.37786,5.50346,4.74125,4.07698,3.49823,2.99419,2.55544,2.17378,1.84205,1.55407,1.30442,1.08843,0.902021,0.741668,0.604303,0.487262,0.388217,0.305118,0.236143,0.179641,0.134085,0.0980391,0.0701276,0.0490318,0.0335003,0.0223755,0.0146254,0.00937032,0.00589653,0.00365271,0.00223263,0.00134947,0.000808223,0.000480495,0.000283981,0.00016706,9.79213e-05,5.7234e-05,3.33797e-05,1.94347e-05,1.13009e-05,6.5647e-06,3.81055e-06,2.21059e-06,1.28185e-06,7.43051e-07,4.30614e-07,2.49501e-07]}},"lieb":{"curve":[{"gamma":0.52,"R_gamma":1.84875,"lifted_d3":2.11676},{"gamma":0.54,"R_gamma":1.75562,"lifted_d3":1.99385},{"gamma":0.56,"R_gamma":1.68345,"lifted_d3":1.897},{"gamma":0.58,"R_gamma":1.62406,"lifted_d3":1.81635},{"gamma":0.6,"R_gamma":1.57359,"lifted_d3":1.74719},{"gamma":0.62,"R_gamma":1.52977,"lifted_d3":1.6867},{"gamma":0.64,"R_gamma":1.49115,"lifted_d3":1.63308},{"gamma":0.66,"R_gamma":1.45672,"lifted_d3":1.58502},{"gamma":0.68,"R_gamma":1.42574,"lifted_d3":1.54158},{"gamma":0.7,"R_gamma":1.39765,"lifted_d3":1.50205},{"gamma":0.72,"R_gamma":1.37203,"lifted_d3":1.46586},{"gamma":0.74,"R_gamma":1.34853,"lifted_d3":1.43257},{"gamma":0.76,"R_gamma":1.32686,"lifted_d3":1.4018},{"gamma":0.78,"R_gamma":1.30682,"lifted_d3":1.37326},{"gamma":0.8,"R_gamma":1.2882,"lifted_d3":1.34669},{"gamma":0.82,"R_gamma":1.27085,"lifted_d3":1.32188},{"gamma":0.84,"R_gamma":1.25463,"lifted_d3":1.29866},{"gamma":0.86,"R_gamma":1.23944,"lifted_d3":1.27686},{"gamma":0.88,"R_gamma":1.22516,"lifted_d3":1.25635},{"gamma":0.9,"R_gamma":1.21172,"lifted_d3":1.23701},{"gamma":0.92,"R_gamma":1.19904,"lifted_d3":1.21874},{"gamma":0.94,"R_gamma":1.18705,"lifted_d3":1.20145},{"gamma":0.96,"R_gamma":1.1757,"lifted_d3":1.18506},{"gamma":0.98,"R_gamma":1.16493,"lifted_d3":1.1695},{"gamma":1.0,"R_gamma":1.1547,"lifted_d3":1.1547},{"gamma":1.02,"R_gamma":1.14497,"lifted_d3":1.14497},{"gamma":1.04,"R_gamma":1.13569,"lifted_d3":1.13569},{"gamma":1.06,"R_gamma":1.12685,"lifted_d3":1.12685},{"gamma":1.08,"R_gamma":1.1184,"lifted_d3":1.1184},{"gamma":1.1,"R_gamma":1.11032,"lifted_d3":1.11032},{"gamma":1.12,"R_gamma":1.10259,"lifted_d3":1.10259},{"gamma":1.14,"R_gamma":1.09518,"lifted_d3":1.09518},{"gamma":1.16,"R_gamma":1.08807,"lifted_d3":1.08807},{"gamma":1.18,"R_gamma":1.08125,"lifted_d3":1.08125},{"gamma":1.2,"R_gamma":1.07469,"lifted_d3":1.07469},{"gamma":1.22,"R_gamma":1.06839,"lifted_d3":1.06839},{"gamma":1.24,"R_gamma":1.06232,"lifted_d3":1.06232},{"gamma":1.26,"R_gamma":1.05647,"lifted_d3":1.05647},{"gamma":1.28,"R_gamma":1.05084,"lifted_d3":1.05084},{"gamma":1.3,"R_gamma":1.0454,"lifted_d3":1.0454},{"gamma":1.32,"R_gamma":1.04016,"lifted_d3":1.04016},{"gamma":1.34,"R_gamma":1.03509,"lifted_d3":1.03509},{"gamma":1.36,"R_gamma":1.03019,"lifted_d3":1.03019},{"gamma":1.38,"R_gamma":1.02545,"lifted_d3":1.02545},{"gamma":1.4,"R_gamma":1.02087,"lifted_d3":1.02087},{"gamma":1.42,"R_gamma":1.01643,"lifted_d3":1.01643},{"gamma":1.44,"R_gamma":1.01213,"lifted_d3":1.01213},{"gamma":1.46,"R_gamma":1.00796,"lifted_d3":1.00796},{"gamma":1.48,"R_gamma":1.00392,"lifted_d3":1.00392},{"gamma":1.5,"R_gamma":1.0,"lifted_d3":1.0}],"tests":[{"gamma":0.75,"kind":"extremal sech^2","ratio":1.00007,"bound_states":1},{"gamma":0.75,"kind":"random 3x3 complex","ratio":0.791366,"bound_states":10},{"gamma":0.75,"kind":"random 2x2 complex","ratio":0.814228,"bound_states":6},{"gamma":0.75,"kind":"random 3x3 complex","ratio":0.760973,"bound_states":16},{"gamma":0.75,"kind":"random 3x3 complex","ratio":0.818635,"bound_states":4},{"gamma":0.75,"kind":"random 3x3 complex","ratio":0.972222,"bound_states":2},{"gamma":0.75,"kind":"random 2x2 complex","ratio":0.807483,"bound_states":6},{"gamma":1.0,"kind":"extremal sech^2","ratio":1.00003,"bound_states":1},{"gamma":1.0,"kind":"random 3x3 complex","ratio":0.894164,"bound_states":12},{"gamma":1.0,"kind":"random 2x2 complex","ratio":0.909641,"bound_states":6},{"gamma":1.0,"kind":"random 2x2 complex","ratio":0.880817,"bound_states":6},{"gamma":1.0,"kind":"random 3x3 complex","ratio":0.998031,"bound_states":2},{"gamma":1.0,"kind":"random 2x2 complex","ratio":0.895113,"bound_states":4},{"gamma":1.0,"kind":"random 3x3 complex","ratio":0.890784,"bound_states":8},{"gamma":1.25,"kind":"extremal sech^2","ratio":1.00002,"bound_states":1},{"gamma":1.25,"kind":"random 2x2 complex","ratio":0.962669,"bound_states":4},{"gamma":1.25,"kind":"random 2x2 complex","ratio":0.9478,"bound_states":6},{"gamma":1.25,"kind":"random 3x3 complex","ratio":0.964774,"bound_states":4},{"gamma":1.25,"kind":"random 3x3 complex","ratio":0.98292,"bound_states":4},{"gamma":1.25,"kind":"random 2x2 complex","ratio":0.959931,"bound_states":4},{"gamma":1.25,"kind":"random 3x3 complex","ratio":0.952478,"bound_states":10}],"K":{"TF":9.1156,"new":8.28207,"old":7.09596}},"crystal":{"rows":[{"kappa":0.5,"E_tri":9.11725,"square":0.222941,"rect2":3.81004,"honeycomb":1.43032,"kagome":1.5766,"perturbed_005":0.237694,"perturbed_015":2.14902},{"kappa":1.0,"E_tri":3.25064,"square":0.586601,"rect2":9.9911,"honeycomb":3.73331,"kagome":4.05568,"perturbed_005":0.579562,"perturbed_015":5.4602},{"kappa":2.0,"E_tri":0.787086,"square":1.88833,"rect2":31.9281,"honeycomb":11.693,"kagome":12.0797,"perturbed_005":1.70427,"perturbed_015":19.0511},{"kappa":4.0,"E_tri":0.0783466,"square":7.6199,"rect2":133.007,"honeycomb":44.4449,"kagome":40.3125,"perturbed_005":5.39458,"perturbed_015":59.005}]},"standard":{"steps":2000,"grid":160,"rows":[{"K":0.5,"entropy":0.00411823,"ln_K_over_2":null,"chaotic_fraction":0.00839844,"lambda_chaotic":0.0927096},{"K":0.8,"entropy":0.0167336,"ln_K_over_2":null,"chaotic_fraction":0.102969,"lambda_chaotic":0.124074},{"K":0.971635,"entropy":0.0452328,"ln_K_over_2":null,"chaotic_fraction":0.31918,"lambda_chaotic":0.127097},{"K":1.2,"entropy":0.110651,"ln_K_over_2":null,"chaotic_fraction":0.578164,"lambda_chaotic":0.18905},{"K":1.5,"entropy":0.197296,"ln_K_over_2":null,"chaotic_fraction":0.671602,"lambda_chaotic":0.291262},{"K":2.0,"entropy":0.332269,"ln_K_over_2":null,"chaotic_fraction":0.742969,"lambda_chaotic":0.445839},{"K":3.0,"entropy":0.588715,"ln_K_over_2":0.405465,"chaotic_fraction":0.88043,"lambda_chaotic":0.668268},{"K":4.0,"entropy":0.757526,"ln_K_over_2":0.693147,"chaotic_fraction":0.91293,"lambda_chaotic":0.829328},{"K":5.0,"entropy":0.957298,"ln_K_over_2":0.916291,"chaotic_fraction":0.981172,"lambda_chaotic":0.975629},{"K":6.0,"entropy":1.13246,"ln_K_over_2":1.09861,"chaotic_fraction":0.996406,"lambda_chaotic":1.13653},{"K":6.28319,"entropy":1.16939,"ln_K_over_2":1.14473,"chaotic_fraction":0.997461,"lambda_chaotic":1.17236},{"K":6.5,"entropy":1.19915,"ln_K_over_2":1.17865,"chaotic_fraction":0.992734,"lambda_chaotic":1.20791},{"K":7.0,"entropy":1.2769,"ln_K_over_2":1.25276,"chaotic_fraction":0.999922,"lambda_chaotic":1.277},{"K":8.0,"entropy":1.40361,"ln_K_over_2":1.38629,"chaotic_fraction":1.0,"lambda_chaotic":1.40361},{"K":10.0,"entropy":1.62,"ln_K_over_2":1.60944,"chaotic_fraction":1.0,"lambda_chaotic":1.62},{"K":12.5664,"entropy":1.84356,"ln_K_over_2":1.83788,"chaotic_fraction":0.999297,"lambda_chaotic":1.84486},{"K":15.0,"entropy":2.01961,"ln_K_over_2":2.0149,"chaotic_fraction":1.0,"lambda_chaotic":2.01961},{"K":20.0,"entropy":2.30527,"ln_K_over_2":2.30259,"chaotic_fraction":1.0,"lambda_chaotic":2.30527},{"K":30.0,"entropy":2.70909,"ln_K_over_2":2.70805,"chaotic_fraction":1.0,"lambda_chaotic":2.70909},{"K":50.0,"entropy":3.21906,"ln_K_over_2":3.21888,"chaotic_fraction":1.0,"lambda_chaotic":3.21906},{"K":100.0,"entropy":3.9121,"ln_K_over_2":3.91202,"chaotic_fraction":1.0,"lambda_chaotic":3.9121}]},"crn":{"runs":900,"control":{"extinct":123,"blow-up":60,"persistent":717}},"switch":{"karate":{"n":34,"m":78,"observed":45,"reject_accept":0.0,"erased_edges":66.171,"erased_tri":[17.494,4.6515],"switch_acceptance":0.410968,"tau_steps":78.175,"ess":3791.49,"erased_z":5.91336,"null_mean":39.292,"null_sd":4.53493,"z":1.25867,"hist":[[22,2],[23,7],[24,9],[25,27],[26,64],[27,74],[28,119],[29,230],[30,328],[31,510],[32,695],[33,952],[34,1284],[35,1646],[36,1928],[37,2262],[38,2416],[39,2532],[40,2610],[41,2522],[42,2258],[43,1933],[44,1573],[45,1243],[46,885],[47,613],[48,374],[49,234],[50,154],[51,83],[52,40],[53,18],[54,9],[55,6]],"thin":10}},"smooth":{"rows":[{"lo":100000,"hi":1000000,"log_x":13.0714,"u":1.5,"rho":0.594535,"p_n":0.552076,"p_pm1":0.648362,"ratio":1.17441,"model_ratio":1.16579,"p_both":0.296394,"indep_ratio":0.972458},{"lo":100000,"hi":1000000,"log_x":13.0714,"u":2.0,"rho":0.306853,"p_n":0.268513,"p_pm1":0.365716,"ratio":1.36201,"model_ratio":1.32123,"p_both":0.0637356,"indep_ratio":0.884379},{"lo":100000,"hi":1000000,"log_x":13.0714,"u":2.5,"rho":0.13032,"p_n":0.114338,"p_pm1":0.177851,"ratio":1.55549,"model_ratio":1.51326,"p_both":0.00971112,"indep_ratio":0.742829},{"lo":100000,"hi":1000000,"log_x":13.0714,"u":3.0,"rho":0.0486084,"p_n":0.0454889,"p_pm1":0.0822715,"ratio":1.8086,"model_ratio":1.77474,"p_both":0.00107333,"indep_ratio":0.518835},{"lo":100000,"hi":1000000,"log_x":13.0714,"u":4.0,"rho":0.00491093,"p_n":0.00801445,"p_pm1":0.0190549,"ratio":2.37757,"model_ratio":2.47547,"p_both":1.22222e-05,"indep_ratio":0.190416},{"lo":1000000,"hi":10000000,"log_x":15.3739,"u":1.5,"rho":0.594535,"p_n":0.557792,"p_pm1":0.639714,"ratio":1.14687,"model_ratio":1.1399,"p_both":0.305067,"indep_ratio":0.980509},{"lo":1000000,"hi":10000000,"log_x":15.3739,"u":2.0,"rho":0.306853,"p_n":0.272377,"p_pm1":0.354183,"ratio":1.30034,"model_ratio":1.27105,"p_both":0.068094,"indep_ratio":0.917946},{"lo":1000000,"hi":10000000,"log_x":15.3739,"u":2.5,"rho":0.13032,"p_n":0.113397,"p_pm1":0.166574,"ratio":1.46895,"model_ratio":1.42454,"p_both":0.0104654,"indep_ratio":0.81387},{"lo":1000000,"hi":10000000,"log_x":15.3739,"u":3.0,"rho":0.0486084,"p_n":0.043444,"p_pm1":0.0739215,"ratio":1.70154,"model_ratio":1.63333,"p_both":0.00117422,"indep_ratio":0.62218},{"lo":1000000,"hi":10000000,"log_x":15.3739,"u":4.0,"rho":0.00491093,"p_n":0.00618211,"p_pm1":0.0137404,"ratio":2.22261,"model_ratio":2.16816,"p_both":1.02222e-05,"indep_ratio":0.267497},{"lo":10000000,"hi":100000000,"log_x":17.6765,"u":1.5,"rho":0.594535,"p_n":0.562299,"p_pm1":0.633385,"ratio":1.12642,"model_ratio":1.121,"p_both":0.311593,"indep_ratio":0.985493},{"lo":10000000,"hi":100000000,"log_x":17.6765,"u":2.0,"rho":0.306853,"p_n":0.275702,"p_pm1":0.346737,"ratio":1.25765,"model_ratio":1.23444,"p_both":0.0714204,"indep_ratio":0.939628},{"lo":10000000,"hi":100000000,"log_x":17.6765,"u":2.5,"rho":0.13032,"p_n":0.114137,"p_pm1":0.159744,"ratio":1.39958,"model_ratio":1.36184,"p_both":0.0112293,"indep_ratio":0.861984},{"lo":10000000,"hi":100000000,"log_x":17.6765,"u":3.0,"rho":0.0486084,"p_n":0.0421915,"p_pm1":0.0676599,"ratio":1.60364,"model_ratio":1.53498,"p_both":0.00126804,"indep_ratio":0.712342},{"lo":10000000,"hi":100000000,"log_x":17.6765,"u":4.0,"rho":0.00491093,"p_n":0.00527102,"p_pm1":0.0110293,"ratio":2.09244,"model_ratio":1.96416,"p_both":9.1e-06,"indep_ratio":0.327537}],"applications":{"pollard":[{"bits_p":256,"bits_B":32,"u":8.0,"rho":3.23207e-08,"corrected":3.89611e-08},{"bits_p":512,"bits_B":40,"u":12.8,"rho":6.0639e-16,"corrected":7.23168e-16},{"bits_p":512,"bits_B":64,"u":8.0,"rho":3.23207e-08,"corrected":3.54881e-08},{"bits_p":1024,"bits_B":64,"u":16.0,"rho":1.11292e-21,"corrected":1.25213e-21},{"bits_p":1024,"bits_B":80,"u":12.8,"rho":6.0639e-16,"corrected":6.62226e-16}],"twin":[{"bits_X":64,"bits_B":16,"u":4.0,"log2_density":-15.3396},{"bits_X":128,"bits_B":16,"u":8.0,"log2_density":-49.7659},{"bits_X":256,"bits_B":32,"u":8.0,"log2_density":-49.7659},{"bits_X":256,"bits_B":20,"u":12.8,"log2_density":-101.101}]}},"ot":{"A: paper's family, mass a, shift a/2":{"rows":[{"param":0.0001,"w2":5e-07,"dT":0.005},{"param":0.000199526,"w2":1.40919e-06,"dT":0.00706269},{"param":0.000398107,"w2":3.97164e-06,"dT":0.00997631},{"param":0.000794328,"w2":1.11936e-05,"dT":0.0140919},{"param":0.00158489,"w2":3.15479e-05,"dT":0.0199054},{"param":0.00316228,"w2":8.8914e-05,"dT":0.0281172},{"param":0.00630957,"w2":0.000250594,"dT":0.0397172},{"param":0.0125893,"w2":0.000706269,"dT":0.0561054},{"param":0.0251189,"w2":0.00199054,"dT":0.0792697},{"param":0.0501187,"w2":0.00561009,"dT":0.112077},{"param":0.1,"w2":0.0158114,"dT":0.158902},{"param":0.199526,"w2":0.0445625,"dT":0.227744}],"slope":0.333334,"mass":0.0001},"B: masses 1/3, shift eps":{"rows":[{"param":0.0001,"w2":5.7735e-05,"dT":0.0070713},{"param":0.000199526,"w2":0.000115197,"dT":0.00998881},{"param":0.000398107,"w2":0.000229847,"dT":0.0141105},{"param":0.000794328,"w2":0.000458606,"dT":0.0199343},{"param":0.00158489,"w2":0.000915039,"dT":0.0281653},{"param":0.00316228,"w2":0.00182574,"dT":0.0398054},{"param":0.00630957,"w2":0.00364283,"dT":0.0562855},{"param":0.0125893,"w2":0.00726841,"dT":0.0796709},{"param":0.0251189,"w2":0.0145024,"dT":0.113003},{"param":0.0501187,"w2":0.0289361,"dT":0.160924},{"param":0.1,"w2":0.057735,"dT":0.23094},{"param":0.199526,"w2":0.115197,"dT":0.336204}],"slope":0.500274,"mass":0.333333},"C: mass 0.01, shift b":{"rows":[{"param":0.0001,"w2":1e-05,"dT":0.00707107},{"param":0.000199526,"w2":1.99526e-05,"dT":0.00998817},{"param":0.000398107,"w2":3.98107e-05,"dT":0.0141087},{"param":0.000794328,"w2":7.94328e-05,"dT":0.0199291},{"param":0.00158489,"w2":0.000158489,"dT":0.0281509},{"param":0.00316228,"w2":0.000316228,"dT":0.0397648},{"param":0.00630957,"w2":0.000630957,"dT":0.056171}],"slope":0.500008,"mass":0.01}}};
+</script>
+<script>
+(function () {
+  "use strict";
+  const NS = "http://www.w3.org/2000/svg";
+  function el(name, attrs, parent) {
+    const e = document.createElementNS(NS, name);
+    Object.keys(attrs || {}).forEach(function (k) { e.setAttribute(k, attrs[k]); });
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function h(tag, attrs, text) {
+    const e = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) { e.setAttribute(k, attrs[k]); });
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function scaleOf(type, dom, rng) {
+    if (type === "log") {
+      const a = Math.log10(dom[0]), b = Math.log10(dom[1]);
+      return function (v) { return rng[0] + (Math.log10(v) - a) / (b - a) * (rng[1] - rng[0]); };
+    }
+    return function (v) { return rng[0] + (v - dom[0]) / (dom[1] - dom[0]) * (rng[1] - rng[0]); };
+  }
+  function sup(n) {
+    const map = { "-": "⁻", "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹" };
+    return String(n).split("").map(function (c) { return map[c] || c; }).join("");
+  }
+  function pow10(v) { return "10" + sup(Math.round(Math.log10(v))); }
+  function sci(v, d) {
+    if (v === 0) return "0";
+    const e = Math.floor(Math.log10(Math.abs(v)));
+    if (e >= -2 && e <= 3) return v.toFixed(Math.max(0, d - 1 - e));
+    return (v / Math.pow(10, e)).toFixed(d - 1) + " × 10" + sup(e);
+  }
+  function legend(id, items) {
+    const lg = document.getElementById(id);
+    if (!lg) return;
+    items.forEach(function (it) {
+      const s = h("span");
+      const i = h("i", { class: it.box ? "box" : (it.dash ? "dash" : "") });
+      if (it.box) i.style.background = it.color; else i.style.borderTopColor = it.color;
+      s.append(i, document.createTextNode(it.label));
+      lg.appendChild(s);
+    });
+  }
+  function table(id, head, rows, numericFrom) {
+    const wrap = document.getElementById(id);
+    if (!wrap) return;
+    const t = h("table");
+    const thead = h("thead"); const tr = h("tr");
+    head.forEach(function (c, j) { tr.appendChild(h("th", { scope: "col", class: j >= (numericFrom == null ? 1 : numericFrom) ? "num" : "" }, c)); });
+    thead.appendChild(tr); t.appendChild(thead);
+    const tb = h("tbody");
+    rows.forEach(function (r) {
+      const row = h("tr");
+      r.forEach(function (c, j) {
+        const td = h("td", { class: j >= (numericFrom == null ? 1 : numericFrom) ? "num" : "" });
+        if (c && typeof c === "object") { if (c.html != null) td.innerHTML = c.html; else td.textContent = c.text; if (c.hl) td.classList.add("hl"); }
+        else td.textContent = c;
+        row.appendChild(td);
+      });
+      tb.appendChild(row);
+    });
+    t.appendChild(tb); wrap.appendChild(t);
+  }
+
+  function tooltipFor(box) {
+    const tip = h("div", { class: "tooltip", role: "status" });
+    tip.hidden = true;
+    box.appendChild(tip);
+    return tip;
+  }
+  function placeTip(box, tip, px, py, W) {
+    const k = box.clientWidth / W;
+    tip.hidden = false;
+    let left = px * k + 14, top = py * k - 10;
+    const tw = tip.offsetWidth, th = tip.offsetHeight;
+    if (left + tw > box.clientWidth) left = px * k - tw - 14;
+    if (left < 0) left = 0;
+    if (top + th > box.clientHeight) top = box.clientHeight - th;
+    if (top < 0) top = 0;
+    tip.style.left = left + "px"; tip.style.top = top + "px";
+  }
+  function tipRow(tip, color, label, value, dash) {
+    const r = h("div", { class: "t-row" });
+    const i = h("i");
+    i.style.borderTopColor = color;
+    if (dash) i.style.borderTopStyle = "dashed";
+    r.append(i, document.createTextNode(label), h("b", null, value));
+    tip.appendChild(r);
+  }
+
+  // Generic line chart. mode "x": crosshair over shared x values; mode "point": nearest point.
+  function lineChart(c) {
+    const box = document.getElementById(c.id);
+    if (!box) return;
+    const W0 = c.w || 620, W = Math.max(300, Math.min(W0, Math.round(box.clientWidth || W0)));
+    const H = Math.round((c.h || 330) * Math.max(0.85, W / W0));
+    const m = Object.assign({ l: 58, r: 20, t: 14, b: 48 }, c.m || {});
+    const iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const X = scaleOf(c.x.type, c.x.dom, [m.l, m.l + iw]);
+    const Y = scaleOf(c.y.type, c.y.dom, [m.t + ih, m.t]);
+    const svg = el("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": c.aria });
+    c.y.ticks.forEach(function (v) {
+      el("line", { x1: m.l, x2: m.l + iw, y1: Y(v), y2: Y(v), class: "grid" }, svg);
+      el("text", { x: m.l - 8, y: Y(v) + 4, "text-anchor": "end" }, svg).textContent = (c.y.tf || String)(v);
+    });
+    c.x.ticks.forEach(function (v) {
+      el("line", { x1: X(v), x2: X(v), y1: m.t + ih, y2: m.t + ih + 5, class: "tick" }, svg);
+      el("text", { x: X(v), y: m.t + ih + 19, "text-anchor": "middle" }, svg).textContent = (c.x.tf || String)(v);
+    });
+    el("line", { x1: m.l, x2: m.l + iw, y1: m.t + ih, y2: m.t + ih, class: "axis" }, svg);
+    el("text", { x: m.l + iw / 2, y: H - 6, "text-anchor": "middle", class: "axis-label" }, svg).textContent = c.x.label;
+    el("text", { x: 13, y: m.t + ih / 2, "text-anchor": "middle", transform: "rotate(-90 13 " + (m.t + ih / 2) + ")", class: "axis-label" }, svg).textContent = c.y.label;
+    (c.refs || []).forEach(function (r) {
+      el("line", { x1: m.l, x2: m.l + iw, y1: Y(r.y), y2: Y(r.y), class: "ref" }, svg);
+      el("text", { x: r.left ? m.l + 6 : m.l + iw - 4, y: Y(r.y) + (r.below ? 15 : -6), "text-anchor": r.left ? "start" : "end", class: "ref-label" }, svg).textContent = r.label;
+    });
+    const inDom = function (p) {
+      if (p[1] == null || !isFinite(p[1])) return false;
+      if (c.y.type === "log" && p[1] <= 0) return false;
+      return p[0] >= c.x.dom[0] - 1e-12 && p[0] <= c.x.dom[1] + 1e-12;
+    };
+    c.series.forEach(function (s) {
+      s._pts = s.pts.filter(inDom);
+      const d = s._pts.map(function (p, i) { return (i ? "L" : "M") + X(p[0]).toFixed(1) + " " + Y(p[1]).toFixed(1); }).join(" ");
+      el("path", { d: d, fill: "none", stroke: s.color, "stroke-width": s.width || 2, "stroke-dasharray": s.dash ? "6 5" : "none", "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
+      if (s.markers) s._pts.forEach(function (p) { el("circle", { cx: X(p[0]), cy: Y(p[1]), r: 4, fill: s.color, stroke: "var(--surface)", "stroke-width": 2 }, svg); });
+    });
+    (c.labels || []).forEach(function (l) {
+      el("text", { x: X(l.x) + (l.dx || 0), y: Y(l.y) + (l.dy || 0), "text-anchor": l.anchor || "start", class: "direct" }, svg).textContent = l.text;
+    });
+    const cross = el("line", { x1: 0, x2: 0, y1: m.t, y2: m.t + ih, class: "cross", opacity: 0 }, svg);
+    const dots = c.series.map(function (s) { return el("circle", { r: 4.5, fill: s.color, stroke: "var(--surface)", "stroke-width": 2, opacity: 0 }, svg); });
+    const hit = el("rect", { x: m.l, y: m.t, width: iw, height: ih, class: "hit", tabindex: 0 }, svg);
+    hit.setAttribute("aria-label", "Chart data; use the arrow keys to read values");
+    box.appendChild(svg);
+    const tip = tooltipFor(box);
+    const vf = c.vf || function (v) { return sci(v, 3); };
+    const xf = c.xf || function (v) { return sci(v, 3); };
+    let xs = [];
+    if (c.mode !== "point") {
+      const set = {};
+      c.series.forEach(function (s) { s._pts.forEach(function (p) { set[p[0]] = p[0]; }); });
+      xs = Object.keys(set).map(function (k) { return set[k]; }).sort(function (a, b) { return a - b; });
+    }
+    const allPts = [];
+    c.series.forEach(function (s, k) { s._pts.forEach(function (p) { allPts.push({ k: k, p: p }); }); });
+    let cur = -1;
+    function showX(i) {
+      cur = i;
+      const xv = xs[i];
+      const px = X(xv);
+      cross.setAttribute("x1", px); cross.setAttribute("x2", px); cross.setAttribute("opacity", 0.7);
+      tip.textContent = "";
+      tip.appendChild(h("div", { class: "t-head" }, (c.x.name || "x") + " = " + xf(xv)));
+      let topY = m.t + ih;
+      c.series.forEach(function (s, k) {
+        const p = s._pts.find(function (q) { return Math.abs(q[0] - xv) < 1e-9 * Math.max(1, Math.abs(xv)); });
+        if (p) {
+          dots[k].setAttribute("cx", px); dots[k].setAttribute("cy", Y(p[1])); dots[k].setAttribute("opacity", 1);
+          topY = Math.min(topY, Y(p[1]));
+          tipRow(tip, s.color, s.label, vf(p[1], s), s.dash);
+        } else dots[k].setAttribute("opacity", 0);
+      });
+      placeTip(box, tip, px, topY, W);
+    }
+    function showP(i) {
+      cur = i;
+      const q = allPts[i], s = c.series[q.k];
+      dots.forEach(function (d) { d.setAttribute("opacity", 0); });
+      dots[q.k].setAttribute("cx", X(q.p[0])); dots[q.k].setAttribute("cy", Y(q.p[1])); dots[q.k].setAttribute("opacity", 1);
+      tip.textContent = "";
+      tip.appendChild(h("div", { class: "t-head" }, s.label));
+      tipRow(tip, s.color, c.x.name || "x", xf(q.p[0]), s.dash);
+      tipRow(tip, s.color, c.y.name || "y", vf(q.p[1], s), s.dash);
+      placeTip(box, tip, X(q.p[0]), Y(q.p[1]), W);
+    }
+    function hide() {
+      cross.setAttribute("opacity", 0);
+      dots.forEach(function (d) { d.setAttribute("opacity", 0); });
+      tip.hidden = true;
+    }
+    function locate(evt) {
+      const r = svg.getBoundingClientRect();
+      const k = W / r.width;
+      return [(evt.clientX - r.left) * k, (evt.clientY - r.top) * k];
+    }
+    hit.addEventListener("pointermove", function (evt) {
+      const xy = locate(evt);
+      if (c.mode === "point") {
+        let best = -1, bd = Infinity;
+        allPts.forEach(function (q, i) {
+          const dx = X(q.p[0]) - xy[0], dy = Y(q.p[1]) - xy[1];
+          const dd = dx * dx + dy * dy;
+          if (dd < bd) { bd = dd; best = i; }
+        });
+        if (best >= 0 && bd < 50 * 50) showP(best); else hide();
+      } else {
+        let best = 0, bd = Infinity;
+        xs.forEach(function (v, i) { const dd = Math.abs(X(v) - xy[0]); if (dd < bd) { bd = dd; best = i; } });
+        showX(best);
+      }
+    });
+    hit.addEventListener("pointerleave", hide);
+    hit.addEventListener("blur", hide);
+    hit.addEventListener("keydown", function (evt) {
+      const n = c.mode === "point" ? allPts.length : xs.length;
+      if (evt.key === "ArrowRight" || evt.key === "ArrowLeft") {
+        evt.preventDefault();
+        let i = cur < 0 ? 0 : cur + (evt.key === "ArrowRight" ? 1 : -1);
+        i = Math.max(0, Math.min(n - 1, i));
+        if (c.mode === "point") showP(i); else showX(i);
+      } else if (evt.key === "Escape") hide();
+    });
+  }
+
+  function barChart(c) {
+    const box = document.getElementById(c.id);
+    if (!box) return;
+    const W0 = c.w || 620, W = Math.max(300, Math.min(W0, Math.round(box.clientWidth || W0)));
+    const H = Math.round((c.h || 300) * Math.max(0.85, W / W0));
+    const m = Object.assign({ l: 58, r: 20, t: 26, b: 48 }, c.m || {});
+    const iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const X = scaleOf("linear", c.x.dom, [m.l, m.l + iw]);
+    const Y = scaleOf("linear", c.y.dom, [m.t + ih, m.t]);
+    const svg = el("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": c.aria });
+    c.y.ticks.forEach(function (v) {
+      el("line", { x1: m.l, x2: m.l + iw, y1: Y(v), y2: Y(v), class: "grid" }, svg);
+      el("text", { x: m.l - 8, y: Y(v) + 4, "text-anchor": "end" }, svg).textContent = (c.y.tf || String)(v);
+    });
+    c.x.ticks.forEach(function (v) {
+      el("line", { x1: X(v), x2: X(v), y1: m.t + ih, y2: m.t + ih + 5, class: "tick" }, svg);
+      el("text", { x: X(v), y: m.t + ih + 19, "text-anchor": "middle" }, svg).textContent = (c.x.tf || String)(v);
+    });
+    el("text", { x: m.l + iw / 2, y: H - 6, "text-anchor": "middle", class: "axis-label" }, svg).textContent = c.x.label;
+    el("text", { x: 13, y: m.t + ih / 2, "text-anchor": "middle", transform: "rotate(-90 13 " + (m.t + ih / 2) + ")", class: "axis-label" }, svg).textContent = c.y.label;
+    const step = Math.abs(X(c.x.dom[0] + c.unit) - X(c.x.dom[0]));
+    const bw = Math.max(2, step - (c.gap == null ? 2 : c.gap));
+    const y0 = Y(0);
+    const bars = c.bars.map(function (b) {
+      const x = X(b.x) - bw / 2, y = Y(b.y), r = Math.min(3, bw / 2, Math.abs(y0 - y));
+      let d;
+      if (b.y >= 0) d = "M" + x + " " + y0 + " V" + (y + r) + " Q" + x + " " + y + " " + (x + r) + " " + y + " H" + (x + bw - r) + " Q" + (x + bw) + " " + y + " " + (x + bw) + " " + (y + r) + " V" + y0 + " Z";
+      else d = "M" + x + " " + y0 + " V" + (y - r) + " Q" + x + " " + y + " " + (x + r) + " " + y + " H" + (x + bw - r) + " Q" + (x + bw) + " " + y + " " + (x + bw) + " " + (y - r) + " V" + y0 + " Z";
+      return el("path", { d: d, fill: b.color || c.color }, svg);
+    });
+    el("line", { x1: m.l, x2: m.l + iw, y1: y0, y2: y0, class: "axis" }, svg);
+    (c.markers || []).forEach(function (mk) {
+      el("line", { x1: X(mk.x), x2: X(mk.x), y1: m.t - 4, y2: m.t + ih, stroke: mk.color || "var(--ink)", "stroke-width": 2, "stroke-dasharray": mk.dash ? "5 4" : "none" }, svg);
+      el("text", { x: X(mk.x) + (mk.anchor === "end" ? -6 : 6), y: m.t + 6, "text-anchor": mk.anchor || "start", class: "direct" }, svg).textContent = mk.label;
+    });
+    const hl = el("rect", { x: 0, y: m.t, width: step, height: ih, fill: "var(--ink)", opacity: 0 }, svg);
+    const hit = el("rect", { x: m.l, y: m.t, width: iw, height: ih, class: "hit", tabindex: 0 }, svg);
+    hit.setAttribute("aria-label", "Chart data; use the arrow keys to read values");
+    box.appendChild(svg);
+    const tip = tooltipFor(box);
+    let cur = -1;
+    function show(i) {
+      cur = i;
+      const b = c.bars[i];
+      hl.setAttribute("x", X(b.x) - step / 2); hl.setAttribute("opacity", 0.06);
+      tip.textContent = "";
+      tip.appendChild(h("div", { class: "t-head" }, c.tipHead(b)));
+      tipRow(tip, b.color || c.color, c.tipLabel, c.tipValue(b));
+      placeTip(box, tip, X(b.x), Math.min(Y(b.y), y0), W);
+    }
+    function hide() { hl.setAttribute("opacity", 0); tip.hidden = true; }
+    hit.addEventListener("pointermove", function (evt) {
+      const r = svg.getBoundingClientRect();
+      const px = (evt.clientX - r.left) * W / r.width;
+      let best = 0, bd = Infinity;
+      c.bars.forEach(function (b, i) { const dd = Math.abs(X(b.x) - px); if (dd < bd) { bd = dd; best = i; } });
+      show(best);
+    });
+    hit.addEventListener("pointerleave", hide);
+    hit.addEventListener("blur", hide);
+    hit.addEventListener("keydown", function (evt) {
+      if (evt.key === "ArrowRight" || evt.key === "ArrowLeft") {
+        evt.preventDefault();
+        let i = cur < 0 ? 0 : cur + (evt.key === "ArrowRight" ? 1 : -1);
+        show(Math.max(0, Math.min(c.bars.length - 1, i)));
+      } else if (evt.key === "Escape") hide();
+    });
+  }
+
+  // ---------- Qubit capacity ----------
+  (function () {
+    const q = DATA.qubit;
+    const temps = [["30 mK", "var(--s1)"], ["50 mK", "var(--s2)"], ["70 mK", "var(--s3)"], ["100 mK", "var(--s4)"]];
+    const series = temps.map(function (t) { return { label: t[0], color: t[1], pts: q.t_us.map(function (x, i) { return [x, q.curves[t[0]][i]]; }) }; });
+    series.push({ label: "|0⟩/|1⟩ code, 50 mK", color: "var(--muted)", dash: true, pts: q.t_us.map(function (x, i) { return [x, q.naive_50mK[i]]; }) });
+    legend("qubit-legend", series.map(function (s) { return { label: s.label, color: s.color, dash: s.dash }; }));
+    const iT1 = q.t_us.indexOf(100);
+    lineChart({
+      id: "qubit-chart", aria: "Line chart of classical capacity in bits against storage time from 0 to 300 microseconds. Capacity falls from 1 bit; at 100 microseconds it is 0.36 bit at 50 millikelvin versus 0.21 bit for the standard encoding.",
+      x: { type: "linear", dom: [0, 300], ticks: [0, 50, 100, 150, 200, 250, 300], label: "storage time (µs), T₁ = 100 µs", name: "t (µs)" },
+      y: { type: "linear", dom: [0, 1], ticks: [0, 0.25, 0.5, 0.75, 1], tf: function (v) { return v.toFixed(2); }, label: "bits per stored qubit" },
+      series: series, xf: function (v) { return v.toFixed(0); }, vf: function (v) { return v.toFixed(3) + " bit"; },
+      labels: [{ x: 100, y: q.curves["50 mK"][iT1], text: "optimal code", dx: 8, dy: -10 }, { x: 100, y: q.naive_50mK[iT1], text: "|0⟩/|1⟩ code", dx: -8, dy: 18, anchor: "end" }]
+    });
+    const rows = q.t_us.filter(function (t) { return t % 25 === 0; }).map(function (t) {
+      const i = q.t_us.indexOf(t);
+      return [String(t)].concat(temps.map(function (x) { return q.curves[x[0]][i].toFixed(4); })).concat([q.naive_50mK[i].toFixed(4)]);
+    });
+    table("qubit-table", ["t (µs)", "30 mK", "50 mK", "70 mK", "100 mK", "|0⟩/|1⟩, 50 mK"], rows, 1);
+  })();
+
+  // ---------- Optical broadcast ----------
+  (function () {
+    const cases = DATA.optical;
+    const c = cases[3];
+    const sup_ = { label: "superposition coding (capacity)", color: "var(--c1)", pts: c.RB.map(function (x, i) { return [x, c.RC[i]]; }) };
+    const ts = { label: "time sharing", color: "var(--muted)", dash: true, pts: [[0, c.CC], [c.CB, 0]] };
+    legend("optical-legend", [sup_, ts].map(function (s) { return { label: s.label, color: s.color, dash: s.dash }; }));
+    lineChart({
+      id: "optical-chart", mode: "point", aria: "Capacity region: rate to the far receiver against rate to the near receiver. The superposition-coding boundary bows outward above the straight time-sharing line.",
+      x: { type: "linear", dom: [0, 8], ticks: [0, 2, 4, 6, 8], label: "near-receiver rate (bits per use)", name: "near rate" },
+      y: { type: "linear", dom: [0, 5], ticks: [0, 1, 2, 3, 4, 5], label: "far-receiver rate (bits per use)", name: "far rate" },
+      series: [sup_, ts], xf: function (v) { return v.toFixed(2) + " bits"; }, vf: function (v) { return v.toFixed(2) + " bits"; }
+    });
+    table("optical-table", ["Configuration", "Near max", "Far max", "Far rate, near at half max", "Gain"], cases.map(function (e) {
+      return [e.name, e.CB.toFixed(2), e.CC.toFixed(2), e.weak_superposition.toFixed(2) + " vs " + e.weak_timesharing.toFixed(2), { text: "+" + Math.round(100 * (e.weak_superposition / e.weak_timesharing - 1)) + "%", hl: true }];
+    }), 1);
+  })();
+
+  // ---------- Anderson ----------
+  (function () {
+    const A = DATA.anderson;
+    const shades = ["var(--o1)", "var(--o2)", "var(--o3)"];
+    function draw(d, id, ticks, dom) {
+      const Ls = Array.from(new Set(A.rows.filter(function (r) { return r.d === d; }).map(function (r) { return r.L; }))).sort(function (a, b) { return a - b; });
+      const series = Ls.map(function (L, k) {
+        return { label: "L = " + L, color: shades[k], markers: true, pts: A.rows.filter(function (r) { return r.d === d && r.L === L; }).map(function (r) { return [r.W, r.r, r.err]; }) };
+      });
+      lineChart({
+        id: id, w: 460, h: 320, m: { l: 52, r: 14, t: 14, b: 46 },
+        aria: (d === 2 ? "Two dimensions: " : "Three dimensions: ") + "mean level-spacing ratio against disorder for three sizes.",
+        x: { type: "linear", dom: dom, ticks: ticks, label: "disorder W", name: "W" },
+        y: { type: "linear", dom: [0.37, 0.55], ticks: [0.40, 0.45, 0.50, 0.55], tf: function (v) { return v.toFixed(2); }, label: "mean ratio ⟨r⟩" },
+        refs: [{ y: A.goe, label: "extended (GOE)" }, { y: A.poisson, label: "localized (Poisson)", left: true, below: true }],
+        series: series, xf: function (v) { return String(v); },
+        vf: function (v) { return v.toFixed(3); }
+      });
+      return Ls;
+    }
+    const L2 = draw(2, "anderson-2d", [0, 4, 8, 12, 16], [0, 17]);
+    const L3 = draw(3, "anderson-3d", [4, 8, 12, 16, 20, 24], [3, 27]);
+    legend("anderson-legend", [{ label: "smallest size (2D: 16, 3D: 8)", color: shades[0] }, { label: "middle (32, 12)", color: shades[1] }, { label: "largest (64, 16)", color: shades[2] }]);
+    table("anderson-table", ["Dimension", "W", "L", "Samples", "⟨r⟩", "± s.e."], A.rows.map(function (r) {
+      return [r.d + "D", String(r.W), String(r.L), String(r.samples), r.r.toFixed(4), r.err.toFixed(4)];
+    }), 1);
+  })();
+
+  // ---------- Haldane ----------
+  (function () {
+    const Hd = DATA.haldane;
+    const per = { label: "periodic ring gap", color: "var(--c1)", markers: true, pts: Hd.periodic.map(function (r) { return [r.L, r.gap]; }) };
+    const opn = { label: "open chain, gap to S = 2", color: "var(--c2)", markers: true, pts: Hd.open.map(function (r) { return [r.L, r.bulk_gap]; }) };
+    const edg = { label: "open chain, edge splitting", color: "var(--c3)", markers: true, pts: Hd.open.map(function (r) { return [r.L, r.edge_split]; }) };
+    legend("haldane-legend", [per, opn, edg].map(function (s) { return { label: s.label, color: s.color }; }).concat([{ label: "DMRG value 0.4105 J", color: "var(--muted)", dash: true }]));
+    lineChart({
+      id: "haldane-chart", w: 620, h: 300, aria: "Energy gaps of spin-1 chains against length. The periodic gap falls from 1.0 toward 0.41; the open-chain edge splitting falls toward zero.",
+      x: { type: "linear", dom: [4, Hd.periodic[Hd.periodic.length - 1].L], ticks: Hd.periodic.map(function (r) { return r.L; }), label: "chain length L", name: "L" },
+      y: { type: "linear", dom: [0, 1.4], ticks: [0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4], tf: function (v) { return v.toFixed(1); }, label: "energy (units of J)" },
+      refs: [{ y: 0.41048, label: "0.4105", below: true }],
+      series: [per, opn, edg], xf: function (v) { return String(v); }, vf: function (v) { return v.toFixed(4) + " J"; }
+    });
+    const mz = Hd.edge_profile.mz;
+    legend("edge-legend", [{ label: "⟨Sᶻ⟩ > 0", color: "var(--pos)", box: true }, { label: "⟨Sᶻ⟩ < 0", color: "var(--neg)", box: true }]);
+    barChart({
+      id: "edge-chart", h: 260, unit: 1, gap: 4, aria: "Bar chart of local magnetization along the open chain: large positive values at both ends, alternating in sign and decaying toward the middle.",
+      x: { dom: [0.5, mz.length + 0.5], ticks: mz.map(function (_, i) { return i + 1; }).filter(function (i) { return i === 1 || i % 2 === 0; }), label: "site i" },
+      y: { dom: [-0.3, 0.6], ticks: [-0.2, 0, 0.2, 0.4, 0.6], tf: function (v) { return v.toFixed(1); }, label: "⟨Sᶻᵢ⟩" },
+      bars: mz.map(function (v, i) { return { x: i + 1, y: v, color: v >= 0 ? "var(--pos)" : "var(--neg)" }; }),
+      tipHead: function (b) { return "site " + b.x; }, tipLabel: "⟨Sᶻ⟩", tipValue: function (b) { return (b.y >= 0 ? "+" : "") + b.y.toFixed(3); }
+    });
+    const rows = Hd.periodic.map(function (r, i) {
+      const o = Hd.open[i];
+      return [String(r.L), r.gap.toFixed(5), o.bulk_gap.toFixed(5), o.edge_split.toExponential(3)];
+    });
+    table("haldane-table", ["L", "Periodic gap", "Open: gap to S = 2", "Open: edge splitting"], rows, 1);
+  })();
+
+  // ---------- BEC ----------
+  table("bec-table", ["System", "ρa³", "Depleted", "Healing length"], DATA.bose.rows.map(function (r) {
+    return [r.name.replace("cm^-3", "cm⁻³").replace(" a0", " a₀"), r.eta.toExponential(2), { text: (100 * r.depletion).toFixed(2) + "%", hl: true }, r.xi_um.toFixed(2) + " µm"];
+  }), 1);
+
+  // ---------- Lieb-Thirring ----------
+  (function () {
+    const L = DATA.lieb;
+    const pick = [0.75, 1.0, 1.25, 1.5];
+    const rows = pick.map(function (g) {
+      const r = L.curve.reduce(function (a, b) { return Math.abs(b.gamma - g) < Math.abs(a.gamma - g) ? b : a; });
+      return ["γ = " + g.toFixed(2), r.R_gamma.toFixed(4), { text: r.lifted_d3.toFixed(4), hl: g === 1 }];
+    });
+    table("lieb-table", ["Moment γ", "Sharp 1D constant / classical", "3D bound / classical"], rows, 1);
+    const k = L.K;
+    const t = document.querySelector("#lieb-table table tbody");
+    [["Kinetic constant K, this bound", k.new.toFixed(3) + " (" + (100 * k.new / k.TF).toFixed(1) + "% of TF)"], ["K from the 2021 bound (ratio 1.456)", k.old.toFixed(3) + " (" + (100 * k.old / k.TF).toFixed(1) + "% of TF)"], ["Thomas–Fermi value K_TF", k.TF.toFixed(3)]].forEach(function (r) {
+      const tr = h("tr");
+      const a = h("td", null, r[0]); a.colSpan = 2;
+      tr.append(a, h("td", { class: "num" }, r[1]));
+      t.appendChild(tr);
+    });
+  })();
+
+  // ---------- Crystals ----------
+  table("crystal-table", ["κ", "E (triangular)", "Square", "Rectangle 2:1", "Honeycomb", "Kagome", "Displaced 5%"], DATA.crystal.rows.map(function (r) {
+    function p(v) { return "+" + (100 * (v / r.E_tri - 1)).toFixed(2) + "%"; }
+    return [r.kappa.toFixed(1), r.E_tri.toFixed(4), { text: p(r.square), hl: true }, p(r.rect2), p(r.honeycomb), p(r.kagome), p(r.perturbed_005)];
+  }), 1);
+
+  // ---------- Standard map ----------
+  (function () {
+    const S = DATA.standard.rows;
+    const meas = { label: "measured entropy (area average)", color: "var(--c1)", markers: true, pts: S.map(function (r) { return [r.K, r.entropy]; }) };
+    const pred = { label: "ln(K/2)", color: "var(--muted)", dash: true, pts: S.filter(function (r) { return r.K > 2; }).map(function (r) { return [r.K, Math.log(r.K / 2)]; }) };
+    legend("standard-legend", [meas, pred].map(function (s) { return { label: s.label, color: s.color, dash: s.dash }; }));
+    lineChart({
+      id: "standard-chart", aria: "Entropy estimate against K on a log axis from 0.5 to 100, rising from near 0 to 3.9 and matching ln(K/2) for K above about 6.",
+      x: { type: "log", dom: [0.5, 100], ticks: [0.5, 1, 2, 5, 10, 20, 50, 100], tf: function (v) { return String(v); }, label: "kick strength K (log scale)", name: "K" },
+      y: { type: "linear", dom: [0, 4], ticks: [0, 1, 2, 3, 4], label: "nats per iteration" },
+      series: [meas, pred], xf: function (v) { return v.toFixed(v < 1 ? 4 : 3); },
+      vf: function (v) { return v.toFixed(3); }
+    });
+    table("standard-table", ["K", "Entropy estimate", "ln(K/2)", "Chaotic area"], S.map(function (r) {
+      return [r.K.toFixed(r.K < 1 ? 4 : 3), r.entropy.toFixed(4), r.ln_K_over_2 == null ? "–" : r.ln_K_over_2.toFixed(4), (100 * r.chaotic_fraction).toFixed(2) + "%"];
+    }), 1);
+  })();
+
+  // ---------- Reaction networks ----------
+  (function () {
+    const R = DATA.crn;
+    const ICON = {
+      ok: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="var(--good)"/><path d="M4.5 8.3l2.2 2.2 4.8-4.8" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      ext: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="var(--crit)"/><path d="M5.3 5.3l5.4 5.4M10.7 5.3l-5.4 5.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>',
+      blow: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l7 13H1z" fill="var(--warn)"/><path d="M8 6v4" stroke="#1a1a19" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="12.2" r="1" fill="#1a1a19"/></svg>'
+    };
+    const box = document.getElementById("crn-bars");
+    [["Weakly reversible (any rates)", R.runs, 0, 0, "recovered"], ["Same networks, one reaction removed", R.control.persistent, R.control.extinct, R.control["blow-up"], "persisted"]].forEach(function (row) {
+      const total = row[1] + row[2] + row[3];
+      const o = h("div", { class: "outcome" });
+      o.appendChild(h("div", { class: "name" }, row[0]));
+      const bar = h("div", { class: "bar", role: "img", "aria-label": row[0] + ": " + row[1] + " " + row[4] + ", " + row[2] + " extinct, " + row[3] + " blew up, of " + total + " runs" });
+      [["ok", row[1], row[4]], ["ext", row[2], "a species went extinct"], ["blow", row[3], "a species blew up"]].forEach(function (seg) {
+        if (!seg[1]) return;
+        const s = h("span", { class: seg[0], title: seg[1] + " of " + total + " runs: " + seg[2] });
+        s.style.width = (100 * seg[1] / total) + "%";
+        bar.appendChild(s);
+      });
+      o.appendChild(bar);
+      const counts = h("div", { class: "counts" });
+      [["ok", row[1] + " " + row[4]], ["ext", row[2] + " extinct"], ["blow", row[3] + " blew up"]].forEach(function (cn) {
+        const s = h("span");
+        s.innerHTML = ICON[cn[0]];
+        s.appendChild(document.createTextNode(cn[1]));
+        counts.appendChild(s);
+      });
+      o.appendChild(counts);
+      box.appendChild(o);
+    });
+  })();
+
+  // ---------- Switch chain ----------
+  (function () {
+    const K = DATA.switch.karate;
+    const total = K.hist.reduce(function (a, b) { return a + b[1]; }, 0);
+    const bars = K.hist.map(function (b) { return { x: b[0], y: b[1] / total, n: b[1] }; });
+    const ymax = Math.max.apply(null, bars.map(function (b) { return b.y; }));
+    legend("switch-legend", [{ label: "switch-chain null distribution", color: "var(--c1)", box: true }, { label: "observed (45)", color: "var(--ink)" }, { label: "erased-model mean (17.5)", color: "var(--c2)", dash: true }]);
+    barChart({
+      id: "switch-chart", h: 300, unit: 1, gap: 1, color: "var(--c1)",
+      aria: "Histogram of triangle counts in random graphs with the karate club's degrees, centred near 39; the observed 45 lies inside the distribution, while the erased-model mean of 17.5 lies far to the left.",
+      x: { dom: [10, 62], ticks: [10, 20, 30, 40, 50, 60], label: "triangles in the graph" },
+      y: { dom: [0, Math.ceil(ymax * 100 / 2) * 2 / 100], ticks: [0, 0.02, 0.04, 0.06, 0.08, 0.10].filter(function (v) { return v <= ymax + 0.02; }), tf: function (v) { return (100 * v).toFixed(0) + "%"; }, label: "share of samples" },
+      bars: bars,
+      markers: [{ x: K.observed, label: "observed 45", color: "var(--ink)" }, { x: K.erased_tri[0], label: "erased model", color: "var(--c2)", dash: true, anchor: "start" }],
+      tipHead: function (b) { return b.x + " triangles"; }, tipLabel: "share of samples", tipValue: function (b) { return (100 * b.y).toFixed(2) + "%"; }
+    });
+    table("switch-table", ["Triangles", "Samples", "Share"], K.hist.map(function (b) { return [String(b[0]), String(b[1]), (100 * b[1] / total).toFixed(2) + "%"]; }), 1);
+  })();
+
+  // ---------- Smooth numbers ----------
+  (function () {
+    const M = DATA.smooth;
+    const top = M.rows.filter(function (r) { return r.lo === 10000000; });
+    table("smooth-table", ["u", "n smooth", "p − 1 smooth", "Ratio", "Model", "n, n + 1"], top.map(function (r) {
+      return [r.u.toFixed(1), r.p_n.toFixed(4), r.p_pm1.toFixed(4), { text: r.ratio.toFixed(3), hl: true }, r.model_ratio.toFixed(3), r.indep_ratio.toFixed(3)];
+    }), 1);
+    const rows = M.applications.pollard.map(function (p) {
+      return ["Pollard p − 1, p ≈ 2" + sup(p.bits_p) + ", B = 2" + sup(p.bits_B), "u = " + p.u.toFixed(1), { text: sci(p.corrected, 2) + " per prime", hl: true }];
+    }).concat(M.applications.twin.map(function (t) {
+      return ["Twin smooth near 2" + sup(t.bits_X) + ", B = 2" + sup(t.bits_B), "u = " + t.u.toFixed(1), { html: "density 2<sup>" + t.log2_density.toFixed(1).replace("-", "−") + "</sup>", hl: true }];
+    }));
+    table("crypto-table", ["Use", "u", "Predicted rate"], rows, 1);
+  })();
+
+  // ---------- Optimal transport ----------
+  (function () {
+    const O = DATA.ot;
+    const keys = Object.keys(O);
+    const cols = ["var(--c1)", "var(--c2)", "var(--c3)"];
+    const names = ["paper's family: mass a, shift a/2", "equal masses 1/3", "fixed mass 0.01"];
+    const series = keys.map(function (k, i) { return { label: names[i] + " (slope " + O[k].slope.toFixed(3) + ")", color: cols[i], markers: true, pts: O[k].rows.map(function (r) { return [r.w2, r.dT]; }) }; });
+    legend("ot-legend", series.map(function (s) { return { label: s.label, color: s.color }; }));
+    lineChart({
+      id: "ot-chart", mode: "point", aria: "Log-log plot of map change against W2 distance. The paper's family rises with slope one third, the two others with slope one half.",
+      x: { type: "log", dom: [3e-7, 0.2], ticks: [1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1], tf: pow10, label: "target change W₂(μ, ν) (log scale)", name: "W₂" },
+      y: { type: "log", dom: [4e-3, 0.4], ticks: [0.01, 0.03, 0.1, 0.3], tf: function (v) { return String(v); }, label: "map change ‖ΔT‖ (log scale)", name: "‖ΔT‖" },
+      series: series, xf: function (v) { return sci(v, 3); }, vf: function (v) { return sci(v, 4); }
+    });
+    const rows = [];
+    keys.forEach(function (k, i) { O[k].rows.forEach(function (r) { rows.push([names[i], sci(r.param, 3), sci(r.w2, 4), sci(r.dT, 5)]); }); });
+    table("ot-table", ["Family", "Parameter", "W₂", "‖T_μ − T_ν‖"], rows, 1);
+  })();
+})();
+</script>
+
+</body>
+</html>

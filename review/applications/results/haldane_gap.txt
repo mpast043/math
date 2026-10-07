@@ -5,8 +5,8 @@ Periodic rings: gap = E0(S^z=1) - E0(S^z=0) (lowest triplet above the singlet gr
    8         1107    -1.41711951     0.593555   (0 s)
   10         8953    -1.40941300     0.524808   (0 s)
   12        73789    -1.40579634     0.484196   (1 s)
-  14       616227    -1.40393811     0.458965   (9 s)
-  16      5196627    -1.40292546     0.442796   (136 s)
+  14       616227    -1.40393811     0.458965   (10 s)
+  16      5196627    -1.40292546     0.442796   (125 s)
 fit gap(L) = D + a exp(-L/xi) on L >= 8:  D = 0.41912,  xi = 4.04   (DMRG literature: 0.41048)
 
 Open chains: edge-state splitting E0(S=1) - E0(S=0) and bulk gap E0(S=2) - E0(S=1)
@@ -20,5 +20,6 @@ Open chains: edge-state splitting E0(S=1) - E0(S=0) and bulk gap E0(S=2) - E0(S=
   16         0.049617       0.599439
 
 Open chain L = 16, lowest S^z = 1 state: <S^z_i> = +0.522 -0.301 +0.344 -0.219 +0.202 -0.118 +0.086 -0.017 -0.017 +0.086 -0.118 +0.202 -0.219 +0.344 -0.301 +0.522
-the 4 sites at each end carry 0.693 of the total S^z = 1 (about 1/2 per end); the 4 central sites carry 0.138
+end sites +0.522; the four central sites have |<S^z_i>| <= 0.086. The profile is largest at the ends and decays inward (a bulk magnon would peak in the middle).
+cumulative S^z from the left end: 0.522 0.221 0.565 0.346 0.549 0.431 0.517 0.500  (oscillates about 1/2: one spin-1/2 per end)
 edge splitting ~ exp(-L/5.71)
