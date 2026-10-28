@@ -1,0 +1,181 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "phase_global_distance",
+      "max_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "phase_photon_distance",
+      "max_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "phase_atom_distance",
+      "max_error": 1.1102230246251565e-16,
+      "passed": true
+    },
+    {
+      "name": "branch_photon_distance",
+      "max_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "branch_photon_min_error",
+      "max_error": 2.7755575615628914e-17,
+      "passed": true
+    },
+    {
+      "name": "correlated_overlap_N2",
+      "max_error": 1.1102230246251565e-16,
+      "passed": true
+    },
+    {
+      "name": "correlated_local_error_N2_0",
+      "max_error": 2.7755575615628914e-17,
+      "passed": true
+    },
+    {
+      "name": "correlated_local_error_N2_1",
+      "max_error": 2.7755575615628914e-17,
+      "passed": true
+    },
+    {
+      "name": "product_overlap_N2",
+      "max_error": 1.6653345369377348e-16,
+      "passed": true
+    },
+    {
+      "name": "correlated_overlap_N3",
+      "max_error": 1.1102230246251565e-16,
+      "passed": true
+    },
+    {
+      "name": "correlated_local_error_N3_0",
+      "max_error": 2.7755575615628914e-17,
+      "passed": true
+    },
+    {
+      "name": "correlated_local_error_N3_1",
+      "max_error": 2.7755575615628914e-17,
+      "passed": true
+    },
+    {
+      "name": "correlated_local_error_N3_2",
+      "max_error": 2.7755575615628914e-17,
+      "passed": true
+    },
+    {
+      "name": "product_overlap_N3",
+      "max_error": 1.3877787807814457e-16,
+      "passed": true
+    },
+    {
+      "name": "correlated_overlap_N5",
+      "max_error": 1.1102230246251565e-16,
+      "passed": true
+    },
+    {
+      "name": "correlated_local_error_N5_0",
+      "max_error": 2.7755575615628914e-17,
+      "passed": true
+    },
+    {
+      "name": "correlated_local_error_N5_1",
+      "max_error": 2.7755575615628914e-17,
+      "passed": true
+    },
+    {
+      "name": "correlated_local_error_N5_2",
+      "max_error": 2.7755575615628914e-17,
+      "passed": true
+    },
+    {
+      "name": "correlated_local_error_N5_3",
+      "max_error": 2.7755575615628914e-17,
+      "passed": true
+    },
+    {
+      "name": "correlated_local_error_N5_4",
+      "max_error": 2.7755575615628914e-17,
+      "passed": true
+    },
+    {
+      "name": "product_overlap_N5",
+      "max_error": 5.551115123125783e-17,
+      "passed": true
+    },
+    {
+      "name": "independent_three_majority_error",
+      "max_error": 6.938893903907228e-18,
+      "passed": true
+    },
+    {
+      "name": "classical_copy_distance_N1",
+      "max_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "classical_copy_distance_N3",
+      "max_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "classical_copy_distance_N8",
+      "max_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "parity_pairwise_independence_axis0",
+      "max_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "parity_pairwise_independence_axis1",
+      "max_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "parity_pairwise_independence_axis2",
+      "max_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "parity_joint_total_variation_from_product",
+      "max_error": 0.0,
+      "passed": true
+    }
+  ],
+  "count": 29,
+  "tolerance": 1e-12,
+  "numpy_version": "2.3.5",
+  "scope": "Analytic toy-model regression only; no hardware parameters, interval certificate, Lean proof, or resolution of unique outcomes.",
+  "scenarios": [
+    {
+      "N": 2,
+      "single_record_error": 0.1,
+      "shared_error_majority_error": 0.1,
+      "independent_error_majority_error": 0.1,
+      "product_coherence": 0.3600000000000001,
+      "correlated_coherence": 0.6000000000000001
+    },
+    {
+      "N": 3,
+      "single_record_error": 0.1,
+      "shared_error_majority_error": 0.1,
+      "independent_error_majority_error": 0.028000000000000008,
+      "product_coherence": 0.2160000000000001,
+      "correlated_coherence": 0.6000000000000001
+    },
+    {
+      "N": 5,
+      "single_record_error": 0.1,
+      "shared_error_majority_error": 0.1,
+      "independent_error_majority_error": 0.008560000000000002,
+      "product_coherence": 0.07776000000000005,
+      "correlated_coherence": 0.6000000000000001
+    }
+  ],
+  "source_sha256": "a2ff0aac6c5601b8f802072bdb1b6d36cdd6eae907657946c13db0abb4733f37"
+}

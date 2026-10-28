@@ -1,0 +1,56 @@
+{
+  "checks_enabled": true,
+  "coherent_vs_mixture": {
+    "coherence_effect_difference": 0.4999999999999998,
+    "diagonal_effect_difference": 0.0,
+    "global_distance_to_mixture": 0.4999999999999999
+  },
+  "encodings": [
+    {
+      "compression_multiplication_error": 1.0,
+      "k": [
+        0.0,
+        0.0
+      ],
+      "offdiagonal_modulus": 0.0
+    },
+    {
+      "compression_multiplication_error": 0.64,
+      "k": [
+        0.6,
+        0.0
+      ],
+      "offdiagonal_modulus": 0.6
+    },
+    {
+      "compression_multiplication_error": 0.64,
+      "k": [
+        0.0,
+        0.6
+      ],
+      "offdiagonal_modulus": 0.6
+    },
+    {
+      "compression_multiplication_error": 0.0,
+      "k": [
+        1.0,
+        0.0
+      ],
+      "offdiagonal_modulus": 1.0
+    }
+  ],
+  "rotated_projection": {
+    "dimension": 4,
+    "projection_blocks": [
+      2,
+      2
+    ],
+    "trace_error": 1.1102718126509393e-16
+  },
+  "scope": "Finite operational statistics; no global outcome selection or hardware claim",
+  "shared_wrong_records": {
+    "record_disagreement": 0.0,
+    "source_error": 0.1
+  },
+  "tolerance": 2e-09
+}

@@ -1,0 +1,21 @@
+{
+  "library_file_id": "libfile_c46d65898a00819186320a4544fcdd6c",
+  "version": 1,
+  "file_name": "Quantum_Classical_Records_Bridge_2026-10-28.zip",
+  "size_bytes": 15435,
+  "sha256": "b83d5013423f99a753f13cbb724cd807081e7497099d76c8cdbb57ba13af0082",
+  "included_original_files": {
+    "check_bridge.py": "a2ff0aac6c5601b8f802072bdb1b6d36cdd6eae907657946c13db0abb4733f37",
+    "check_single_photon_loss.py": "87e16e21b15d36058d8c02228b10fd8ec24cca5ee83c6583912eca4bffe76e1b",
+    "RESULTS.json": "49d78f253553bfc1dabd598fa9caf415abed5871d794585fc37918bfc1449709",
+    "LOSS_RESULTS.json": "7c52038121c32146ae5a69d601edaf12a6260d7e9853f4bdb242620b2f6b3645"
+  },
+  "original_review_status": "29 bridge checks independently rerun in supplement; 40 loss checks run by original primary calculation only",
+  "current_executor_rerun": {
+    "bridge_checks": 29,
+    "single_photon_checks": 40,
+    "status": "passed",
+    "numpy": "2.4.2"
+  },
+  "scope": "Project-authored numerical regressions, not interval certificates, Lean proofs, or hydrogen validation"
+}
