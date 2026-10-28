@@ -1,0 +1,47 @@
+name: Hydrogen witness
+
+on:
+  pull_request:
+    paths:
+      - 'lean/HydrogenPathway/**'
+      - '.github/workflows/hydrogen-witness.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  witness-and-scalar-proofs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: lean/HydrogenPathway
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          sparse-checkout: |
+            lean/HydrogenPathway
+            .github/workflows
+      - name: Install pinned Lean in runner temp
+        shell: bash
+        run: |
+          curl --fail --location --retry 3 \
+            https://github.com/leanprover/lean4/releases/download/v4.34.1/lean-4.34.1-linux.tar.zst \
+            -o "$RUNNER_TEMP/lean.tar.zst"
+          echo "47bf4bbd78f70c2e9670598ab7124d92b6efb7330ff33e5fbb4030f6fd72e4e4  $RUNNER_TEMP/lean.tar.zst" | sha256sum --check
+          tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/lean-4.34.1-linux/bin" >> "$GITHUB_PATH"
+          echo "MATHLIB_CACHE_DIR=$RUNNER_TEMP/mathlib-cache" >> "$GITHUB_ENV"
+      - name: Fetch pinned dependencies
+        run: MATHLIB_NO_CACHE_ON_UPDATE=1 lake update
+      - name: Fetch required Mathlib cache
+        run: >-
+          lake exe cache get
+          Mathlib.Analysis.InnerProductSpace.Basic
+          Mathlib.Analysis.SpecialFunctions.Sqrt
+          Mathlib.Tactic.NormNum
+          Mathlib.Tactic.Linarith
+          Mathlib.Tactic.Positivity
+          Mathlib.Tactic.Ring
+      - name: Verify witness and scalar consequences
+        run: bash scripts/verify-witness.sh

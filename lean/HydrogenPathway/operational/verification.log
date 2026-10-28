@@ -1,0 +1,46 @@
+UTC 2026-10-28T16:16:20Z
+HEAD before reviewed numerical follow-up f7659bc7a28eea993641cf407ceda6bd184305fc; tested tree identified by source-sha256.txt
+codex/quantum-operational-boundary
+Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+Lake version 5.0.0-src+5045d00 (Lean version 4.34.1)
+Python 3.14.3
+leanprover/lean4:v4.34.1
+d13f23b723b8a846827a245b89c10fc7d3f11612
+Build completed successfully (1899 jobs).
+AXIOMS HydrogenPathway.Operational.pinch_pairing: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.commuting_fixed: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.operational_boundary: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.block_idempotent: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.off_block_expansion: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.entrywise_bound: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.block_boundary: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.pinch_trace: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.block_trace: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.encoding_compression: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.encoding_isometry: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.encoding_pairing: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.inaccessible_boundary: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.inaccessible_entrywise_bound: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.conditional_union: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Operational.conditional_record_error: [propext, Classical.choice, Quot.sound]
+test_commutation_sufficient_not_necessary (test_model.BoundaryTests.test_commutation_sufficient_not_necessary) ... ok
+test_complete_rotated_projection_boundary (test_model.BoundaryTests.test_complete_rotated_projection_boundary) ... ok
+test_complex_effect_tight_entrywise_bound (test_model.BoundaryTests.test_complex_effect_tight_entrywise_bound) ... ok
+test_compressed_local_x_remains_allowed (test_model.BoundaryTests.test_compressed_local_x_remains_allowed) ... ok
+test_conditional_record_bound_needs_no_independence (test_model.BoundaryTests.test_conditional_record_bound_needs_no_independence) ... ok
+test_constant_and_coarse_labels_preserve_within_block_coherence (test_model.BoundaryTests.test_constant_and_coarse_labels_preserve_within_block_coherence) ... ok
+test_entrywise_bound_complex_and_block_labels (test_model.BoundaryTests.test_entrywise_bound_complex_and_block_labels) ... ok
+test_full_coherence_and_block_statistics_differ (test_model.BoundaryTests.test_full_coherence_and_block_statistics_differ) ... ok
+test_invalid_condition_and_cover (test_model.BoundaryTests.test_invalid_condition_and_cover) ... ok
+test_later_coherent_control_changes_measurement_boundary (test_model.BoundaryTests.test_later_coherent_control_changes_measurement_boundary) ... ok
+test_non_density_trace_identity (test_model.BoundaryTests.test_non_density_trace_identity) ... ok
+test_shared_wrong_records_still_agree (test_model.BoundaryTests.test_shared_wrong_records_still_agree) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.002s
+
+OK
+Checked operational-boundary reference cases.
+PASS: saved results reproduce within 2e-9 and all listed source hashes match exactly.
+PASS: original/rerun supplement evidence and source provenance validated; NumPy not executed by this script.
+PASS: operational build, 16 declarations/axiom audits, 12 numerical tests, reference cases, provenance, and source scan.

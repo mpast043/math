@@ -1,0 +1,227 @@
+{
+  "status": "passed",
+  "count": 40,
+  "checks": [
+    {
+      "name": "norm_0_0",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "name": "AC_0_0",
+      "max_error": 1.1102230246251565e-16
+    },
+    {
+      "name": "A_0_0",
+      "max_error": 1.1102230246251565e-16
+    },
+    {
+      "name": "C_0_0",
+      "max_error": 0.0
+    },
+    {
+      "name": "missed_0_0",
+      "max_error": 1.1102230246251565e-16
+    },
+    {
+      "name": "norm_1_1",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "name": "AC_1_1",
+      "max_error": 0.0
+    },
+    {
+      "name": "A_1_1",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "name": "C_1_1",
+      "max_error": 0.0
+    },
+    {
+      "name": "detected_1_1",
+      "max_error": 0.0
+    },
+    {
+      "name": "norm_0_1",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "name": "AC_0_1",
+      "max_error": 0.0
+    },
+    {
+      "name": "A_0_1",
+      "max_error": 0.0
+    },
+    {
+      "name": "C_0_1",
+      "max_error": 0.0
+    },
+    {
+      "name": "detected_0_1",
+      "max_error": 0.0
+    },
+    {
+      "name": "missed_0_1",
+      "max_error": 0.0
+    },
+    {
+      "name": "norm_0.2_0.8",
+      "max_error": 3.3306690738754696e-16
+    },
+    {
+      "name": "AC_0.2_0.8",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "name": "A_0.2_0.8",
+      "max_error": 1.1102230246251565e-16
+    },
+    {
+      "name": "C_0.2_0.8",
+      "max_error": 0.0
+    },
+    {
+      "name": "detected_0.2_0.8",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "name": "missed_0.2_0.8",
+      "max_error": 1.6653345369377348e-16
+    },
+    {
+      "name": "norm_0.8_0.2",
+      "max_error": 3.3306690738754696e-16
+    },
+    {
+      "name": "AC_0.8_0.2",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "name": "A_0.8_0.2",
+      "max_error": 1.1102230246251565e-16
+    },
+    {
+      "name": "C_0.8_0.2",
+      "max_error": 0.0
+    },
+    {
+      "name": "detected_0.8_0.2",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "name": "missed_0.8_0.2",
+      "max_error": 1.6653345369377348e-16
+    },
+    {
+      "name": "norm_0.4_0.4",
+      "max_error": 1.1102230246251565e-16
+    },
+    {
+      "name": "AC_0.4_0.4",
+      "max_error": 0.0
+    },
+    {
+      "name": "A_0.4_0.4",
+      "max_error": 1.1102230246251565e-16
+    },
+    {
+      "name": "C_0.4_0.4",
+      "max_error": 0.0
+    },
+    {
+      "name": "detected_0.4_0.4",
+      "max_error": 0.0
+    },
+    {
+      "name": "missed_0.4_0.4",
+      "max_error": 5.551115123125783e-17
+    },
+    {
+      "name": "norm_0.01_0.99",
+      "max_error": 1.1102230246251565e-16
+    },
+    {
+      "name": "AC_0.01_0.99",
+      "max_error": 2.7755575615628914e-17
+    },
+    {
+      "name": "A_0.01_0.99",
+      "max_error": 4.163336342344337e-17
+    },
+    {
+      "name": "C_0.01_0.99",
+      "max_error": 0.0
+    },
+    {
+      "name": "detected_0.01_0.99",
+      "max_error": 2.7755575615628914e-17
+    },
+    {
+      "name": "missed_0.01_0.99",
+      "max_error": 1.3877787807814457e-17
+    }
+  ],
+  "scenarios": [
+    {
+      "eta0": 0,
+      "eta1": 0,
+      "D_AC": 0.4,
+      "D_A": 0.4,
+      "detection_probability": 0.0,
+      "conditional_detected_D": null
+    },
+    {
+      "eta0": 1,
+      "eta1": 1,
+      "D_AC": 1.0,
+      "D_A": 0.6000000000000001,
+      "detection_probability": 1.0,
+      "conditional_detected_D": 1.0
+    },
+    {
+      "eta0": 0,
+      "eta1": 1,
+      "D_AC": 0.0,
+      "D_A": 0.0,
+      "detection_probability": 0.5,
+      "conditional_detected_D": 0.0
+    },
+    {
+      "eta0": 0.2,
+      "eta1": 0.8,
+      "D_AC": 0.56,
+      "D_A": 0.3531220994085093,
+      "detection_probability": 0.5,
+      "conditional_detected_D": 0.8
+    },
+    {
+      "eta0": 0.8,
+      "eta1": 0.2,
+      "D_AC": 0.56,
+      "D_A": 0.3531220994085093,
+      "detection_probability": 0.5,
+      "conditional_detected_D": 0.8
+    },
+    {
+      "eta0": 0.4,
+      "eta1": 0.4,
+      "D_AC": 0.64,
+      "D_A": 0.42123962970737894,
+      "detection_probability": 0.4,
+      "conditional_detected_D": 1.0
+    },
+    {
+      "eta0": 0.01,
+      "eta1": 0.99,
+      "D_AC": 0.13929824119492681,
+      "D_A": 0.08783801316904548,
+      "detection_probability": 0.5,
+      "conditional_detected_D": 0.198997487421324
+    }
+  ],
+  "tolerance": 1e-12,
+  "source_sha256": "87e16e21b15d36058d8c02228b10fd8ec24cca5ee83c6583912eca4bffe76e1b",
+  "scope": "Single-photon loss state only. A fixed input photon pair additionally requires Gram-matrix compatibility. Coherent control and instrument not hardware-certified."
+}
