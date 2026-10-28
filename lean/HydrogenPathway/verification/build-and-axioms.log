@@ -1,0 +1,24 @@
+UTC 2026-10-28T03:42:53Z
+6d86beebb023c486dcf19f3670d5a541c31f6db6
+codex/hydrogen-conditional-spine
+Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+Lake version 5.0.0-src+5045d00 (Lean version 4.34.1)
+leanprover/lean4:v4.34.1
+d13f23b723b8a846827a245b89c10fc7d3f11612
+Build completed successfully (2135 jobs).
+AXIOMS HydrogenPathway.square_bound: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.inner_perpendicular: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.perpendicular_norm_sq: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.perpendicular_inner: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.overlap_from_perpendicular: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.overlap_bound: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.projection_bound: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.projection_probability_le_one: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.residual_normalization: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.actual_click_bound: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.conditional_click_endpoint: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.normalized_norm: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.residual_click_endpoint: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.residual_numeric_exact: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.residual_numeric_below_rounded: [propext, Classical.choice, Quot.sound]
+PASS: build, declaration checks, axiom allowlist, source scan, and whitespace checks.
