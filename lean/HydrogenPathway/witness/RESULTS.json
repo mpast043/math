@@ -1,0 +1,1026 @@
+{
+  "cases": {
+    "ideal_threshold_equal": {
+      "atom": {
+        "contrast": 0.4799999999999999,
+        "guess": 0.542,
+        "response": [
+          {
+            "atom_no_click": 0.07500000000000001,
+            "capture_failure": 0.75,
+            "minus": 0.0455,
+            "plus": 0.1295
+          },
+          {
+            "atom_no_click": 0.07500000000000001,
+            "capture_failure": 0.75,
+            "minus": 0.1295,
+            "plus": 0.0455
+          }
+        ],
+        "true_readout_rate": 0.175
+      },
+      "budget": {
+        "atom_contrast_upper": 0.48,
+        "guaranteed_guess_advantage": 0.0,
+        "joint_contrast_lower": 0.8,
+        "required_photon_efficiency_strictly_above": 0.6,
+        "signed_score_margin_lower": 0.0,
+        "strict_advantage_certified": false
+      },
+      "guess_difference": 0.0,
+      "hybrid": {
+        "coincidence_rate": 0.105,
+        "fallback_contrast": 0.4799999999999999,
+        "fallback_rate": 0.06999999999999999,
+        "guess": 0.5588,
+        "response": [
+          {
+            "atom_no_click": 0.07500000000000001,
+            "capture_failure": 0.75,
+            "minus": 0.028699999999999993,
+            "plus": 0.1463
+          },
+          {
+            "atom_no_click": 0.07500000000000001,
+            "capture_failure": 0.75,
+            "minus": 0.1463,
+            "plus": 0.028699999999999993
+          }
+        ]
+      },
+      "hybrid_budget": {
+        "guaranteed_guess_advantage": 0.016800000000000002,
+        "signed_score_margin_lower": 0.033600000000000005,
+        "strict_advantage_certified": true
+      },
+      "hybrid_guess_difference": 0.016799999999999926,
+      "joint": {
+        "contrast": 0.8,
+        "guess": 0.542,
+        "response": [
+          {
+            "atom_no_click": 0.07500000000000001,
+            "capture_failure": 0.75,
+            "minus": 0.010499999999999997,
+            "photon_no_click": 0.06999999999999999,
+            "plus": 0.0945
+          },
+          {
+            "atom_no_click": 0.07500000000000001,
+            "capture_failure": 0.75,
+            "minus": 0.0945,
+            "photon_no_click": 0.06999999999999999,
+            "plus": 0.010499999999999997
+          }
+        ],
+        "true_readout_rate": 0.105
+      },
+      "measurement": {
+        "atom_contrast": 0.4799999999999999,
+        "calibrated_atomic_phase_radians": 0.0,
+        "joint_contrast": 0.8,
+        "joint_guess_best_relabel": 0.9,
+        "joint_guess_fixed_parity": 0.9,
+        "kC": [
+          0.6,
+          0.0
+        ],
+        "kU": [
+          0.8,
+          0.0
+        ],
+        "outcomes": [
+          {
+            "-1,-1": 0.18,
+            "-1,1": 0.07999999999999995,
+            "1,-1": 0.01999999999999997,
+            "1,1": 0.72
+          },
+          {
+            "-1,-1": 0.01999999999999997,
+            "-1,1": 0.72,
+            "1,-1": 0.18,
+            "1,1": 0.07999999999999995
+          }
+        ],
+        "phase_error_radians": 0.0
+      },
+      "parameters": {
+        "eps_atom_contrast": 0.0,
+        "eps_joint_contrast": 0.0,
+        "eta_atom": 0.7,
+        "eta_photon": 0.6,
+        "false_accept_atom_per_attempt": 0.0,
+        "false_accept_hybrid_per_attempt": 0.0,
+        "false_accept_joint_per_attempt": 0.0,
+        "false_atom_contrast": 0.0,
+        "false_hybrid_contrast": 0.0,
+        "false_joint_contrast": 0.0,
+        "p": 0.25,
+        "visibility_atom": 1.0,
+        "visibility_joint": 1.0
+      }
+    },
+    "identical_collected_modes": {
+      "atom": {
+        "contrast": 0.7999999999999999,
+        "guess": 0.8999999999999999,
+        "response": [
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.0,
+            "minus": 0.10000000000000003,
+            "plus": 0.8999999999999999
+          },
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.0,
+            "minus": 0.8999999999999999,
+            "plus": 0.10000000000000003
+          }
+        ],
+        "true_readout_rate": 1.0
+      },
+      "budget": {
+        "atom_contrast_upper": 0.8,
+        "guaranteed_guess_advantage": 0.0,
+        "joint_contrast_lower": 0.8,
+        "required_photon_efficiency_strictly_above": 1.0,
+        "signed_score_margin_lower": 0.0,
+        "strict_advantage_certified": false
+      },
+      "guess_difference": 1.1102230246251565e-16,
+      "hybrid": {
+        "coincidence_rate": 1.0,
+        "fallback_contrast": 0.7999999999999999,
+        "fallback_rate": 0.0,
+        "guess": 0.9,
+        "response": [
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.0,
+            "minus": 0.09999999999999998,
+            "plus": 0.9
+          },
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.0,
+            "minus": 0.9,
+            "plus": 0.09999999999999998
+          }
+        ]
+      },
+      "hybrid_budget": {
+        "guaranteed_guess_advantage": 0.0,
+        "signed_score_margin_lower": 0.0,
+        "strict_advantage_certified": false
+      },
+      "hybrid_guess_difference": 1.1102230246251565e-16,
+      "joint": {
+        "contrast": 0.8,
+        "guess": 0.9,
+        "response": [
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.0,
+            "minus": 0.09999999999999998,
+            "photon_no_click": 0.0,
+            "plus": 0.9
+          },
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.0,
+            "minus": 0.9,
+            "photon_no_click": 0.0,
+            "plus": 0.09999999999999998
+          }
+        ],
+        "true_readout_rate": 1.0
+      },
+      "measurement": {
+        "atom_contrast": 0.7999999999999999,
+        "calibrated_atomic_phase_radians": 3.141592653589793,
+        "joint_contrast": 0.8,
+        "joint_guess_best_relabel": 0.9,
+        "joint_guess_fixed_parity": 0.9,
+        "kC": [
+          0.0,
+          1.0
+        ],
+        "kU": [
+          0.0,
+          0.8
+        ],
+        "outcomes": [
+          {
+            "-1,-1": 0.0,
+            "-1,1": 0.09999999999999992,
+            "1,-1": 0.0,
+            "1,1": 0.8999999999999999
+          },
+          {
+            "-1,-1": 0.0,
+            "-1,1": 0.8999999999999999,
+            "1,-1": 0.0,
+            "1,1": 0.09999999999999992
+          }
+        ],
+        "phase_error_radians": 0.0
+      },
+      "parameters": {
+        "eps_atom_contrast": 0.0,
+        "eps_joint_contrast": 0.0,
+        "eta_atom": 1.0,
+        "eta_photon": 1.0,
+        "false_accept_atom_per_attempt": 0.0,
+        "false_accept_hybrid_per_attempt": 0.0,
+        "false_accept_joint_per_attempt": 0.0,
+        "false_atom_contrast": 0.0,
+        "false_hybrid_contrast": 0.0,
+        "false_joint_contrast": 0.0,
+        "p": 1.0,
+        "visibility_atom": 1.0,
+        "visibility_joint": 1.0
+      }
+    },
+    "illustrative_control_budget": {
+      "atom": {
+        "contrast": 0.3184013328889682,
+        "guess": 0.5291561199600072,
+        "response": [
+          {
+            "atom_no_click": 0.019975609756097558,
+            "capture_failure": 0.7990243902439025,
+            "minus": 0.06134388003999287,
+            "plus": 0.11965611996000715
+          },
+          {
+            "atom_no_click": 0.019975609756097558,
+            "capture_failure": 0.7990243902439025,
+            "minus": 0.11965611996000715,
+            "plus": 0.06134388003999287
+          }
+        ],
+        "true_readout_rate": 0.18000000000000002
+      },
+      "budget": {
+        "atom_contrast_upper": 0.33000000000000007,
+        "guaranteed_guess_advantage": 0.02511929999999999,
+        "joint_contrast_lower": 0.7362,
+        "required_photon_efficiency_strictly_above": 0.4708865344562167,
+        "signed_score_margin_lower": 0.05023859999999998,
+        "strict_advantage_certified": true
+      },
+      "guess_difference": 0.0276934222092573,
+      "hybrid": {
+        "coincidence_rate": 0.15300000000000002,
+        "fallback_contrast": 0.3184013328889682,
+        "fallback_rate": 0.026999999999999996,
+        "guess": 0.5611479601632655,
+        "response": [
+          {
+            "atom_no_click": 0.01995121951219512,
+            "capture_failure": 0.7980487804878049,
+            "minus": 0.029852039836734533,
+            "plus": 0.15214796016326548
+          },
+          {
+            "atom_no_click": 0.01995121951219512,
+            "capture_failure": 0.7980487804878049,
+            "minus": 0.15214796016326548,
+            "plus": 0.029852039836734533
+          }
+        ]
+      },
+      "hybrid_budget": {
+        "guaranteed_guess_advantage": 0.029574299999999994,
+        "signed_score_margin_lower": 0.05914859999999999,
+        "strict_advantage_certified": true
+      },
+      "hybrid_guess_difference": 0.03199184020325829,
+      "joint": {
+        "contrast": 0.7562031656112994,
+        "guess": 0.5568495421692645,
+        "response": [
+          {
+            "atom_no_click": 0.01995277449822904,
+            "capture_failure": 0.7981109799291618,
+            "minus": 0.020650457830735595,
+            "photon_no_click": 0.026936245572609218,
+            "plus": 0.13434954216926442
+          },
+          {
+            "atom_no_click": 0.01995277449822904,
+            "capture_failure": 0.7981109799291618,
+            "minus": 0.13434954216926442,
+            "photon_no_click": 0.026936245572609218,
+            "plus": 0.020650457830735595
+          }
+        ],
+        "true_readout_rate": 0.15300000000000002
+      },
+      "measurement": {
+        "atom_contrast": 0.3184013328889682,
+        "calibrated_atomic_phase_radians": 1.5707963267948966,
+        "joint_contrast": 0.7960033322224205,
+        "joint_guess_best_relabel": 0.8980016661112102,
+        "joint_guess_fixed_parity": 0.8980016661112102,
+        "kC": [
+          0.0,
+          0.4
+        ],
+        "kU": [
+          0.8,
+          0.0
+        ],
+        "outcomes": [
+          {
+            "-1,-1": 0.26940049983336306,
+            "-1,1": 0.07139883372215271,
+            "1,-1": 0.030599500166636942,
+            "1,1": 0.628601166277847
+          },
+          {
+            "-1,-1": 0.030599500166636942,
+            "-1,1": 0.628601166277847,
+            "1,-1": 0.26940049983336306,
+            "1,1": 0.07139883372215271
+          }
+        ],
+        "phase_error_radians": 0.1
+      },
+      "parameters": {
+        "eps_atom_contrast": 0.01,
+        "eps_joint_contrast": 0.02,
+        "eta_atom": 0.9,
+        "eta_photon": 0.85,
+        "false_accept_atom_per_attempt": 0.001,
+        "false_accept_hybrid_per_attempt": 0.002,
+        "false_accept_joint_per_attempt": 0.002,
+        "false_atom_contrast": 1.0,
+        "false_hybrid_contrast": -1.0,
+        "false_joint_contrast": -1.0,
+        "p": 0.2,
+        "visibility_atom": 1.0,
+        "visibility_joint": 0.95
+      }
+    },
+    "inefficient_joint_worse": {
+      "atom": {
+        "contrast": 0.4799999999999999,
+        "guess": 0.542,
+        "response": [
+          {
+            "atom_no_click": 0.07500000000000001,
+            "capture_failure": 0.75,
+            "minus": 0.0455,
+            "plus": 0.1295
+          },
+          {
+            "atom_no_click": 0.07500000000000001,
+            "capture_failure": 0.75,
+            "minus": 0.1295,
+            "plus": 0.0455
+          }
+        ],
+        "true_readout_rate": 0.175
+      },
+      "budget": {
+        "atom_contrast_upper": 0.48,
+        "guaranteed_guess_advantage": -0.020999999999999998,
+        "joint_contrast_lower": 0.8,
+        "required_photon_efficiency_strictly_above": 0.6,
+        "signed_score_margin_lower": -0.041999999999999996,
+        "strict_advantage_certified": false
+      },
+      "guess_difference": -0.02100000000000002,
+      "hybrid": {
+        "coincidence_rate": 0.0525,
+        "fallback_contrast": 0.4799999999999999,
+        "fallback_rate": 0.1225,
+        "guess": 0.5504,
+        "response": [
+          {
+            "atom_no_click": 0.07500000000000001,
+            "capture_failure": 0.75,
+            "minus": 0.037099999999999994,
+            "plus": 0.1379
+          },
+          {
+            "atom_no_click": 0.07500000000000001,
+            "capture_failure": 0.75,
+            "minus": 0.1379,
+            "plus": 0.037099999999999994
+          }
+        ]
+      },
+      "hybrid_budget": {
+        "guaranteed_guess_advantage": 0.008400000000000001,
+        "signed_score_margin_lower": 0.016800000000000002,
+        "strict_advantage_certified": true
+      },
+      "hybrid_guess_difference": 0.008399999999999963,
+      "joint": {
+        "contrast": 0.8,
+        "guess": 0.521,
+        "response": [
+          {
+            "atom_no_click": 0.07500000000000001,
+            "capture_failure": 0.75,
+            "minus": 0.005249999999999999,
+            "photon_no_click": 0.12249999999999998,
+            "plus": 0.04725
+          },
+          {
+            "atom_no_click": 0.07500000000000001,
+            "capture_failure": 0.75,
+            "minus": 0.04725,
+            "photon_no_click": 0.12249999999999998,
+            "plus": 0.005249999999999999
+          }
+        ],
+        "true_readout_rate": 0.0525
+      },
+      "measurement": {
+        "atom_contrast": 0.4799999999999999,
+        "calibrated_atomic_phase_radians": 0.0,
+        "joint_contrast": 0.8,
+        "joint_guess_best_relabel": 0.9,
+        "joint_guess_fixed_parity": 0.9,
+        "kC": [
+          0.6,
+          0.0
+        ],
+        "kU": [
+          0.8,
+          0.0
+        ],
+        "outcomes": [
+          {
+            "-1,-1": 0.18,
+            "-1,1": 0.07999999999999995,
+            "1,-1": 0.01999999999999997,
+            "1,1": 0.72
+          },
+          {
+            "-1,-1": 0.01999999999999997,
+            "-1,1": 0.72,
+            "1,-1": 0.18,
+            "1,1": 0.07999999999999995
+          }
+        ],
+        "phase_error_radians": 0.0
+      },
+      "parameters": {
+        "eps_atom_contrast": 0.0,
+        "eps_joint_contrast": 0.0,
+        "eta_atom": 0.7,
+        "eta_photon": 0.3,
+        "false_accept_atom_per_attempt": 0.0,
+        "false_accept_hybrid_per_attempt": 0.0,
+        "false_accept_joint_per_attempt": 0.0,
+        "false_atom_contrast": 0.0,
+        "false_hybrid_contrast": 0.0,
+        "false_joint_contrast": 0.0,
+        "p": 0.25,
+        "visibility_atom": 1.0,
+        "visibility_joint": 1.0
+      }
+    },
+    "no_unobserved_coherence": {
+      "atom": {
+        "contrast": 0.0,
+        "guess": 0.5,
+        "response": [
+          {
+            "atom_no_click": 0.019999999999999997,
+            "capture_failure": 0.8,
+            "minus": 0.09000000000000001,
+            "plus": 0.09000000000000001
+          },
+          {
+            "atom_no_click": 0.019999999999999997,
+            "capture_failure": 0.8,
+            "minus": 0.09000000000000001,
+            "plus": 0.09000000000000001
+          }
+        ],
+        "true_readout_rate": 0.18000000000000002
+      },
+      "budget": {
+        "atom_contrast_upper": 0.0,
+        "guaranteed_guess_advantage": 0.0,
+        "joint_contrast_lower": 0.0,
+        "required_photon_efficiency_strictly_above": null,
+        "signed_score_margin_lower": 0.0,
+        "strict_advantage_certified": false
+      },
+      "guess_difference": 0.0,
+      "hybrid": {
+        "coincidence_rate": 0.15300000000000002,
+        "fallback_contrast": 0.0,
+        "fallback_rate": 0.026999999999999996,
+        "guess": 0.5,
+        "response": [
+          {
+            "atom_no_click": 0.019999999999999997,
+            "capture_failure": 0.8,
+            "minus": 0.09000000000000001,
+            "plus": 0.09000000000000001
+          },
+          {
+            "atom_no_click": 0.019999999999999997,
+            "capture_failure": 0.8,
+            "minus": 0.09000000000000001,
+            "plus": 0.09000000000000001
+          }
+        ]
+      },
+      "hybrid_budget": {
+        "guaranteed_guess_advantage": 0.0,
+        "signed_score_margin_lower": 0.0,
+        "strict_advantage_certified": false
+      },
+      "hybrid_guess_difference": 0.0,
+      "joint": {
+        "contrast": 0.0,
+        "guess": 0.5,
+        "response": [
+          {
+            "atom_no_click": 0.019999999999999997,
+            "capture_failure": 0.8,
+            "minus": 0.07650000000000001,
+            "photon_no_click": 0.027000000000000007,
+            "plus": 0.07650000000000001
+          },
+          {
+            "atom_no_click": 0.019999999999999997,
+            "capture_failure": 0.8,
+            "minus": 0.07650000000000001,
+            "photon_no_click": 0.027000000000000007,
+            "plus": 0.07650000000000001
+          }
+        ],
+        "true_readout_rate": 0.15300000000000002
+      },
+      "measurement": {
+        "atom_contrast": 0.0,
+        "calibrated_atomic_phase_radians": 0.0,
+        "joint_contrast": 0.0,
+        "joint_guess_best_relabel": 0.5,
+        "joint_guess_fixed_parity": 0.5,
+        "kC": [
+          0.4,
+          0.0
+        ],
+        "kU": [
+          0.0,
+          0.0
+        ],
+        "outcomes": [
+          {
+            "-1,-1": 0.15,
+            "-1,1": 0.35,
+            "1,-1": 0.15,
+            "1,1": 0.35
+          },
+          {
+            "-1,-1": 0.15,
+            "-1,1": 0.35,
+            "1,-1": 0.15,
+            "1,1": 0.35
+          }
+        ],
+        "phase_error_radians": 0.0
+      },
+      "parameters": {
+        "eps_atom_contrast": 0.0,
+        "eps_joint_contrast": 0.0,
+        "eta_atom": 0.9,
+        "eta_photon": 0.85,
+        "false_accept_atom_per_attempt": 0.0,
+        "false_accept_hybrid_per_attempt": 0.0,
+        "false_accept_joint_per_attempt": 0.0,
+        "false_atom_contrast": 0.0,
+        "false_hybrid_contrast": 0.0,
+        "false_joint_contrast": 0.0,
+        "p": 0.2,
+        "visibility_atom": 1.0,
+        "visibility_joint": 1.0
+      }
+    },
+    "phase_unknown_wrong_pi": {
+      "atom": {
+        "contrast": -0.16,
+        "guess": 0.476,
+        "response": [
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.7,
+            "minus": 0.174,
+            "plus": 0.126
+          },
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.7,
+            "minus": 0.126,
+            "plus": 0.174
+          }
+        ],
+        "true_readout_rate": 0.3
+      },
+      "budget": {
+        "atom_contrast_upper": 0.16000000000000003,
+        "guaranteed_guess_advantage": -0.14400000000000002,
+        "joint_contrast_lower": -0.8,
+        "required_photon_efficiency_strictly_above": null,
+        "signed_score_margin_lower": -0.28800000000000003,
+        "strict_advantage_certified": false
+      },
+      "guess_difference": -0.09599999999999997,
+      "hybrid": {
+        "coincidence_rate": 0.3,
+        "fallback_contrast": -0.16,
+        "fallback_rate": 0.0,
+        "guess": 0.38,
+        "response": [
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.7,
+            "minus": 0.26999999999999996,
+            "plus": 0.030000000000000027
+          },
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.7,
+            "minus": 0.030000000000000027,
+            "plus": 0.26999999999999996
+          }
+        ]
+      },
+      "hybrid_budget": {
+        "guaranteed_guess_advantage": -0.14400000000000002,
+        "signed_score_margin_lower": -0.28800000000000003,
+        "strict_advantage_certified": false
+      },
+      "hybrid_guess_difference": -0.09599999999999997,
+      "joint": {
+        "contrast": -0.7999999999999998,
+        "guess": 0.38,
+        "response": [
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.7,
+            "minus": 0.26999999999999996,
+            "photon_no_click": 0.0,
+            "plus": 0.030000000000000027
+          },
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.7,
+            "minus": 0.030000000000000027,
+            "photon_no_click": 0.0,
+            "plus": 0.26999999999999996
+          }
+        ],
+        "true_readout_rate": 0.3
+      },
+      "measurement": {
+        "atom_contrast": -0.16,
+        "calibrated_atomic_phase_radians": 0.0,
+        "joint_contrast": -0.7999999999999998,
+        "joint_guess_best_relabel": 0.8999999999999999,
+        "joint_guess_fixed_parity": 0.10000000000000009,
+        "kC": [
+          0.0,
+          0.2
+        ],
+        "kU": [
+          -0.0,
+          -0.8
+        ],
+        "outcomes": [
+          {
+            "-1,-1": 0.03999999999999994,
+            "-1,1": 0.5399999999999999,
+            "1,-1": 0.3599999999999999,
+            "1,1": 0.06
+          },
+          {
+            "-1,-1": 0.3599999999999999,
+            "-1,1": 0.06,
+            "1,-1": 0.03999999999999994,
+            "1,1": 0.5399999999999999
+          }
+        ],
+        "phase_error_radians": 3.141592653589793
+      },
+      "parameters": {
+        "eps_atom_contrast": 0.0,
+        "eps_joint_contrast": 0.0,
+        "eta_atom": 1.0,
+        "eta_photon": 1.0,
+        "false_accept_atom_per_attempt": 0.0,
+        "false_accept_hybrid_per_attempt": 0.0,
+        "false_accept_joint_per_attempt": 0.0,
+        "false_atom_contrast": 0.0,
+        "false_hybrid_contrast": 0.0,
+        "false_joint_contrast": 0.0,
+        "p": 0.3,
+        "visibility_atom": 1.0,
+        "visibility_joint": 1.0
+      }
+    },
+    "rare_success": {
+      "atom": {
+        "contrast": 0.0,
+        "guess": 0.5,
+        "response": [
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.999,
+            "minus": 0.0005,
+            "plus": 0.0005
+          },
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.999,
+            "minus": 0.0005,
+            "plus": 0.0005
+          }
+        ],
+        "true_readout_rate": 0.001
+      },
+      "budget": {
+        "atom_contrast_upper": 0.0,
+        "guaranteed_guess_advantage": 0.0005,
+        "joint_contrast_lower": 1.0,
+        "required_photon_efficiency_strictly_above": 0.0,
+        "signed_score_margin_lower": 0.001,
+        "strict_advantage_certified": true
+      },
+      "guess_difference": 0.0004999999999999449,
+      "hybrid": {
+        "coincidence_rate": 0.001,
+        "fallback_contrast": 0.0,
+        "fallback_rate": 0.0,
+        "guess": 0.5005,
+        "response": [
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.999,
+            "minus": 2.220446049250313e-19,
+            "plus": 0.0009999999999999998
+          },
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.999,
+            "minus": 0.0009999999999999998,
+            "plus": 2.220446049250313e-19
+          }
+        ]
+      },
+      "hybrid_budget": {
+        "guaranteed_guess_advantage": 0.0005,
+        "signed_score_margin_lower": 0.001,
+        "strict_advantage_certified": true
+      },
+      "hybrid_guess_difference": 0.0004999999999999449,
+      "joint": {
+        "contrast": 0.9999999999999996,
+        "guess": 0.5005,
+        "response": [
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.999,
+            "minus": 2.220446049250313e-19,
+            "photon_no_click": 0.0,
+            "plus": 0.0009999999999999998
+          },
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 0.999,
+            "minus": 0.0009999999999999998,
+            "photon_no_click": 0.0,
+            "plus": 2.220446049250313e-19
+          }
+        ],
+        "true_readout_rate": 0.001
+      },
+      "measurement": {
+        "atom_contrast": 0.0,
+        "calibrated_atomic_phase_radians": 0.0,
+        "joint_contrast": 0.9999999999999996,
+        "joint_guess_best_relabel": 0.9999999999999998,
+        "joint_guess_fixed_parity": 0.9999999999999998,
+        "kC": [
+          0.0,
+          0.0
+        ],
+        "kU": [
+          1.0,
+          0.0
+        ],
+        "outcomes": [
+          {
+            "-1,-1": 0.4999999999999998,
+            "-1,1": 1.1102230246251565e-16,
+            "1,-1": 0.0,
+            "1,1": 0.4999999999999999
+          },
+          {
+            "-1,-1": 0.0,
+            "-1,1": 0.4999999999999999,
+            "1,-1": 0.4999999999999998,
+            "1,1": 1.1102230246251565e-16
+          }
+        ],
+        "phase_error_radians": 0.0
+      },
+      "parameters": {
+        "eps_atom_contrast": 0.0,
+        "eps_joint_contrast": 0.0,
+        "eta_atom": 1.0,
+        "eta_photon": 1.0,
+        "false_accept_atom_per_attempt": 0.0,
+        "false_accept_hybrid_per_attempt": 0.0,
+        "false_accept_joint_per_attempt": 0.0,
+        "false_atom_contrast": 0.0,
+        "false_hybrid_contrast": 0.0,
+        "false_joint_contrast": 0.0,
+        "p": 0.001,
+        "visibility_atom": 1.0,
+        "visibility_joint": 1.0
+      }
+    },
+    "zero_capture": {
+      "atom": {
+        "contrast": 0.0,
+        "guess": 0.5,
+        "response": [
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 1.0,
+            "minus": 0.0,
+            "plus": 0.0
+          },
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 1.0,
+            "minus": 0.0,
+            "plus": 0.0
+          }
+        ],
+        "true_readout_rate": 0.0
+      },
+      "budget": {
+        "atom_contrast_upper": 0.0,
+        "guaranteed_guess_advantage": 0.0,
+        "joint_contrast_lower": 1.0,
+        "required_photon_efficiency_strictly_above": null,
+        "signed_score_margin_lower": 0.0,
+        "strict_advantage_certified": false
+      },
+      "guess_difference": 0.0,
+      "hybrid": {
+        "coincidence_rate": 0.0,
+        "fallback_contrast": 0.0,
+        "fallback_rate": 0.0,
+        "guess": 0.5,
+        "response": [
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 1.0,
+            "minus": 0.0,
+            "plus": 0.0
+          },
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 1.0,
+            "minus": 0.0,
+            "plus": 0.0
+          }
+        ]
+      },
+      "hybrid_budget": {
+        "guaranteed_guess_advantage": 0.0,
+        "signed_score_margin_lower": 0.0,
+        "strict_advantage_certified": false
+      },
+      "hybrid_guess_difference": 0.0,
+      "joint": {
+        "contrast": 0.9999999999999996,
+        "guess": 0.5,
+        "response": [
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 1.0,
+            "minus": 0.0,
+            "photon_no_click": 0.0,
+            "plus": 0.0
+          },
+          {
+            "atom_no_click": 0.0,
+            "capture_failure": 1.0,
+            "minus": 0.0,
+            "photon_no_click": 0.0,
+            "plus": 0.0
+          }
+        ],
+        "true_readout_rate": 0.0
+      },
+      "measurement": {
+        "atom_contrast": 0.0,
+        "calibrated_atomic_phase_radians": 0.0,
+        "joint_contrast": 0.9999999999999996,
+        "joint_guess_best_relabel": 0.9999999999999998,
+        "joint_guess_fixed_parity": 0.9999999999999998,
+        "kC": [
+          0.0,
+          0.0
+        ],
+        "kU": [
+          1.0,
+          0.0
+        ],
+        "outcomes": [
+          {
+            "-1,-1": 0.4999999999999998,
+            "-1,1": 1.1102230246251565e-16,
+            "1,-1": 0.0,
+            "1,1": 0.4999999999999999
+          },
+          {
+            "-1,-1": 0.0,
+            "-1,1": 0.4999999999999999,
+            "1,-1": 0.4999999999999998,
+            "1,1": 1.1102230246251565e-16
+          }
+        ],
+        "phase_error_radians": 0.0
+      },
+      "parameters": {
+        "eps_atom_contrast": 0.0,
+        "eps_joint_contrast": 0.0,
+        "eta_atom": 1.0,
+        "eta_photon": 1.0,
+        "false_accept_atom_per_attempt": 0.0,
+        "false_accept_hybrid_per_attempt": 0.0,
+        "false_accept_joint_per_attempt": 0.0,
+        "false_atom_contrast": 0.0,
+        "false_hybrid_contrast": 0.0,
+        "false_joint_contrast": 0.0,
+        "p": 0.0,
+        "visibility_atom": 1.0,
+        "visibility_joint": 1.0
+      }
+    }
+  },
+  "checks_enabled": true,
+  "description": "Illustrative control-conditional product measurement; no hydrogen realization claim",
+  "outcome_dependent_detection_counterexample": {
+    "full_records": [
+      {
+        "a=-1,b=-1,detected": 0.0,
+        "a=-1,b=-1,missed": 0.18,
+        "a=-1,b=1,detected": 0.07999999999999995,
+        "a=-1,b=1,missed": 0.0,
+        "a=1,b=-1,detected": 0.0,
+        "a=1,b=-1,missed": 0.01999999999999997,
+        "a=1,b=1,detected": 0.72,
+        "a=1,b=1,missed": 0.0
+      },
+      {
+        "a=-1,b=-1,detected": 0.0,
+        "a=-1,b=-1,missed": 0.01999999999999997,
+        "a=-1,b=1,detected": 0.72,
+        "a=-1,b=1,missed": 0.0,
+        "a=1,b=-1,detected": 0.0,
+        "a=1,b=-1,missed": 0.18,
+        "a=1,b=1,detected": 0.07999999999999995,
+        "a=1,b=1,missed": 0.0
+      }
+    ],
+    "hybrid_gain": 0.0,
+    "naive_gain_from_average_efficiency": 0.12800000000000003,
+    "port_efficiencies": [
+      1.0,
+      0.0
+    ],
+    "recorded_photon_rate": 0.8,
+    "response": [
+      {
+        "erase": 0.0,
+        "minus": 0.25999999999999995,
+        "plus": 0.74
+      },
+      {
+        "erase": 0.0,
+        "minus": 0.74,
+        "plus": 0.25999999999999995
+      }
+    ]
+  },
+  "tolerance": 2e-09
+}

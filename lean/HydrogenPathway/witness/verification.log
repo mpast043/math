@@ -1,0 +1,40 @@
+UTC 2026-10-28T13:59:33Z
+Base commit 8f94c4f9ff2ff0e50e91d2410b363866a8c31002; tested extension identified by source-sha256.txt
+codex/hydrogen-joint-phase-witness
+Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+Lake version 5.0.0-src+5045d00 (Lean version 4.34.1)
+Python 3.14.3
+leanprover/lean4:v4.34.1
+d13f23b723b8a846827a245b89c10fc7d3f11612
+Build completed successfully (2134 jobs).
+AXIOMS HydrogenPathway.Witness.four_outcome_law: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Witness.full_response_guess: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Witness.expectation_contrast_error: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Witness.calibrated_contrast_lower: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Witness.loss_false_accept_bounds: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Witness.coincidence_advantage: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Witness.ideal_efficiency_threshold: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Witness.hybrid_advantage: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Witness.hybrid_ideal_gain: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Witness.minus_port_advantage: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Witness.illustrative_budget: [propext, Classical.choice, Quot.sound]
+test_adversarial_false_accept_bounds_and_budget (test_model.WitnessTests.test_adversarial_false_accept_bounds_and_budget) ... ok
+test_all_photon_outcomes_retained (test_model.WitnessTests.test_all_photon_outcomes_retained) ... ok
+test_bad_phase_cannot_be_silently_optimized (test_model.WitnessTests.test_bad_phase_cannot_be_silently_optimized) ... ok
+test_complex_reflection_and_product_outcomes (test_model.WitnessTests.test_complex_reflection_and_product_outcomes) ... ok
+test_expectation_error_budget_not_trace_distance (test_model.WitnessTests.test_expectation_error_budget_not_trace_distance) ... ok
+test_fair_efficiency_threshold (test_model.WitnessTests.test_fair_efficiency_threshold) ... ok
+test_hybrid_retains_atomic_records_when_photon_missing (test_model.WitnessTests.test_hybrid_retains_atomic_records_when_photon_missing) ... ok
+test_invalid_nonfinite_and_budget_parameters (test_model.WitnessTests.test_invalid_nonfinite_and_budget_parameters) ... ok
+test_loss_povm_is_complete_and_supports_same_atomic_readout (test_model.WitnessTests.test_loss_povm_is_complete_and_supports_same_atomic_readout) ... ok
+test_no_click_complete_tables (test_model.WitnessTests.test_no_click_complete_tables) ... ok
+test_outcome_dependent_efficiency_invalidates_average_rate (test_model.WitnessTests.test_outcome_dependent_efficiency_invalidates_average_rate) ... ok
+test_selection_and_state_dependent_loss_counterexamples (test_model.WitnessTests.test_selection_and_state_dependent_loss_counterexamples) ... ok
+test_unknown_phase_and_unobserved_loss (test_model.WitnessTests.test_unknown_phase_and_unobserved_loss) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.084s
+
+OK
+Calculated eight witness/loss cases with checks.
+PASS: witness build, 11 declarations/axiom audits, 13 numerical tests, model cases, and source scan.
