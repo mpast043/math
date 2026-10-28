@@ -1,0 +1,37 @@
+UTC 2026-10-28T12:45:12Z
+0504953d4a289a25b1ccc48c7268943d609649aa
+codex/hydrogen-two-source-imprint
+Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+Lake version 5.0.0-src+5045d00 (Lean version 4.34.1)
+Python 3.14.3
+leanprover/lean4:v4.34.1
+d13f23b723b8a846827a245b89c10fc7d3f11612
+Build completed successfully (2133 jobs).
+AXIOMS HydrogenPathway.Imprint.overlap_which_mode_identity: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Imprint.scaled_overlap_which_mode_identity: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Imprint.equal_acceptance_accounting: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Imprint.flagged_accounting_bounds: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Imprint.flagged_guess_bounds: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Imprint.posterior_weights: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Imprint.metric_stability: [propext, Classical.choice, Quot.sound]
+AXIOMS HydrogenPathway.Imprint.stable_flagged_guess: [propext, Classical.choice, Quot.sound]
+test_collected_and_unobserved_factorization (test_model.ImprintTests.test_collected_and_unobserved_factorization) ... ok
+test_common_failure_state_is_a_real_assumption (test_model.ImprintTests.test_common_failure_state_is_a_real_assumption) ... ok
+test_complex_coherence_convention (test_model.ImprintTests.test_complex_coherence_convention) ... ok
+test_equal_yield_flag_scaling (test_model.ImprintTests.test_equal_yield_flag_scaling) ... ok
+test_failure_information_is_in_inaccessible_memory (test_model.ImprintTests.test_failure_information_is_in_inaccessible_memory) ... ok
+test_full_flagged_error_budget (test_model.ImprintTests.test_full_flagged_error_budget) ... ok
+test_general_unequal_flagged_identity (test_model.ImprintTests.test_general_unequal_flagged_identity) ... ok
+test_invalid_parameters_and_nonhermitian_input (test_model.ImprintTests.test_invalid_parameters_and_nonhermitian_input) ... ok
+test_kraus_map_on_a_coherent_mixed_input (test_model.ImprintTests.test_kraus_map_on_a_coherent_mixed_input) ... ok
+test_mode_populations_are_not_pointwise_momentum (test_model.ImprintTests.test_mode_populations_are_not_pointwise_momentum) ... ok
+test_phase_and_capture_grid (test_model.ImprintTests.test_phase_and_capture_grid) ... ok
+test_spectrum_and_trace_norm (test_model.ImprintTests.test_spectrum_and_trace_norm) ... ok
+test_unequal_acceptance_changes_the_priors (test_model.ImprintTests.test_unequal_acceptance_changes_the_priors) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.072s
+
+OK
+Checked 10 phase/capture cases and one collected/unobserved case.
+PASS: imprint build, eight declarations/axiom audits, 13 numerical tests, model cases, and source scan.
