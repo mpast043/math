@@ -1,0 +1,477 @@
+{
+  "cases": [
+    {
+      "acceptance": [
+        0.4,
+        0.4
+      ],
+      "conditional_failure_memory_D": 0.9999999999999998,
+      "conditional_success": {
+        "guess": {
+          "atom": 0.5,
+          "joint": 0.9999999999999999,
+          "photon": 0.5
+        },
+        "priors": [
+          0.5,
+          0.5
+        ]
+      },
+      "flagged_guess_equal_input_priors": {
+        "atom": 0.5,
+        "joint": 0.7,
+        "photon": 0.5
+      },
+      "flagged_phase_D": {
+        "atom": 0.0,
+        "joint": 0.3999999999999999,
+        "photon": 0.0
+      },
+      "global_isometry_D": 0.9999999999999997,
+      "ideal_phase_D": {
+        "atom": 0.0,
+        "joint": 0.9999999999999998,
+        "photon": 0.0
+      },
+      "ideal_phase_guess_equal_priors": {
+        "atom": 0.5,
+        "joint": 0.9999999999999999,
+        "photon": 0.5
+      },
+      "k": {
+        "imag": 0.0,
+        "modulus": 0.0,
+        "real": 0.0
+      },
+      "success_rate_equal_input_priors": 0.4,
+      "which_mode_photon_D": 1.0
+    },
+    {
+      "acceptance": [
+        0.25,
+        0.25
+      ],
+      "conditional_failure_memory_D": 0.9999999999999996,
+      "conditional_success": {
+        "guess": {
+          "atom": 0.7999999999999999,
+          "joint": 1.0,
+          "photon": 0.5
+        },
+        "priors": [
+          0.5,
+          0.5
+        ]
+      },
+      "flagged_guess_equal_input_priors": {
+        "atom": 0.575,
+        "joint": 0.625,
+        "photon": 0.5
+      },
+      "flagged_phase_D": {
+        "atom": 0.14999999999999997,
+        "joint": 0.24999999999999997,
+        "photon": 0.0
+      },
+      "global_isometry_D": 0.9999999999999994,
+      "ideal_phase_D": {
+        "atom": 0.5999999999999999,
+        "joint": 0.9999999999999999,
+        "photon": 0.0
+      },
+      "ideal_phase_guess_equal_priors": {
+        "atom": 0.7999999999999999,
+        "joint": 1.0,
+        "photon": 0.5
+      },
+      "k": {
+        "imag": 0.0,
+        "modulus": 0.6,
+        "real": 0.6
+      },
+      "success_rate_equal_input_priors": 0.25,
+      "which_mode_photon_D": 0.8
+    },
+    {
+      "acceptance": [
+        1.0,
+        1.0
+      ],
+      "conditional_failure_memory_D": null,
+      "conditional_success": {
+        "guess": {
+          "atom": 0.9999999999999999,
+          "joint": 0.9999999999999999,
+          "photon": 0.5
+        },
+        "priors": [
+          0.5,
+          0.5
+        ]
+      },
+      "flagged_guess_equal_input_priors": {
+        "atom": 0.9999999999999999,
+        "joint": 0.9999999999999999,
+        "photon": 0.5
+      },
+      "flagged_phase_D": {
+        "atom": 0.9999999999999998,
+        "joint": 0.9999999999999998,
+        "photon": 0.0
+      },
+      "global_isometry_D": 0.9999999999999996,
+      "ideal_phase_D": {
+        "atom": 0.9999999999999998,
+        "joint": 0.9999999999999998,
+        "photon": 0.0
+      },
+      "ideal_phase_guess_equal_priors": {
+        "atom": 0.9999999999999999,
+        "joint": 0.9999999999999999,
+        "photon": 0.5
+      },
+      "k": {
+        "imag": 0.0,
+        "modulus": 1.0,
+        "real": 1.0
+      },
+      "success_rate_equal_input_priors": 1.0,
+      "which_mode_photon_D": 0.0
+    },
+    {
+      "acceptance": [
+        0.25,
+        0.25
+      ],
+      "conditional_failure_memory_D": 0.9999999999999996,
+      "conditional_success": {
+        "guess": {
+          "atom": 0.7999999999999999,
+          "joint": 1.0,
+          "photon": 0.5
+        },
+        "priors": [
+          0.5,
+          0.5
+        ]
+      },
+      "flagged_guess_equal_input_priors": {
+        "atom": 0.575,
+        "joint": 0.625,
+        "photon": 0.5
+      },
+      "flagged_phase_D": {
+        "atom": 0.14999999999999997,
+        "joint": 0.24999999999999997,
+        "photon": 0.0
+      },
+      "global_isometry_D": 0.9999999999999994,
+      "ideal_phase_D": {
+        "atom": 0.5999999999999999,
+        "joint": 0.9999999999999999,
+        "photon": 0.0
+      },
+      "ideal_phase_guess_equal_priors": {
+        "atom": 0.7999999999999999,
+        "joint": 1.0,
+        "photon": 0.5
+      },
+      "k": {
+        "imag": 0.0,
+        "modulus": 0.6,
+        "real": -0.6
+      },
+      "success_rate_equal_input_priors": 0.25,
+      "which_mode_photon_D": 0.8
+    },
+    {
+      "acceptance": [
+        0.25,
+        0.25
+      ],
+      "conditional_failure_memory_D": 0.9999999999999996,
+      "conditional_success": {
+        "guess": {
+          "atom": 0.7999999999999999,
+          "joint": 1.0,
+          "photon": 0.5
+        },
+        "priors": [
+          0.5,
+          0.5
+        ]
+      },
+      "flagged_guess_equal_input_priors": {
+        "atom": 0.575,
+        "joint": 0.625,
+        "photon": 0.5
+      },
+      "flagged_phase_D": {
+        "atom": 0.14999999999999997,
+        "joint": 0.24999999999999997,
+        "photon": 0.0
+      },
+      "global_isometry_D": 0.9999999999999994,
+      "ideal_phase_D": {
+        "atom": 0.5999999999999999,
+        "joint": 0.9999999999999999,
+        "photon": 0.0
+      },
+      "ideal_phase_guess_equal_priors": {
+        "atom": 0.7999999999999999,
+        "joint": 1.0,
+        "photon": 0.5
+      },
+      "k": {
+        "imag": 0.6,
+        "modulus": 0.6,
+        "real": 0.0
+      },
+      "success_rate_equal_input_priors": 0.25,
+      "which_mode_photon_D": 0.8
+    },
+    {
+      "acceptance": [
+        0.25,
+        0.25
+      ],
+      "conditional_failure_memory_D": 0.9999999999999996,
+      "conditional_success": {
+        "guess": {
+          "atom": 0.9999999999999999,
+          "joint": 0.9999999999999999,
+          "photon": 0.5
+        },
+        "priors": [
+          0.5,
+          0.5
+        ]
+      },
+      "flagged_guess_equal_input_priors": {
+        "atom": 0.625,
+        "joint": 0.625,
+        "photon": 0.5
+      },
+      "flagged_phase_D": {
+        "atom": 0.24999999999999994,
+        "joint": 0.24999999999999994,
+        "photon": 0.0
+      },
+      "global_isometry_D": 0.9999999999999997,
+      "ideal_phase_D": {
+        "atom": 0.9999999999999998,
+        "joint": 0.9999999999999998,
+        "photon": 0.0
+      },
+      "ideal_phase_guess_equal_priors": {
+        "atom": 0.9999999999999999,
+        "joint": 0.9999999999999999,
+        "photon": 0.5
+      },
+      "k": {
+        "imag": 0.8,
+        "modulus": 1.0,
+        "real": 0.6
+      },
+      "success_rate_equal_input_priors": 0.25,
+      "which_mode_photon_D": 0.0
+    },
+    {
+      "acceptance": [
+        0.0,
+        0.0
+      ],
+      "conditional_failure_memory_D": 0.9999999999999996,
+      "conditional_success": null,
+      "flagged_guess_equal_input_priors": {
+        "atom": 0.5,
+        "joint": 0.5,
+        "photon": 0.5
+      },
+      "flagged_phase_D": {
+        "atom": 0.0,
+        "joint": 0.0,
+        "photon": 0.0
+      },
+      "global_isometry_D": 0.9999999999999996,
+      "ideal_phase_D": {
+        "atom": 0.5999999999999999,
+        "joint": 0.9999999999999999,
+        "photon": 0.0
+      },
+      "ideal_phase_guess_equal_priors": {
+        "atom": 0.7999999999999999,
+        "joint": 1.0,
+        "photon": 0.5
+      },
+      "k": {
+        "imag": 0.0,
+        "modulus": 0.6,
+        "real": 0.6
+      },
+      "success_rate_equal_input_priors": 0.0,
+      "which_mode_photon_D": 0.8
+    },
+    {
+      "acceptance": [
+        0.8,
+        0.2
+      ],
+      "conditional_failure_memory_D": 0.9999999999999994,
+      "conditional_success": {
+        "guess": {
+          "atom": 0.7999999999999999,
+          "joint": 1.0,
+          "photon": 0.8
+        },
+        "priors": [
+          0.8,
+          0.19999999999999996
+        ]
+      },
+      "flagged_guess_equal_input_priors": {
+        "atom": 0.8,
+        "joint": 0.8999999999999999,
+        "photon": 0.8
+      },
+      "flagged_phase_D": {
+        "atom": 0.6,
+        "joint": 0.7999999999999999,
+        "photon": 0.6
+      },
+      "global_isometry_D": 0.9999999999999992,
+      "ideal_phase_D": {
+        "atom": 0.5999999999999999,
+        "joint": 0.9999999999999999,
+        "photon": 0.0
+      },
+      "ideal_phase_guess_equal_priors": {
+        "atom": 0.7999999999999999,
+        "joint": 1.0,
+        "photon": 0.5
+      },
+      "k": {
+        "imag": 0.0,
+        "modulus": 0.6,
+        "real": 0.6
+      },
+      "success_rate_equal_input_priors": 0.5,
+      "which_mode_photon_D": 0.8
+    },
+    {
+      "acceptance": [
+        1.0,
+        0.0
+      ],
+      "conditional_failure_memory_D": null,
+      "conditional_success": {
+        "guess": {
+          "atom": 0.9999999999999999,
+          "joint": 0.9999999999999999,
+          "photon": 0.9999999999999999
+        },
+        "priors": [
+          1.0,
+          0.0
+        ]
+      },
+      "flagged_guess_equal_input_priors": {
+        "atom": 1.0,
+        "joint": 1.0,
+        "photon": 1.0
+      },
+      "flagged_phase_D": {
+        "atom": 0.9999999999999999,
+        "joint": 0.9999999999999999,
+        "photon": 0.9999999999999999
+      },
+      "global_isometry_D": 0.9999999999999996,
+      "ideal_phase_D": {
+        "atom": 0.0,
+        "joint": 0.9999999999999998,
+        "photon": 0.0
+      },
+      "ideal_phase_guess_equal_priors": {
+        "atom": 0.5,
+        "joint": 0.9999999999999999,
+        "photon": 0.5
+      },
+      "k": {
+        "imag": 0.0,
+        "modulus": 0.0,
+        "real": 0.0
+      },
+      "success_rate_equal_input_priors": 0.5,
+      "which_mode_photon_D": 1.0
+    },
+    {
+      "acceptance": [
+        0.8,
+        0.2
+      ],
+      "conditional_failure_memory_D": 0.9999999999999994,
+      "conditional_success": {
+        "guess": {
+          "atom": 0.9999999999999999,
+          "joint": 0.9999999999999999,
+          "photon": 0.7999999999999999
+        },
+        "priors": [
+          0.8,
+          0.19999999999999996
+        ]
+      },
+      "flagged_guess_equal_input_priors": {
+        "atom": 0.8999999999999999,
+        "joint": 0.8999999999999999,
+        "photon": 0.8
+      },
+      "flagged_phase_D": {
+        "atom": 0.7999999999999999,
+        "joint": 0.7999999999999999,
+        "photon": 0.6
+      },
+      "global_isometry_D": 0.9999999999999993,
+      "ideal_phase_D": {
+        "atom": 0.9999999999999998,
+        "joint": 0.9999999999999998,
+        "photon": 0.0
+      },
+      "ideal_phase_guess_equal_priors": {
+        "atom": 0.9999999999999999,
+        "joint": 0.9999999999999999,
+        "photon": 0.5
+      },
+      "k": {
+        "imag": 0.0,
+        "modulus": 1.0,
+        "real": 1.0
+      },
+      "success_rate_equal_input_priors": 0.5,
+      "which_mode_photon_D": 0.0
+    }
+  ],
+  "checks_enabled": true,
+  "collected_example": {
+    "D": {
+      "atom": 0.4799999999999999,
+      "atom_collected": 0.5999999999999999,
+      "collected": 0.0,
+      "flagged_atom_collected": 0.14999999999999997,
+      "full": 0.9999999999999999
+    },
+    "kC": [
+      0.8,
+      0.0
+    ],
+    "kU": [
+      0.0,
+      0.6
+    ],
+    "p": 0.25
+  },
+  "model": "Ideal two-mode phase-label illustration; not a hydrogen channel",
+  "normalization": "D = half trace norm; equal input priors unless stated",
+  "numerics": "Python standard library, double precision, Jacobi real embedding",
+  "tolerance": 2e-09
+}
