@@ -24,7 +24,9 @@ Local results: build and 11 expected-statement/axiom checks exit 0; 13 numerical
 tests pass; eight illustrative scenarios and the port-dependent detection
 counterexample reproduce. The complete response/POVM tests keep erasures,
 all photon ports, and the unchanged atomic fallback. `verification.log` is
-the sanitized output. The placeholder/custom-axiom scan fails closed.
+the sanitized output. The script also compares committed JSON with freshly
+generated results and verifies all source hashes. The placeholder/custom-axiom
+scan fails closed.
 
 All 11 named theorems have only `propext`, `Classical.choice`, and `Quot.sound`
 in their transitive axiom sets. The new Lean statements are scalar arithmetic

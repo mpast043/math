@@ -1,11 +1,12 @@
-UTC 2026-10-28T13:59:33Z
-Base commit 8f94c4f9ff2ff0e50e91d2410b363866a8c31002; tested extension identified by source-sha256.txt
+UTC 2026-10-28T14:05:39Z
+HEAD before verification follow-up f66a3d6d32a4e85ac1cb45673bc883f3dd37502c; tested tree bound by source-sha256.txt
 codex/hydrogen-joint-phase-witness
 Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
 Lake version 5.0.0-src+5045d00 (Lean version 4.34.1)
 Python 3.14.3
 leanprover/lean4:v4.34.1
 d13f23b723b8a846827a245b89c10fc7d3f11612
+✔ [2132/2134] Built HydrogenPathway.Witness.Statements (1.0s)
 Build completed successfully (2134 jobs).
 AXIOMS HydrogenPathway.Witness.four_outcome_law: [propext, Classical.choice, Quot.sound]
 AXIOMS HydrogenPathway.Witness.full_response_guess: [propext, Classical.choice, Quot.sound]
@@ -33,8 +34,9 @@ test_selection_and_state_dependent_loss_counterexamples (test_model.WitnessTests
 test_unknown_phase_and_unobserved_loss (test_model.WitnessTests.test_unknown_phase_and_unobserved_loss) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 0.084s
+Ran 13 tests in 0.104s
 
 OK
 Calculated eight witness/loss cases with checks.
+PASS: saved results reproduce and all 11 source hashes match.
 PASS: witness build, 11 declarations/axiom audits, 13 numerical tests, model cases, and source scan.

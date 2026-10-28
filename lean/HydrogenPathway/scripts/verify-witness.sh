@@ -16,6 +16,17 @@ mkdir -p "$log_dir"
   lake env lean HydrogenPathway/Witness/Declarations.lean
   python3 -m unittest discover -s witness -p 'test_*.py' -v
   python3 witness/model.py --check --output "$log_dir/model-results.json"
+  cmp witness/RESULTS.json "$log_dir/model-results.json"
+  python3 - <<'HASHCHECK'
+from pathlib import Path
+import hashlib
+for line in Path('witness/source-sha256.txt').read_text().splitlines():
+    expected, name = line.split('  ', 1)
+    actual = hashlib.sha256(Path(name).read_bytes()).hexdigest()
+    if actual != expected:
+        raise SystemExit(f'Source hash mismatch: {name}')
+print('PASS: saved results reproduce and all 11 source hashes match.')
+HASHCHECK
   if grep -En '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)|^[[:space:]]*(axiom|opaque)[[:space:]]' \
       HydrogenPathway/Witness.lean HydrogenPathway/Witness/*.lean; then
     echo 'Forbidden proof placeholder or axiom declaration found.' >&2

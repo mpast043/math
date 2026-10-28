@@ -19,7 +19,9 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          sparse-checkout: lean/HydrogenPathway
+          sparse-checkout: |
+            lean/HydrogenPathway
+            .github/workflows
       - name: Install pinned Lean in runner temp
         shell: bash
         run: |
