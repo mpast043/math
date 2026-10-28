@@ -108,9 +108,11 @@ def conditional_union(weights,condition,event,a,b):
         raise ValueError('failure event is not covered by the two error events')
     mass=lambda pred:sum(w for w,c,v in zip(weights,condition,pred) if c and v)
     denominator=sum(w for w,c in zip(weights,condition) if c)
-    if denominator<=0:
-        raise ValueError('condition has zero weight')
-    return {'failure':mass(event)/denominator,'bound':(mass(a)+mass(b))/denominator}
+    if not math.isfinite(denominator) or denominator<=0:
+        raise ValueError('condition must have positive finite accumulated weight')
+    # Divide each nonnegative event mass before adding: their sum can overflow
+    # even when the denominator and each normalized probability are finite.
+    return {'failure':mass(event)/denominator,'bound':mass(a)/denominator+mass(b)/denominator}
 
 
 def shared_records(epsilon):

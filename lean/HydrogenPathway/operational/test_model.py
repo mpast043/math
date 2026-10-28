@@ -82,6 +82,10 @@ class BoundaryTests(unittest.TestCase):
 
     def test_invalid_condition_and_cover(self):
         with self.assertRaises(ValueError):
+            o.conditional_union([1e308,1e308],[True,True],[True,True],[True,True],[False,False])
+        d=o.conditional_union([1e308],[True],[True],[True],[True])
+        self.assertEqual(d['bound'],2.)
+        with self.assertRaises(ValueError):
             o.conditional_union([1.],[False],[False],[False],[False])
         with self.assertRaises(ValueError):
             o.conditional_union([1.],[True],[True],[False],[False])
