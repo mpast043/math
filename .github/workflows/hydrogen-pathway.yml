@@ -16,8 +16,6 @@ jobs:
     defaults:
       run:
         working-directory: lean/HydrogenPathway
-    env:
-      MATHLIB_CACHE_DIR: ${{ runner.temp }}/mathlib-cache
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -31,6 +29,7 @@ jobs:
           echo "47bf4bbd78f70c2e9670598ab7124d92b6efb7330ff33e5fbb4030f6fd72e4e4  $RUNNER_TEMP/lean.tar.zst" | sha256sum --check
           tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP"
           echo "$RUNNER_TEMP/lean-4.34.1-linux/bin" >> "$GITHUB_PATH"
+          echo "MATHLIB_CACHE_DIR=$RUNNER_TEMP/mathlib-cache" >> "$GITHUB_ENV"
       - name: Fetch pinned dependencies
         run: MATHLIB_NO_CACHE_ON_UPDATE=1 lake update
       - name: Fetch only required Mathlib cache

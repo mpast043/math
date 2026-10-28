@@ -9,4 +9,4 @@ e227b012b2ef7c4be9cb3e0087735fa4f834aacf6035e19e023322d0b89d64c4  HydrogenPathwa
 f433874d0be30b01fd87acfd0af923da08402ce0004ee5ba3dff88d53575e37d  lake-manifest.json
 d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b  lean-toolchain
 b1aa1ce71fa90d008575195db0077ffb0b54d5b6f570fdef477c868675466c88  scripts/verify.sh
-91ff9b43ae28f4ef6c6ae294ce0c8501a0e1821a618112dce5cdf42dfa6f24d6  ../../.github/workflows/hydrogen-pathway.yml
+2d9c940ce2499138e5c29532d7e65b0b013dac18eaab01a3e04846bbb88631a4  ../../.github/workflows/hydrogen-pathway.yml
