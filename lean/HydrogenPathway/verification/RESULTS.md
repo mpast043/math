@@ -40,6 +40,12 @@ YAML syntax parses successfully. No external Comparator, landrun, lean4export,
 or independent kernel recheck is claimed; this is a Lean declaration test
 against separately defined propositions plus a transitive axiom audit.
 
+A separate read-only review repeated elaboration of the five implementation
+modules and declaration tests with exit 0 and found no critical or important
+issues. Its minor source-scanner hardening finding was fixed: scanner errors
+now fail verification. A local regression injected scanner exit status 2;
+the verification command propagated exit 2 and emitted no PASS marker.
+
 Lean checks the exact arithmetic
 
 ```

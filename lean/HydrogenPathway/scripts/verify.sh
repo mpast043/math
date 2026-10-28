@@ -13,9 +13,15 @@ mkdir -p "$log_dir"
   git -C .lake/packages/mathlib rev-parse HEAD
   lake build HydrogenPathway
   lake env lean HydrogenPathway/Declarations.lean
-  if rg -n '\b(sorry|admit)\b|^\s*(axiom|opaque)\s' HydrogenPathway --glob '*.lean'; then
+  if rg -n '\b(sorry|admit)\b|^\s*(axiom|opaque)\s' HydrogenPathway HydrogenPathway.lean --glob '*.lean'; then
     echo 'Forbidden proof placeholder or axiom declaration found.' >&2
     exit 1
+  else
+    scan_status=$?
+    if [ "$scan_status" -ne 1 ]; then
+      echo 'Proof source scan failed.' >&2
+      exit "$scan_status"
+    fi
   fi
   git diff --check
   git diff --cached --check
